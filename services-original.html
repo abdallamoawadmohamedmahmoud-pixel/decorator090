@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>خدماتنا | Decorator – تشطيب شقق وتركيب سيراميك</title>
+    <meta name="description" content="اكتشف جميع خدمات Decorator: تشطيب شقق، تركيب سيراميك، تصميم داخلي، تجديد شقق. خدمات احترافية في الفيوم والمسلة.">
+    <meta name="keywords" content="خدمات تشطيب شقق، تركيب سيراميك، تصميم داخلي، تجديد شقق، فيوم، مسلة، ديكور">
+    
+    <!-- Alpine.js -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/enhancements.css">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="apple-touch-icon" href="/decorator-icon.svg">
+</head>
+<body>
+    
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <img src="/logo.jpg" alt="Decorator Logo">
+                    <span>Decorator</span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="/">الرئيسية</a></li>
+                    <li><a href="/services.html" class="active">خدماتنا</a></li>
+                    <li><a href="/portfolio.html">معرض الأعمال</a></li>
+                    <li><a href="/about.html">من نحن</a></li>
+                    <li><a href="/contact.html">تواصل معنا</a></li>
+                    <li><a href="https://wa.me/01099797984?text=مرحباً، أود الاستفسار عن خدمات تشطيب الشقق" class="whatsapp-nav" target="_blank">تواصل عبر واتساب</a></li>
+                </ul>
+                <button class="mobile-menu">☰</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Hero -->
+    <section class="services-hero">
+        <div class="services-hero-content">
+            <h1>خدماتنا المتكاملة</h1>
+            <p>نقدم مجموعة متكاملة من خدمات التشطيب والتصميم الداخلي بأعلى معايير الجودة</p>
+            <div class="services-cta">
+                <a href="#services" class="cta-button">استكشف الخدمات</a>
+                <a href="https://wa.me/01099797984?text=مرحباً، أود الاستفسار عن خدمات تشطيب الشقق" class="whatsapp-float" target="_blank">احصل على استشارة مجانية</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content" id="main-content">
+        <!-- Services Filter -->
+        <div class="services-filter">
+            <div class="container">
+                <div class="filter-grid">
+                    <button onclick="setCategoryFilter('')" id="filter-all" class="filter-btn active">
+                        جميع الخدمات
+                    </button>
+                    <button onclick="setCategoryFilter('تصميم وتطوير')" id="filter-تصميم وتطوير" class="filter-btn">
+                        تصميم وتطوير
+                    </button>
+                    <button onclick="setCategoryFilter('تسويق')" id="filter-تسويق" class="filter-btn">
+                        تسويق
+                    </button>
+                    <button onclick="setCategoryFilter('أخرى')" id="filter-أخرى" class="filter-btn">
+                        أخرى
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Services Section -->
+        <section id="services" class="services-section">
+            <div class="container">
+                <!-- Loading State -->
+                <div class="services-loading" id="loading-state" style="display: none;">
+                    <div class="loading-spinner"></div>
+                    <h3>جاري تحميل الخدمات...</h3>
+                </div>
+                
+                <!-- Empty State -->
+                <div class="empty-state" id="empty-state" style="display: none;">
+                    <i class="fas fa-inbox"></i>
+                    <h3>لا توجد خدمات حالياً</h3>
+                    <p>نحن نعمل على إضافة المزيد من الخدمات. يرجى زيارتنا قريباً.</p>
+                    <a href="/contact.html" class="btn-service btn-outline">تواصل معنا</a>
+                </div>
+                
+                <!-- Services Grid -->
+                <div class="services-grid" id="services-grid">
+                    <!-- Services will be loaded here via JavaScript -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Service Detail Modal -->
+    <div class="modal" id="serviceModal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle"></h3>
+                <button type="button" class="close-modal" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <img id="modalImage" style="width: 100%; border-radius: 10px;" alt="">
+                    </div>
+                    <div class="col-md-6">
+                        <h4 id="modalTitle2"></h4>
+                        <span id="modalCategory" class="service-category"></span>
+                        <p id="modalDescription"></p>
+                        <div class="service-price" id="modalPrice">
+                            <i class="fas fa-coins"></i>
+                            <span id="modalPriceText"></span>
+                        </div>
+                        
+                        <div class="service-actions">
+                            <button onclick="closeModal()" class="btn-service btn-secondary">إغلاق</button>
+                            <button onclick="contactForService(document.getElementById('modalTitle').textContent)" class="btn-service btn-primary">تواصل معنا</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; <span class="current-year">2024</span> Decorator – From Door To Full Decor. جميع الحقوق محفوظة.</p>
+            <p>متخصصون في تشطيب الشقق وتركيب السيراميك في الفيوم والمسلة</p>
+            <div class="social-links">
+                <a href="https://facebook.com/decorator" class="social-link" target="_blank">
+                    <span>f</span>
+                </a>
+                <a href="https://instagram.com/decorator" class="social-link" target="_blank">
+                    <span>📷</span>
+                </a>
+                <a href="https://wa.me/01099797984?text=مرحباً، أود الاستفسار عن خدمات تشطيب الشقق" class="social-link" target="_blank">
+                    <span>📱</span>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/01099797984?text=مرحباً، أود الاستفسار عن خدمات تشطيب الشقق" class="whatsapp-float" target="_blank">
+        📱
+    </a>
+
+    <script src="/js/services.js"></script>
+</body>
+</html>

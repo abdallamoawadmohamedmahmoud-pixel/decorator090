@@ -1,0 +1,133 @@
+/* Packages Page Specific Styles */
+
+.packages-section {
+    padding: 120px 0 60px;
+    min-height: 100vh;
+}
+
+.packages-section .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: #64748b;
+    font-size: 1.1rem;
+    margin-bottom: 3rem;
+}
+
+.packages-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.package-card {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.package-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
+
+.package-header {
+    background: linear-gradient(135deg, #00f2f5, #00c853);
+    padding: 2rem;
+    text-align: center;
+    color: white;
+}
+
+.package-header h3 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.package-header p {
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+.package-content {
+    padding: 2rem;
+}
+
+.pdf-preview {
+    width: 100%;
+    height: 500px;
+    border: none;
+    border-radius: 10px;
+    background: #f8f9fa;
+}
+
+.download-btn {
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    margin-top: 1.5rem;
+    background: linear-gradient(135deg, #00f2f5, #00c853);
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+.download-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(0, 242, 245, 0.4);
+}
+
+.back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.5rem;
+    background: #0f172a;
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    margin-bottom: 2rem;
+    transition: all 0.3s ease;
+}
+
+.back-btn:hover {
+    background: #1e293b;
+    transform: translateX(-5px);
+}
+
+@media (max-width: 768px) {
+    .packages-section {
+        padding: 80px 0 40px;
+    }
+
+    .packages-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .pdf-preview {
+        height: 300px;
+    }
+
+    .package-header h3 {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .download-btn {
+        font-size: 1rem;
+        padding: 0.8rem;
+    }
+}

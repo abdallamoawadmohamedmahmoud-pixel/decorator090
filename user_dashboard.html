@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لوحة تحكم المستخدم | Decorator</title>
+    <link rel="stylesheet" href="css/admin.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <img src="logo.jpg" alt="Decorator Logo">
+                <h3 id="userName">مستخدم</h3>
+                <span class="user-role" id="userRole">مستخدم عادي</span>
+            </div>
+
+            <nav class="sidebar-menu">
+                <ul>
+                    <li><a href="#" class="active" onclick="showSection('dashboard')">
+                            <span class="menu-icon">👤</span>
+                            <span>لوحة التحكم</span>
+                        </a></li>
+                    <li><a href="#" onclick="showSection('userInfo')">
+                            <span class="menu-icon">👤</span>
+                            <span>بياناتي</span>
+                        </a></li>
+                    <li><a href="#" onclick="showSection('myProjects')">
+                            <span class="menu-icon">🏠</span>
+                            <span>مشاريعي</span>
+                        </a></li>
+                    <li><a href="#" onclick="showSection('messages')">
+                            <span class="menu-icon">📝</span>
+                            <span>رسائلي</span>
+                        </a></li>
+                    <li><a href="#" onclick="showSection('analytics')">
+                            <span class="menu-icon">📈</span>
+                            <span>إحصائياتي</span>
+                        </a></li>
+                    <li><a href="#" onclick="showSection('support')">
+                            <span class="menu-icon">💬</span>
+                            <span>الدعم الفني</span>
+                        </a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Bar -->
+            <div class="top-bar">
+                <h1>لوحة تحكم المستخدم</h1>
+                <div class="user-info">
+                    <div class="user-avatar" id="userAvatar">م</div>
+                    <span id="userEmail">user@example.com</span>
+                    <button class="logout-btn" onclick="logout()">تسجيل الخروج</button>
+                </div>
+            </div>
+
+            <!-- User Dashboard Section -->
+            <section id="dashboardSection" class="content-section">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">🏠</div>
+                        <div class="stat-value" id="myProjects">0</div>
+                        <div class="stat-label">مشاريعي</div>
+                        <div class="stat-change positive">+2 هذا الشهر</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon">📝</div>
+                        <div class="stat-value" id="myMessages">0</div>
+                        <div class="stat-label">رسائلي</div>
+                        <div class="stat-change positive">+5 هذا الأسبوع</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon">✅</div>
+                        <div class="stat-value" id="completedProjects">0</div>
+                        <div class="stat-label">مشاريع مكتملة</div>
+                        <div class="stat-change positive">+1 هذا الشهر</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon">📅</div>
+                        <div class="stat-value" id="pendingTasks">0</div>
+                        <div class="stat-label">مهام معلقة</div>
+                        <div class="stat-change warning">3 بحاجة للإكمال</div>
+                    </div>
+                </div>
+
+                <!-- Welcome Message -->
+                <div class="data-table-container">
+                    <div class="data-table-header">
+                        <h2>مرحباً بك في لوحة التحكم</h2>
+                    </div>
+                    <div style="padding: 2rem; text-align: center;">
+                        <h3 style="color: var(--primary-dark); margin-bottom: 1rem;">👋 أهلاً بك <span
+                                id="welcomeName"></span></h3>
+                        <p style="color: var(--text-light); margin-bottom: 2rem; line-height: 1.8;">
+                            يسعدنا وجودك في لوحة تحكم Decorator. من هنا يمكنك إدارة مشاريعك، متابعة رسائلك، وعرض
+                            إحصائياتك الشخصية.
+                        </p>
+
+                        <div
+                            style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 2rem;">
+                            <button class="add-btn" onclick="showSection('myProjects')">
+                                <span>🏠</span>
+                                <span>عرض مشاريعي</span>
+                            </button>
+                            <button class="add-btn" style="background: #17a2b8;" onclick="showSection('messages')">
+                                <span>📝</span>
+                                <span>رسائلي</span>
+                            </button>
+                            <button class="add-btn" style="background: #ffc107; color: #212529;"
+                                onclick="showSection('userInfo')">
+                                <span>👤</span>
+                                <span>تعديل بياناتي</span>
+                            </button>
+                            <button class="add-btn" style="background: #6f42c1;" onclick="showSection('support')">
+                                <span>💬</span>
+                                <span>الدعم الفني</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Activities -->
+                <div class="data-table-container">
+                    <div class="data-table-header">
+                        <h2>آخر أنشطتي</h2>
+                        <button class="add-btn" onclick="refreshData()">
+                            <span>🔄</span>
+                            <span>تحديث</span>
+                        </button>
+                    </div>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>النوع</th>
+                                <th>التفاصيل</th>
+                                <th>التاريخ</th>
+                                <th>الحالة</th>
+                            </tr>
+                        </thead>
+                        <tbody id="recentActivities">
+                            <!-- Activities will be loaded here -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- User Info Section -->
+            <section id="userInfoSection" class="content-section" style="display: none;">
+                <div class="data-table-container">
+                    <div class="data-table-header">
+                        <h2>بياناتي الشخصية</h2>
+                        <button class="add-btn" onclick="editUserInfo()">
+                            <span>✏️</span>
+                            <span>تعديل البيانات</span>
+                        </button>
+                    </div>
+
+                    <div style="max-width: 600px;">
+                        <div class="form-group">
+                            <label>الاسم الكامل</label>
+                            <input type="text" id="userName" class="search-input" value="اسم المستخدم" readonly>
+                        </div>
+
+                        <div class="form-group">
+                            <label>البريد الإلكتروني</label>
+                            <input type="email" id="userEmail" class="search-input" value="user@example.com" readonly>
+                        </div>
+
+                        <div class="form-group">
+                            <label>رقم الهاتف</label>
+                            <input type="tel" id="userPhone" class="search-input" value="01xxxxxxxxx" readonly>
+                        </div>
+
+                        <div class="form-group">
+                            <label>نوع الحساب</label>
+                            <input type="text" class="search-input" value="مستخدم عادي" readonly
+                                style="background: var(--primary-turquoise); color: white;">
+                        </div>
+
+                        <div class="form-group">
+                            <label>تاريخ التسجيل</label>
+                            <input type="text" class="search-input" value="2024-01-01" readonly>
+                        </div>
+
+                        <div class="form-group">
+                            <label>الصلاحيات المتاحة</label>
+                            <div
+                                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.5rem; margin-top: 0.5rem;">
+                                <span
+                                    style="background: #d4edda; color: #155724; padding: 0.5rem; border-radius: 5px; text-align: center;">✓
+                                    عرض بياناتي</span>
+                                <span
+                                    style="background: #d4edda; color: #155724; padding: 0.5rem; border-radius: 5px; text-align: center;">✓
+                                    إدارة مشاريعي</span>
+                                <span
+                                    style="background: #d4edda; color: #155724; padding: 0.5rem; border-radius: 5px; text-align: center;">✓
+                                    عرض رسائلي</span>
+                                <span
+                                    style="background: #d4edda; color: #155724; padding: 0.5rem; border-radius: 5px; text-align: center;">✓
+                                    التواصل مع الدعم</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- My Projects Section -->
+            <section id="myProjectsSection" class="content-section" style="display: none;">
+                <div class="data-table-container">
+                    <div class="data-table-header">
+                        <h2>مشاريعي</h2>
+                    </div>
+
+                    <div class="search-filter">
+                        <input type="text" class="search-input" placeholder="البحث في مشاريعي..." id="projectSearch">
+                        <select class="filter-select" id="projectFilter">
+                            <option value="">جميع المشاريع</option>
+                            <option value="قيد التنفيذ">قيد التنفيذ</option>
+                            <option value="مكتمل">مكتمل</option>
+                            <option value="معلق">معلق</option>
+                        </select>
+                    </div>
+
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>اسم المشروع</th>
+                                <th>الخدمة</th>
+                                <th>الحالة</th>
+                                <th>التاريخ</th>
+                                <th>الإجراءات</th>
+                            </tr>
+                        </thead>
+                        <tbody id="myProjectsTableBody">
+                            <!-- Projects will be loaded here -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Messages Section -->
+            <section id="messagesSection" class="content-section" style="display: none;">
+                <div class="data-table-container">
+                    <div class="data-table-header">
+                        <h2>رسائلي</h2>
+                        <button class="add-btn" onclick="markAllAsRead()">
+                            <span>✓</span>
+                            <span>تحديد الكل كمقروءة</span>
+                        </button>
+                    </div>
+
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>المرسل</th>
+                                <th>الموضوع</th>
+                                <th>الرسالة</th>
+                                <th>التاريخ</th>
+                                <th>الحالة</th>
+                                <th>الإجراءات</th>
+                            </tr>
+                        </thead>
+                        <tbody id="messagesTableBody">
+                            <!-- Messages will be loaded here -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Support Section -->
+            <section id="supportSection" class="content-section" style="display: none;">
+                <div class="data-table-container">
+                    <div class="data-table-header">
+                        <h2>الدعم الفني</h2>
+                    </div>
+
+                    <div style="max-width: 600px;">
+                        <div class="form-group">
+                            <label>النوع</label>
+                            <select id="supportType" class="search-input">
+                                <option value="technical">مشكلة تقنية</option>
+                                <option value="account">مشكلة في الحساب</option>
+                                <option value="feature">طلب ميزة جديدة</option>
+                                <option value="other">أخرى</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>الموضوع</label>
+                            <input type="text" id="supportSubject" class="search-input" placeholder="اكتب موضوع طلبك">
+                        </div>
+
+                        <div class="form-group">
+                            <label>التفاصيل</label>
+                            <textarea id="supportMessage" class="search-input" rows="5"
+                                placeholder="اشرح مشكلتك بالتفصيل..."></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label>الأولوية</label>
+                            <select id="supportPriority" class="search-input">
+                                <option value="low">منخفضة</option>
+                                <option value="medium">متوسطة</option>
+                                <option value="high">عالية</option>
+                                <option value="urgent">عاجلة</option>
+                            </select>
+                        </div>
+
+                        <div style="display: flex; gap: 1rem;">
+                            <button class="add-btn" onclick="submitSupport()">
+                                <span>📤</span>
+                                <span>إرسال الطلب</span>
+                            </button>
+                            <button class="add-btn" style="background: #17a2b8;" onclick="viewSupportHistory()">
+                                <span>📋</span>
+                                <span>سجل الطلبات</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Analytics Section -->
+            <section id="analyticsSection" class="content-section" style="display: none;">
+                <div class="data-table-container">
+                    <div class="data-table-header">
+                        <h2>إحصائياتي</h2>
+                    </div>
+
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-icon">📊</div>
+                            <div class="stat-value">12</div>
+                            <div class="stat-label">إجمالي المشاريع</div>
+                            <div class="stat-change positive">+3 هذا الشهر</div>
+                        </div>
+
+                        <div class="stat-card">
+                            <div class="stat-icon">✅</div>
+                            <div class="stat-value">9</div>
+                            <div class="stat-label">مشاريع مكتملة</div>
+                            <div class="stat-change positive">75% معدل الإنجاز</div>
+                        </div>
+
+                        <div class="stat-card">
+                            <div class="stat-icon">⏱️</div>
+                            <div class="stat-value">15 يوم</div>
+                            <div class="stat-label">متوسط وقت التنفيذ</div>
+                            <div class="stat-change positive">أفضل من المتوسط</div>
+                        </div>
+
+                        <div class="stat-card">
+                            <div class="stat-icon">⭐</div>
+                            <div class="stat-value">4.8</div>
+                            <div class="stat-label">متوسط التقييم</div>
+                            <div class="stat-change positive">ممتاز</div>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 2rem;">
+                        <h3 style="color: var(--primary-dark); margin-bottom: 1rem;">نظرة عامة على الأداء</h3>
+                        <div style="background: var(--light-gray); padding: 2rem; border-radius: 10px;">
+                            <div
+                                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; text-align: center;">
+                                <div>
+                                    <h4 style="color: var(--primary-turquoise); margin-bottom: 0.5rem;">معدل النجاح</h4>
+                                    <div style="font-size: 2rem; font-weight: bold; color: var(--primary-dark);">75%
+                                    </div>
+                                </div>
+                                <div>
+                                    <h4 style="color: var(--primary-turquoise); margin-bottom: 0.5rem;">معدل التفاعل
+                                    </h4>
+                                    <div style="font-size: 2rem; font-weight: bold; color: var(--primary-dark);">92%
+                                    </div>
+                                </div>
+                                <div>
+                                    <h4 style="color: var(--primary-turquoise); margin-bottom: 0.5rem;">رضا العملاء</h4>
+                                    <div style="font-size: 2rem; font-weight: bold; color: var(--primary-dark);">4.8/5
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Edit User Info Modal -->
+    <div class="modal" id="editUserModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>تعديل بياناتي</h2>
+                <button class="close-modal" onclick="closeModal('editUserModal')">&times;</button>
+            </div>
+            <form id="editUserForm">
+                <div class="form-group">
+                    <label>الاسم الكامل</label>
+                    <input type="text" id="editName" required>
+                </div>
+                <div class="form-group">
+                    <label>رقم الهاتف</label>
+                    <input type="tel" id="editPhone" required>
+                </div>
+                <div class="form-group">
+                    <label>كلمة المرور الجديدة</label>
+                    <input type="password" id="editPassword" placeholder="اتركه فارغاً إذا لم ترد التغيير">
+                </div>
+                <div class="form-group">
+                    <label>تأكيد كلمة المرور</label>
+                    <input type="password" id="editConfirmPassword" placeholder="أعد إدخال كلمة المرور الجديدة">
+                </div>
+                <button type="submit" class="add-btn">حفظ التغييرات</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Notifications Container -->
+    <div class="notifications" id="notifications"></div>
+
+    <script src="js/auth.js"></script>
+    <script src="js/user_dashboard.js"></script>
+</body>
+
+</html>

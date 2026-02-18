@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تواصل معنا عبر WhatsApp</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Tajawal', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        
+        .whatsapp-container {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            max-width: 500px;
+            width: 90%;
+        }
+        
+        .whatsapp-icon {
+            font-size: 4rem;
+            color: #25D366;
+            margin-bottom: 1rem;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        
+        h1 {
+            color: #333;
+            margin-bottom: 1rem;
+            font-size: 2rem;
+        }
+        
+        p {
+            color: #666;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+        
+        .whatsapp-btn {
+            background: linear-gradient(45deg, #25D366, #128C7E);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        
+        .whatsapp-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(37, 211, 102, 0.4);
+            background: linear-gradient(45deg, #128C7E, #25D366);
+        }
+        
+        .whatsapp-btn i {
+            font-size: 1.5rem;
+        }
+        
+        .back-to-site {
+            margin-top: 2rem;
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+        
+        .back-to-site:hover {
+            opacity: 1;
+        }
+        
+        .qr-code {
+            margin: 2rem 0;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+        
+        .qr-code img {
+            width: 150px;
+            height: 150px;
+            border-radius: 10px;
+        }
+        
+        .phone-number {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #25D366;
+            margin: 1rem 0;
+        }
+        
+        @media (max-width: 768px) {
+            .whatsapp-container {
+                padding: 2rem;
+            }
+            
+            h1 {
+                font-size: 1.5rem;
+            }
+            
+            p {
+                font-size: 1rem;
+            }
+            
+            .whatsapp-btn {
+                font-size: 1rem;
+                padding: 0.8rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="whatsapp-container">
+        <div class="whatsapp-icon">
+            <i class="fab fa-whatsapp"></i>
+        </div>
+        
+        <h1>تواصل معنا عبر WhatsApp</h1>
+        <p>إذا كنت ترغب في الاستفسار عن خدمات تشطيب الشقق أو حجز معاينة مجانية، اضغط على الزر أدناه للدردشة مباشرة مع فريق Decorator</p>
+        
+        <div class="phone-number">
+            <i class="fas fa-phone"></i> 01099797984
+        </div>
+        
+        <a href="https://wa.me/01099797984?text=مرحباً، أود الاستفسار عن خدمات تشطيب الشقق" class="whatsapp-btn" target="_blank">
+            <i class="fab fa-whatsapp"></i>
+            تواصل معنا الآن
+        </a>
+        
+        <div class="qr-code">
+            <p style="margin: 0 0 1rem 0; color: #666;">أو امسح الكود</p>
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://wa.me/01099797984" alt="WhatsApp QR Code">
+        </div>
+        
+        <a href="index.html" class="back-to-site">
+            <i class="fas fa-arrow-left"></i> العودة للموقع الرئيسي
+        </a>
+    </div>
+</body>
+</html>

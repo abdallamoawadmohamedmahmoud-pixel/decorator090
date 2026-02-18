@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>تواصل معنا | Decorator – From Door To Full Decor</title>
+    <meta name="description" content="تواصل مع Decorator للاستفسار عن خدمات تشطيب الشقق وتركيب السيراميك في الفيوم والمحلة.">
+    <meta name="keywords" content="تواصل، تشطيب شقق، سيراميك، فيوم">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/contact.css">
+    <style>
+        .contact-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('contact-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 50vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+        .contact-hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        .contact-hero p {
+            font-size: 1.3rem;
+            opacity: 0.9;
+        }
+        .contact-section {
+            padding: 60px 0;
+            background: #f8f9fa;
+        }
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 40px;
+            align-items: start;
+        }
+        .contact-info-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .contact-card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            transition: transform 0.3s ease;
+        }
+        .contact-card:hover {
+            transform: translateY(-5px);
+        }
+        .contact-card-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+            flex-shrink: 0;
+        }
+        .contact-card-icon.phone { background: linear-gradient(135deg, #34d3ec, #0891b2); }
+        .contact-card-icon.whatsapp { background: linear-gradient(135deg, #25D366, #00C853); }
+        .contact-card-icon.facebook { background: linear-gradient(135deg, #1877F2, #0d5bbd); }
+        .contact-card-icon.email { background: linear-gradient(135deg, #f472b6, #db2777); }
+        .contact-card-icon.location { background: linear-gradient(135deg, #34d399, #059669); }
+        .contact-card-icon.work { background: linear-gradient(135deg, #fbbf24, #d97706); }
+        .contact-card h3 {
+            margin: 0 0 5px;
+            font-size: 1.1rem;
+            color: #1a1a2e;
+        }
+        .contact-card p {
+            margin: 0;
+            color: #666;
+            font-size: 0.95rem;
+        }
+        .contact-card a {
+            color: #666;
+            text-decoration: none;
+        }
+        .contact-card a:hover {
+            color: #00f2f5;
+        }
+        .contact-form-wrapper {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+        }
+        .contact-form-wrapper h2 {
+            margin: 0 0 25px;
+            color: #1a1a2e;
+            font-size: 1.8rem;
+            text-align: center;
+        }
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+        }
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px 18px;
+            border: 2px solid #e5e5e5;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: border-color 0.3s ease;
+            box-sizing: border-box;
+        }
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #00f2f5;
+        }
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        .submit-btn {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, #00f2f5, #0891b2);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 242, 245, 0.4);
+        }
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 25px;
+            padding-top: 25px;
+            border-top: 1px solid #eee;
+        }
+        .social-icons a {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            color: white;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+        .social-icons a:hover {
+            transform: translateY(-5px);
+        }
+        .social-icons .whatsapp { background: #25D366; }
+        .social-icons .facebook { background: #1877F2; }
+        .social-icons .twitter { background: #000000; }
+        .social-icons .instagram { background: linear-gradient(45deg, #833AB4, #FD1D1D, #F77737); }
+        @media (max-width: 900px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+        @media (max-width: 600px) {
+            .contact-hero h1 {
+                font-size: 2rem;
+            }
+            .contact-form-wrapper {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <div class="logo">
+                    <img src="logo.jpg" alt="Decorator Logo">
+                    <span style="color: #00f2f5; font-weight: bold;">Decorator</span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">الرئيسية</a></li>
+                    <li><a href="services.html">خدماتنا</a></li>
+                    <li><a href="portfolio.html">أعمالنا</a></li>
+                    <li><a href="packages.html">العروض</a></li>
+                    <li><a href="about.html">من نحن</a></li>
+                    <li><a href="contact.html" class="active">تواصل معنا</a></li>
+                    <li><a href="login.html" style="color: #00f2f5;"><i class="fas fa-sign-in-alt"></i> تسجيل الدخول</a></li>
+                </ul>
+                <button class="mobile-menu">☰</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="contact-hero">
+        <div class="hero-content">
+            <h1>تواصل معنا</h1>
+            <p>نحن هنا لمساعدتك في تحويل مسكنك إلى مسكن أحلام</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="contact-container">
+            <div class="contact-grid">
+                <!-- Contact Info Cards -->
+                <div class="contact-info-cards">
+                    <div class="contact-card">
+                        <div class="contact-card-icon phone">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <h3>الهاتف</h3>
+                            <p><a href="tel:01099797984">01099797984</a></p>
+                            <p><a href="tel:01009094462">01009094462</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-card-icon whatsapp">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <div>
+                            <h3>واتساب</h3>
+                            <p><a href="https://wa.me/01099797984">01099797984</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-card-icon facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </div>
+                        <div>
+                            <h3>صفحتنا على فيسبوك</h3>
+                            <p><a href="https://www.facebook.com/share/18Cp86beK/" target="_blank">Decorator Fayoum</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-card-icon location">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h3>العناوين الرسمية</h3>
+                            <p style="font-weight: bold; color: #00f2f5;">الفيوم:</p>
+                            <p>دارماد - الشارع الجديد خلف فيلا المحافظ بجوار كافيه تايم اوت</p>
+                            <p style="font-weight: bold; color: #00f2f5; margin-top: 8px;">القاهرة:</p>
+                            <p>عماره20 - شارع ابراهيم ناجى - المنطقه العاشره - مدينهصر</p>
+                        </div>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-card-icon work">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div>
+                            <h3>مواعيد العمل</h3>
+                            <p>طوال الأسبوع من الساعة 10 صباحاً حتى 12 مساءً</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="contact-form-wrapper">
+                    <h2>ارسل لنا رسالة</h2>
+                    <form id="contactForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">الاسم الكامل</label>
+                                <input type="text" id="name" name="name" required placeholder="أدخل اسمك الكامل">
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">رقم الهاتف</label>
+                                <input type="tel" id="phone" name="phone" required placeholder="01xxxxxxxxx">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">البريد الإلكتروني</label>
+                            <input type="email" id="email" name="email" placeholder="example@email.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="service">الخدمة المطلوبة</label>
+                            <select id="service" name="service">
+                                <option value="">اختر الخدمة المطلوبة</option>
+                                <option value="apartment">تشطيب شقق كامل</option>
+                                <option value="ceramic">تركيب سيراميك وبورسلين</option>
+                                <option value="bathroom">تشطيب حمامات ومطابخ</option>
+                                <option value="kitchen">تصميم مطابخ عصرية</option>
+                                <option value="consultation">استشارة عامة</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">رسالتك</label>
+                            <textarea id="message" name="message" rows="5" placeholder="اكتب لنا تفاصيل أكثر عن مشروعك..." required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">
+                            <i class="fas fa-paper-plane"></i> إرسال الرسالة
+                        </button>
+                    </form>
+                    <div class="social-icons">
+                        <a href="https://wa.me/01099797984" class="whatsapp" target="_blank">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="https://www.facebook.com/share/18Cp86beK/" class="facebook" target="_blank">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://x.com/decoratorfayoum" class="twitter" target="_blank">
+                            <i class="fab fa-x-twitter"></i>
+                        </a>
+                        <a href="https://instagram.com/decorator.fayoum" class="instagram" target="_blank">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="logo.jpg" alt="Decorator Logo" style="width: 60px; height: 60px; border-radius: 10px;">
+                    <h3>Decorator</h3>
+                    <p>خبرة في تشطيب الشقق والسيراميك مع ضمان جودة التنفيذ.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>روابط سريعة</h4>
+                    <ul>
+                        <li><a href="index.html"><i class="fas fa-home"></i> الرئيسية</a></li>
+                        <li><a href="services.html"><i class="fas fa-tools"></i> خدماتنا</a></li>
+                        <li><a href="portfolio.html"><i class="fas fa-images"></i> أعمالنا</a></li>
+                        <li><a href="packages.html"><i class="fas fa-gift"></i> العروض</a></li>
+                        <li><a href="about.html"><i class="fas fa-users"></i> من نحن</a></li>
+                        <li><a href="contact.html"><i class="fas fa-envelope"></i> تواصل معنا</a></li>
+                        <li><a href="login.html"><i class="fas fa-sign-in-alt"></i> تسجيل الدخول</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>العناوين الرسمية</h4>
+                    
+                    <!-- رقم الواتساب -->
+                    <div class="phone-card whatsapp">
+                        <div class="phone-icon">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <div class="phone-info">
+                            <div class="phone-number">01099797984</div>
+                            <div class="phone-label">واتساب - للتواصل السريع</div>
+                        </div>
+                    </div>
+                    
+                    <!-- رقم الهاتف -->
+                    <div class="phone-card">
+                        <div class="phone-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="phone-info">
+                            <div class="phone-number">01009094462</div>
+                            <div class="phone-label">هاتف - للاستفسارات</div>
+                        </div>
+                    </div>
+                    
+                    <p style="margin-top: 15px; font-weight: bold; color: #00f2f5;"><i class="fas fa-map-marker-alt"></i> الفيوم:</p>
+                    <p>دارماد - الشارع الجديد خلف فيلا المحافظ بجوار كافيه تايم اوت</p>
+                    <p style="margin-top: 10px; font-weight: bold; color: #00f2f5;"><i class="fas fa-map-marker-alt"></i> القاهرة:</p>
+                    <p>عماره20 - شارع ابراهيم ناجى - المنطقه العاشره - مدينهصر</p>
+                    
+                    <div class="social-links" style="margin-top: 15px;">
+                        <a href="https://wa.me/01099797984" class="social-link whatsapp" target="_blank">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="https://www.facebook.com/share/18Cp86beK/" class="social-link facebook" target="_blank">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="https://x.com/decoratorfayoum" class="social-link x" target="_blank">
+                            <i class="fab fa-x-twitter"></i>
+                        </a>
+                        <a href="https://instagram.com/decorator.fayoum" class="social-link instagram" target="_blank">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span class="current-year">2026</span> Decorator – From Door To Full Decor. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float -->
+    <a href="https://wa.me/01099797984?text=مرحباً، أود الاستفسار عن خدمات تشطيب الشقق" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script src="js/script.js"></script>
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const service = document.getElementById('service').value;
+            const message = document.getElementById('message').value.trim();
+            
+            if (!name || !phone || !message) {
+                alert('يرجى ملء جميع الحقول المطلوبة');
+                return;
+            }
+            
+            const whatsappMessage = `مرحباً، أنا ${name}%0Aرقم الهاتف: ${phone}%0Aالخدمة: ${service || 'غير محددة'}%0Aالرسالة: ${message}`;
+            window.open(`https://wa.me/01099797984?text=${whatsappMessage}`, '_blank');
+        });
+    </script>
+</body>
+</html>

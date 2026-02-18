@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>معرض الأعمال | Decorator – تشطيب شقق وتركيب سيراميك</title>
+    <meta name="description"
+        content="استعرض معرض أعمال شركة Decorator في تشطيب الشقق وتركيب السيراميك. مشاريع حقيقية في الفيوم والمسلة مع صور قبل وبعد.">
+    <meta name="keywords" content="معرض الأعمال, تشطيب شقق, قبل وبعد, مشاريع سيراميك, فيوم, مسلة">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/portfolio.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <div class="logo"><img src="logo.jpg" alt="Decorator Logo"> Decorator</div>
+                <ul class="nav-links">
+                    <li><a href="index.html">الرئيسية</a></li>
+                    <li><a href="services.html">خدماتنا</a></li>
+                    <li><a href="portfolio.html" class="active">أعمالنا</a></li>
+                    <li><a href="packages.html">العروض</a></li>
+                    <li><a href="about.html">من نحن</a></li>
+                    <li><a href="contact.html">تواصل معنا</a></li>
+                    <li><a href="login.html" style="color: #00f2f5;"><i class="fas fa-sign-in-alt"></i> تسجيل الدخول</a></li>
+                    <li><a href="https://wa.me/01099797984?text=مرحباً، أود الاستفسار عن أعمال تشطيب الشقق"
+                            class="whatsapp-nav" target="_blank">تواصل عبر واتساب</a></li>
+                </ul>
+                <button class="mobile-menu">☰</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Hero -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>معرض أعمالنا</h1>
+            <p>نتفخر بمشاريعنا التي نفذناها في الفيوم والمسلة</p>
+            <div style="margin-top: 2rem;">
+                <a href="#projects" class="cta-button">
+                    <i class="fas fa-arrow-down"></i>
+                    استعرض المشاريع
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Grid -->
+    <section id="projects" class="portfolio-section">
+        <div class="container">
+            <!-- مشاريع من لوحة التحكم (CMS) -->
+            <div id="cms-projects-wrap" style="display: none; margin-bottom: 4rem;">
+                <h2 class="section-title text-center">مشاريعنا الحالية</h2>
+                <p class="text-center" style="color: var(--text-light, #666); margin-bottom: 2rem;">مشاريع مُدارة من
+                    لوحة تحكم Decorator</p>
+                <div id="cms-projects-grid" class="portfolio-grid"></div>
+            </div>
+            <h2 class="section-title text-center">أحدث أعمالنا</h2>
+
+            <div class="portfolio-grid">
+                <!-- مشروع 1 -->
+                <div class="portfolio-item">
+                    <div class="portfolio-slider">
+                        <img src="IMG-20260207-WA0000.jpg" alt="تشطيب شقة سفرونية">
+                    </div>
+                    <div class="project-info">
+                        <h3>تشطيب شقة سفرونية</h3>
+                        <p>تشطيب شقة 180 متر - أرضيات سيراميك وباركيه</p>
+                        <div class="project-actions">
+                            <a href="https://wa.me/01099797984?text=أود الاستفسار عن تشطيب شقة سفرونية"
+                                class="cta-button" target="_blank">
+                                <i class="fab fa-whatsapp"></i>
+                                احجز معاينة
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- مشروع 2 -->
+                <div class="portfolio-item">
+                    <div class="portfolio-slider">
+                        <img src="IMG-20260207-WA0001.jpg" alt="غرفة نوم فاخرة">
+                    </div>
+                    <div class="project-info">
+                        <h3>غرفة نوم فاخرة</h3>
+                        <p>تصميم غرفة نوم مودرن - ديكور جدران وألوان مميزة</p>
+                        <div class="project-actions">
+                            <a href="https://wa.me/01099797984?text=أود الاستفسار عن غرفة نوم فاخرة" class="cta-button"
+                                target="_blank">
+                                <i class="fab fa-whatsapp"></i>
+                                احجز معاينة
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- مشروع 3 -->
+                <div class="portfolio-item">
+                    <div class="portfolio-slider">
+                        <img src="IMG-20260207-WA0002.jpg" alt="صالة استقبال">
+                    </div>
+                    <div class="project-info">
+                        <h3>صالة استقبال فاخرة</h3>
+                        <p>صالة طعام وريسبشن - تشطيب كامل على أعلى مستوى</p>
+                        <div class="project-actions">
+                            <a href="https://wa.me/01099797984?text=أود الاستفسار عن صالة استقبال فاخرة"
+                                class="cta-button" target="_blank">
+                                <i class="fab fa-whatsapp"></i>
+                                احجز معاينة
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- مشروع 4 -->
+                <div class="portfolio-item">
+                    <div class="portfolio-slider">
+                        <img src="IMG-20260207-WA0000-new.jpg" alt="حمام فاخر">
+                    </div>
+                    <div class="project-info">
+                        <h3>حمام فاخر بالجرانيت</h3>
+                        <p>تشطيب حمام راقية - سيراميك جرانيت ودفاعات ألمانية</p>
+                        <div class="project-actions">
+                            <a href="https://wa.me/01099797984?text=أود الاستفسار عن حمام فاخر" class="cta-button"
+                                target="_blank">
+                                <i class="fab fa-whatsapp"></i>
+                                احجز معاينة
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- مشروع 5 -->
+                <div class="portfolio-item">
+                    <div class="portfolio-slider">
+                        <img src="IMG-20260207-WA0004.jpg" alt="تشطيبات داخلية">
+                    </div>
+                    <div class="project-info">
+                        <h3>تشطيبات داخلية</h3>
+                        <p>أعمال تشطيب متنوعة - جودة عالية واحترافية</p>
+                        <div class="project-actions">
+                            <a href="https://wa.me/01099797984?text=أود الاستفسار عن هذا المشروع" class="cta-button"
+                                target="_blank">
+                                <i class="fab fa-whatsapp"></i>
+                                احجز معاينة
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- مشروع 6 -->
+                <div class="portfolio-item">
+                    <div class="portfolio-slider">
+                        <img src="IMG-20260207-WA0005.jpg" alt="تشطيب شقة كاملة">
+                    </div>
+                    <div class="project-info">
+                        <h3>تشطيب شقة كاملة</h3>
+                        <p>شقة 200 متر - تشطيب متكامل من الألف للياء</p>
+                        <div class="project-actions">
+                            <a href="https://wa.me/01099797984?text=أود الاستفسار عن تشطيب شقة كاملة" class="cta-button"
+                                target="_blank">
+                                <i class="fab fa-whatsapp"></i>
+                                احجز معاينة
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- مشروع 7 -->
+                <div class="portfolio-item">
+                    <div class="portfolio-slider">
+                        <img src="IMG-20260207-WA0006.jpg" alt="ريسبشن فيلا">
+                    </div>
+                    <div class="project-info">
+                        <h3>ريسبشن فيلا</h3>
+                        <p>المسلة - فيلا 400 متر - ريسبشن واستقبال فاخر</p>
+                        <div class="project-actions">
+                            <a href="https://wa.me/01099797984?text=أود الاستفسار عن ريسبشن فيلا" class="cta-button"
+                                target="_blank">
+                                <i class="fab fa-whatsapp"></i>
+                                احجز معاينة
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- مشروع 8 -->
+                <div class="portfolio-item">
+                    <div class="portfolio-slider">
+                        <img src="IMG-20260207-WA0014.jpg" alt="تشطيب فيلا">
+                    </div>
+                    <div class="project-info">
+                        <h3>تشطيب فيلا كبيرة</h3>
+                        <p>فيلا 350 متر - تشطيب خارجي وداخلي</p>
+                        <div class="project-actions">
+                            <a href="https://wa.me/01099797984?text=أود الاستفسار عن تشطيب فيلا" class="cta-button"
+                                target="_blank">
+                                <i class="fab fa-whatsapp"></i>
+                                احجز معاينة
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- مشروع 9 -->
+                <div class="portfolio-item">
+                    <div class="portfolio-slider">
+                        <img src="IMG-20260207-WA0015.jpg" alt="أرضيات سيراميك">
+                    </div>
+                    <div class="project-info">
+                        <h3>أرضيات سيراميك وبورسلين</h3>
+                        <p>تركيب سيراميك وبورسلين - تصاميم حديثة</p>
+                        <div class="project-actions">
+                            <a href="https://wa.me/01099797984?text=أود الاستفسار عن أرضيات سيراميك" class="cta-button"
+                                target="_blank">
+                                <i class="fab fa-whatsapp"></i>
+                                احجز معاينة
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- مشروع 10 -->
+                <div class="portfolio-item">
+                    <div class="portfolio-slider">
+                        <img src="IMG-20260207-WA0016.jpg" alt="دهانات حديثة">
+                    </div>
+                    <div class="project-info">
+                        <h3>دهانات وألوان حديثة</h3>
+                        <p>دهانات إيطالية وتركية - ألوان عصرية مميزة</p>
+                        <div class="project-actions">
+                            <a href="https://wa.me/01099797984?text=أود الاستفسار عن دهانات حديثة" class="cta-button"
+                                target="_blank">
+                                <i class="fab fa-whatsapp"></i>
+                                احجز معاينة
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- مشروع 11 -->
+                <div class="portfolio-item">
+                    <div class="portfolio-slider">
+                        <img src="IMG-20260207-WA0017.jpg" alt="إضاءة LED">
+                    </div>
+                    <div class="project-info">
+                        <h3>إضاءة LED حديثة</h3>
+                        <p>تركيب إضاءة مخفية وLED - تصميم إضاءة مودرن</p>
+                        <div class="project-actions">
+                            <a href="https://wa.me/01099797984?text=أود الاستفسار عن إضاءة LED" class="cta-button"
+                                target="_blank">
+                                <i class="fab fa-whatsapp"></i>
+                                احجز معاينة
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- مشروع 12 -->
+                <div class="portfolio-item">
+                    <div class="portfolio-slider">
+                        <img src="IMG-20260207-WA0018.jpg" alt="رخام وردي">
+                    </div>
+                    <div class="project-info">
+                        <h3>رخام وردي فاخر</h3>
+                        <p>رخام وردي طبيعي - مداخل وجدران فاخرة</p>
+                        <div class="project-actions">
+                            <a href="https://wa.me/01099797984?text=أود الاستفسار عن رخام فاخر" class="cta-button"
+                                target="_blank">
+                                <i class="fab fa-whatsapp"></i>
+                                احجز معاينة
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="project-info">
+                <h3>تشطيب شقة فاخرة</h3>
+                <p>فيوم - 150 متر | تصميم عصري وأثاث عالي الجودة</p>
+                <div class="project-actions">
+                    <a href="https://wa.me/01099797984?text=أود الاستفسار عن مشروع تشطيب شقة فاخرة" class="cta-button"
+                        target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                        احجز معاينة
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project 2 - Modern Ceramic -->
+        <div class="portfolio-item">
+            <div class="portfolio-slider">
+                <img src="IMG-20260207-WA0001.jpg" alt="سيراميك حديث">
+            </div>
+            <div class="project-info">
+                <h3>سيراميك حديث</h3>
+                <p>المسلة - فيلا | تصميم سيراميك فاخر</p>
+                <div class="project-actions">
+                    <a href="https://wa.me/01099797984?text=أود الاستفسار عن مشروع سيراميك حديث" class="cta-button"
+                        target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                        احجز معاينة
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project 3 - Complete Renovation -->
+        <div class="portfolio-item">
+            <div class="portfolio-slider">
+                <img src="IMG-20260207-WA0002.jpg" alt="تجديد شقة كامل">
+            </div>
+            <div class="project-info">
+                <h3>تجديد شقة كامل</h3>
+                <p>الفيوم - 200 متر | تحويل شقة قديمة إلى عصرية</p>
+                <div class="project-actions">
+                    <a href="https://wa.me/01099797984?text=أود الاستفسار عن مشروع تجديد شقة" class="cta-button"
+                        target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                        احجز معاينة
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project 4 - Modern Bathrooms -->
+        <div class="portfolio-item">
+            <div class="portfolio-slider">
+                <img src="IMG-20260207-WA0000-bath.jpg" alt="حمامات عصرية">
+            </div>
+            <div class="project-info">
+                <h3>حمامات عصرية</h3>
+                <p>المسلة - تصميم حديث | سيراميك فاخر ودفاعات ألمانية</p>
+                <div class="project-actions">
+                    <a href="https://wa.me/01099797984?text=أود الاستفسار عن مشروع حمامات عصرية" class="cta-button"
+                        target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                        احجز معاينة
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project 5 - Luxury Kitchen -->
+        <div class="portfolio-item">
+            <div class="portfolio-slider">
+                <img src="IMG-20260207-WA0104.jpg" alt="مطبخ فاخر">
+            </div>
+            <div class="project-info">
+                <h3>مطبخ فاخر</h3>
+                <p>الفيوم - تصميم إيطالي | خزائن المنيوم وأجهزة حديثة</p>
+                <div class="project-actions">
+                    <a href="https://wa.me/01099797984?text=أود الاستفسار عن مشروع مطبخ فاخر" class="cta-button"
+                        target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                        احجز معاينة
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project 6 - Interior Design -->
+        <div class="portfolio-item">
+            <div class="portfolio-slider">
+                <img src="IMG-20260207-WA0006.jpg" alt="ديكور داخلي">
+            </div>
+            <div class="project-info">
+                <h3>ديكور داخلي متكامل</h3>
+                <p>الفيوم - شقة عصرية | تصميم داخلي كامل</p>
+                <div class="project-actions">
+                    <a href="https://wa.me/01099797984?text=أود الاستفسار عن مشروع ديكور داخلي" class="cta-button"
+                        target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                        احجز معاينة
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project 7 - Villa Finishing -->
+        <div class="portfolio-item">
+            <div class="portfolio-slider">
+                <img src="IMG-20260207-WA0014.jpg" alt="تشطيب فيلا">
+            </div>
+            <div class="project-info">
+                <h3>تشطيب فيلا فاخرة</h3>
+                <p>الفيوم - 300 متر | تشطيب خارجي وداخلي</p>
+                <div class="project-actions">
+                    <a href="https://wa.me/01099797984?text=أود الاستفسار عن مشروع تشطيب فيلا" class="cta-button"
+                        target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                        احجز معاينة
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project 8 - Premium Tiles -->
+        <div class="portfolio-item">
+            <div class="portfolio-slider">
+                <img src="IMG-20260207-WA0015.jpg" alt="بورسلين فاخر">
+            </div>
+            <div class="project-info">
+                <h3>بورسلين فاخر</h3>
+                <p>المسلة - تشطيب floors | بورسلين إسباني</p>
+                <div class="project-actions">
+                    <a href="https://wa.me/01099797984?text=أود الاستفسار عن مشروع بورسلين فاخر" class="cta-button"
+                        target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                        احجز معاينة
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project 9 - Luxury Paint -->
+        <div class="portfolio-item">
+            <div class="portfolio-slider">
+                <img src="IMG-20260207-WA0016.jpg" alt="دهانات فاخرة">
+            </div>
+            <div class="project-info">
+                <h3>دهانات فاخرة</h3>
+                <p>الفيوم - تصميم ألوان حديث | دهانات إيطالية</p>
+                <div class="project-actions">
+                    <a href="https://wa.me/01099797984?text=أود الاستفسار عن مشروع دهانات فاخرة" class="cta-button"
+                        target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                        احجز معاينة
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project 10 - Modern Lighting -->
+        <div class="portfolio-item">
+            <div class="portfolio-slider">
+                <img src="IMG-20260207-WA0017.jpg" alt="إضاءة عصرية">
+            </div>
+            <div class="project-info">
+                <h3>إضاءة عصرية</h3>
+                <p>الفيوم - تصميم إضاءة LED | تركيب كامل</p>
+                <div class="project-actions">
+                    <a href="https://wa.me/01099797984?text=أود الاستفسار عن مشروع إضاءة عصرية" class="cta-button"
+                        target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                        احجز معاينة
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project 11 - Marble Design -->
+        <div class="portfolio-item">
+            <div class="portfolio-slider">
+                <img src="IMG-20260207-WA0018.jpg" alt="تصميم رخام">
+            </div>
+            <div class="project-info">
+                <h3>تصميم رخام فاخر</h3>
+                <p>المسلة - رخام إيطالي | مداخل وجدران</p>
+                <div class="project-actions">
+                    <a href="https://wa.me/01099797984?text=أود الاستفسار عن مشروع تصميم رخام" class="cta-button"
+                        target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                        احجز معاينة
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project 12 - Complete Villa -->
+        <div class="portfolio-item">
+            <div class="portfolio-slider">
+                <img src="IMG-20260207-WA0019.jpg" alt="فيلا متكاملة">
+            </div>
+            <div class="project-info">
+                <h3>فيلا متكاملة</h3>
+                <p>الفيوم - 400 متر | تشطيب كامل مع حديقة</p>
+                <div class="project-actions">
+                    <a href="https://wa.me/01099797984?text=أود الاستفسار عن مشروع فيلا متكاملة" class="cta-button"
+                        target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                        احجز معاينة
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project 13 - Premium Flooring -->
+        <div class="portfolio-item">
+            <div class="portfolio-slider">
+                <img src="IMG-20260207-WA0021.jpg" alt="أرضيات فاخرة">
+            </div>
+            <div class="project-info">
+                <h3>أرضيات فاخرة</h3>
+                <p>المسلة - باركيه وبورسلين | تصميم فريد</p>
+                <div class="project-actions">
+                    <a href="https://wa.me/01099797984?text=أود الاستفسار عن مشروع أرضيات فاخرة" class="cta-button"
+                        target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                        احجز معاينة
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project 14 - Ceiling Design -->
+        <div class="portfolio-item">
+            <div class="portfolio-slider">
+                <img src="IMG-20260207-WA0022.jpg" alt="أسقف جبس">
+            </div>
+            <div class="project-info">
+                <h3>أسقف جبس إنشائي</h3>
+                <p>الفيوم - تصميم إضاءة مخفية | أسقف حديثة</p>
+                <div class="project-actions">
+                    <a href="https://wa.me/01099797984?text=أود الاستفسار عن مشروع أسقف جبس" class="cta-button"
+                        target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                        احجز معاينة
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project 15 - Wall Design -->
+        <div class="portfolio-item">
+            <div class="portfolio-slider">
+                <img src="IMG-20260207-WA0023.jpg" alt="تصميم جدران">
+            </div>
+            <div class="project-info">
+                <h3>تصميم جدران حديثة</h3>
+                <p>المسلة - ديكور جدران | أحجار طبيعية</p>
+                <div class="project-actions">
+                    <a href="https://wa.me/01099797984?text=أود الاستفسار عن مشروع تصميم جدران" class="cta-button"
+                        target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                        احجز معاينة
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project 16 - Doors & Windows -->
+        <div class="portfolio-item">
+            <div class="portfolio-slider">
+                <img src="IMG-20260207-WA0024.jpg" alt="أبواب ونوافذ">
+            </div>
+            <div class="project-info">
+                <h3>أبواب ونوافذ فاخرة</h3>
+                <p>الفيوم - خشب حديث | تصميم أوروبي</p>
+                <div class="project-actions">
+                    <a href="https://wa.me/01099797984?text=أود الاستفسار عن مشروع أبواب ونوافذ" class="cta-button"
+                        target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                        احجز معاينة
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project 17 - Premium Villa -->
+        <div class="portfolio-item">
+            <div class="portfolio-slider">
+                <img src="IMG-20260207-WA0025.jpg" alt="فيلة مميزة">
+            </div>
+            <div class="project-info">
+                <h3>فيلة مميزة</h3>
+                <p>المسلة - 350 متر | تشطيب داخلي وخارجي</p>
+                <div class="project-actions">
+                    <a href="https://wa.me/01099797984?text=أود الاستفسار عن مشروع فيلة مميزة" class="cta-button"
+                        target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                        احجز معاينة
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project 18 - Final Touches -->
+        <div class="portfolio-item">
+            <div class="portfolio-slider">
+                <img src="IMG-20260207-WA0026.jpg" alt="لمسات نهائية">
+            </div>
+            <div class="project-info">
+                <h3>لمسات نهائية فاخرة</h3>
+                <p>الفيوم - تفاصيل دقيقة | تشطيب متكامل</p>
+                <div class="project-actions">
+                    <a href="https://wa.me/01099797984?text=أود الاستفسار عن مشروع لمسات نهائية" class="cta-button"
+                        target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                        احجز معاينة
+                    </a>
+                </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="final-cta">
+        <div class="cta-content">
+            <h2>هل أعجبتك أعمالنا؟</h2>
+            <p style="font-size: 1.3rem; margin-bottom: 1.5rem; font-weight: 600;">الفخامة بتوقع Decorator تمام</p>
+            <p style="font-size: 1.2rem; margin-bottom: 2rem;">تواصل معنا الآن واحصل على معاينة مجانية لمشروعك</p>
+            <a href="https://wa.me/01099797984?text='أعجبتني أعمالكم وأود حجز معاينة مجانية'" class="cta-button-large"
+                target="_blank">
+                <i class="fab fa-whatsapp"></i>
+                احجز معاينة مجانية
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="logo.jpg" alt="Decorator Logo" style="width: 60px; height: 60px; border-radius: 10px;">
+                    <h3>Decorator</h3>
+                    <p>خبرة في تشطيب الشقق والسيراميك مع ضمان جودة التنفيذ. نقدم خدمات متكاملة من الباب حتى كامل
+                        الديكور.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>روابط سريعة</h4>
+                    <ul>
+                        <li><a href="index.html"><i class="fas fa-home"></i> الرئيسية</a></li>
+                        <li><a href="services.html"><i class="fas fa-tools"></i> خدماتنا</a></li>
+                        <li><a href="portfolio.html"><i class="fas fa-images"></i> أعمالنا</a></li>
+                        <li><a href="packages.html"><i class="fas fa-gift"></i> العروض</a></li>
+                        <li><a href="about.html"><i class="fas fa-users"></i> من نحن</a></li>
+                        <li><a href="contact.html"><i class="fas fa-envelope"></i> تواصل معنا</a></li>
+                        <li><a href="login.html" style="color: #888; font-size: 0.9rem;"><i
+                                    class="fas fa-sign-in-alt"></i> تسجيل الدخول</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4 style="font-size: 1.2rem; color: #fff; margin-bottom: 15px; text-align: center;">
+                        العناوين الرسمية
+                    </h4>
+                    
+                    <div style="background: rgba(255,255,255,0.03); border-radius: 15px; padding: 20px; border: 1px solid rgba(255,255,255,0.1);">
+                        <!-- رقم الواتساب -->
+                        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px; padding: 12px; background: rgba(37, 211, 102, 0.15); border-radius: 10px;">
+                            <div style="width: 40px; height: 40px; background: #25d366; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                                <i class="fab fa-whatsapp" style="color: white; font-size: 18px;"></i>
+                            </div>
+                            <a href="tel:01099797984" style="color: #00f2f5; text-decoration: none; font-size: 1.3rem; font-weight: 700; letter-spacing: 1px;">
+                                01099797984
+                            </a>
+                            <span style="color: #888; font-size: 0.8rem;">(واتساب)</span>
+                        </div>
+
+                        <!-- رقم الهاتف -->
+                        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px; padding: 12px; background: rgba(0, 242, 245, 0.15); border-radius: 10px;">
+                            <div style="width: 40px; height: 40px; background: #00f2f5; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                                <i class="fas fa-phone-alt" style="color: white; font-size: 18px;"></i>
+                            </div>
+                            <a href="tel:01009094462" style="color: #fff; text-decoration: none; font-size: 1.3rem; font-weight: 700; letter-spacing: 1px;">
+                                01009094462
+                            </a>
+                            <span style="color: #888; font-size: 0.8rem;">(هاتف)</span>
+                        </div>
+                        
+                        <!-- الفيوم -->
+                        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px; padding: 12px; background: rgba(234, 67, 53, 0.15); border-radius: 10px;">
+                            <div style="width: 40px; height: 40px; background: #ea4335; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                                <i class="fas fa-map-marker-alt" style="color: white; font-size: 18px;"></i>
+                            </div>
+                            <div style="color: #e0e0e0; font-size: 1rem;">
+                                <strong style="color: #00f2f5;">الفيوم:</strong> دارماد - الشارع الجديد خلف فيلا المحافظ
+                            </div>
+                        </div>
+
+                        <!-- القاهرة -->
+                        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 15px; padding: 12px; background: rgba(234, 67, 53, 0.15); border-radius: 10px;">
+                            <div style="width: 40px; height: 40px; background: #ea4335; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                                <i class="fas fa-map-marker-alt" style="color: white; font-size: 18px;"></i>
+                            </div>
+                            <div style="color: #e0e0e0; font-size: 1rem;">
+                                <strong style="color: #00f2f5;">القاهرة:</strong> عماره20 - شارع ابراهيم ناجى - المنطقه العاشره
+                            </div>
+                        </div>
+                        
+                        <!-- وسائل التواصل -->
+                        <div style="text-align: center; padding-top: 15px; border-top: 1px solid rgba(255,255,255,0.1);">
+                            <p style="color: #888; font-size: 0.8rem; margin-bottom: 10px;">تابعنا</p>
+                            <div style="display: flex; justify-content: center; gap: 15px;">
+                                <a href="https://wa.me/01099797984" target="_blank" style="width: 45px; height: 45px; background: #25D366; border-radius: 12px; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: all 0.3s; box-shadow: 0 2px 8px rgba(0,0,0,0.2);">
+                                    <i class="fab fa-whatsapp" style="color: #ffffff; font-size: 24px;"></i>
+                                </a>
+                                <a href="https://www.facebook.com/share/18Cp86beK/" target="_blank" style="width: 45px; height: 45px; background: #1877F2; border-radius: 12px; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: all 0.3s; box-shadow: 0 2px 8px rgba(0,0,0,0.2);">
+                                    <i class="fab fa-facebook-f" style="color: #ffffff; font-size: 22px;"></i>
+                                </a>
+                                <a href="https://x.com/decoratorfayoum" target="_blank" style="width: 45px; height: 45px; background: #000000; border-radius: 12px; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: all 0.3s; box-shadow: 0 2px 8px rgba(0,0,0,0.2);">
+                                    <i class="fab fa-x-twitter" style="color: #ffffff; font-size: 22px;"></i>
+                                </a>
+                                <a href="https://instagram.com/decorator.fayoum" target="_blank" style="width: 45px; height: 45px; background: linear-gradient(45deg, #833AB4, #FD1D1D, #F77737, #FCAF45); border-radius: 12px; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: all 0.3s; box-shadow: 0 2px 8px rgba(0,0,0,0.2);">
+                                    <i class="fab fa-instagram" style="color: #ffffff; font-size: 24px;"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span class="current-year">2026</span> Decorator – From Door To Full Decor. جميع الحقوق
+                    محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/01099797984?text=مرحباً، أود الاستفسار عن أعمال تشطيب الشقق" class="whatsapp-float"
+        target="_blank" style="position: fixed; bottom: 30px; left: 30px; width: 70px; height: 70px; background: linear-gradient(135deg, #00E676, #00C853); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 32px; z-index: 9999; box-shadow: 0 10px 30px rgba(0, 230, 118, 0.6); transition: all 0.3s ease; animation: bounce 2s infinite; border: 3px solid white;">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    
+    <style>
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        .whatsapp-float:hover {
+            transform: translateY(-8px) scale(1.15) !important;
+            box-shadow: 0 20px 50px rgba(0, 200, 83, 0.8) !important;
+        }
+    </style>
+
+    <script src="js/script.js"></script>
+    <script>
+        (function () {
+            var API = window.location.origin || '';
+            var placeholderImg = 'IMG-20260207-WA0000.jpg';
+            var wrap = document.getElementById('cms-projects-wrap');
+            var grid = document.getElementById('cms-projects-grid');
+            if (!wrap || !grid) return;
+            fetch(API + '/api/projects').then(function (r) { return r.json(); }).then(function (projects) {
+                if (!Array.isArray(projects) || projects.length === 0) return;
+                var html = '';
+                projects.forEach(function (p) {
+                    var name = p.name || 'مشروع';
+                    var desc = [p.type, p.location].filter(Boolean).join(' - ') || 'تشطيب وتصميم';
+                    var status = p.status || '';
+                    var imgSrc = p.imageUrl || placeholderImg;
+                    var videoBlock = p.videoUrl ? '<video src="' + p.videoUrl + '" controls style="width:100%;max-height:180px;border-radius:8px;margin-top:8px"></video>' : '';
+                    html += '<div class="portfolio-item"><div class="portfolio-slider"><img src="' + imgSrc + '" alt="' + name + '"></div><div class="project-info"><h3>' + name + '</h3><p>' + desc + (status ? ' &middot; ' + status : '') + '</p>' + videoBlock + '<div class="project-actions"><a href="https://wa.me/01099797984?text=' + encodeURIComponent('أود الاستفسار عن: ' + name) + '" class="cta-button" target="_blank"><i class="fab fa-whatsapp"></i> احجز معاينة</a></div></div></div>';
+                });
+                grid.innerHTML = html;
+                wrap.style.display = 'block';
+            }).catch(function () { });
+        })();
+    </script>
+</body>
+
+</html>
