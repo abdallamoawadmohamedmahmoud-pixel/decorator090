@@ -602,49 +602,45 @@
     </div>
 
     <script>
-        const API = window.location.origin || '';
+        const OWNER_EMAIL = 'ramadan.nady1985@gmail.com';
+        let avatarBase64 = null;
 
-        // Avatar Preview
         document.getElementById('avatar').addEventListener('change', function(e) {
             const file = e.target.files[0];
             if (file) {
+                if (file.size > 2 * 1024 * 1024) {
+                    showAlert('حجم الصورة يجب أن يكون أقل من 2 ميجابايت', 'error');
+                    return;
+                }
                 const reader = new FileReader();
                 reader.onload = function(e) {
-                    const preview = document.getElementById('avatarPreview');
-                    preview.innerHTML = `<img src="${e.target.result}" alt="Preview">`;
+                    avatarBase64 = e.target.result;
+                    document.getElementById('avatarPreview').innerHTML = '<img src="' + avatarBase64 + '" alt="Preview">';
                 };
                 reader.readAsDataURL(file);
             }
         });
 
-        // Toggle Password Visibility
         function togglePassword() {
             const input = document.getElementById('password');
             const icon = input.nextElementSibling;
-            
             if (input.type === 'password') {
                 input.type = 'text';
-                icon.classList.remove('fa-lock');
-                icon.classList.add('fa-lock-open');
+                icon.classList.replace('fa-lock', 'fa-lock-open');
             } else {
                 input.type = 'password';
-                icon.classList.remove('fa-lock-open');
-                icon.classList.add('fa-lock');
+                icon.classList.replace('fa-lock-open', 'fa-lock');
             }
         }
 
-        // Password Strength Checker
         document.getElementById('password').addEventListener('input', function() {
             const password = this.value;
             const bar = document.getElementById('strengthBar');
             const text = document.getElementById('strengthText');
-
             bar.className = 'strength-bar-fill';
             text.className = 'strength-text';
             text.textContent = '';
-
             if (password.length === 0) return;
-
             let strength = 0;
             if (password.length >= 8) strength++;
             if (password.length >= 12) strength++;
@@ -652,7 +648,6 @@
             if (/[a-z]/.test(password)) strength++;
             if (/[0-9]/.test(password)) strength++;
             if (/[^A-Za-z0-9]/.test(password)) strength++;
-
             if (strength <= 2) {
                 bar.classList.add('weak');
                 text.classList.add('weak');
@@ -668,7 +663,6 @@
             }
         });
 
-        // Show/Close Terms Modal
         function showTerms(e) {
             e.preventDefault();
             document.getElementById('termsModal').classList.add('show');
@@ -683,35 +677,27 @@
             closeTerms();
         }
 
-        // Social Register (Demo)
         function socialRegister(provider) {
             showAlert('سيتم تفعيل التسجيل عبر وسائل التواصل قريباً', 'error');
         }
 
-        // Show Alert
         function showAlert(message, type) {
             const container = document.getElementById('alertContainer');
-            container.innerHTML = `<div class="alert ${type}">${message}</div>`;
-            
+            container.innerHTML = '<div class="alert ' + type + '">' + message + '</div>';
             if (type !== 'success') {
-                setTimeout(() => {
-                    container.innerHTML = '';
-                }, 4000);
+                setTimeout(function() { container.innerHTML = ''; }, 4000);
             }
         }
 
-        // Form Submit
-        document.getElementById('registerForm').addEventListener('submit', async function(e) {
+        document.getElementById('registerForm').addEventListener('submit', function(e) {
             e.preventDefault();
 
             const name = document.getElementById('name').value.trim();
-            const email = document.getElementById('email').value.trim();
+            const email = document.getElementById('email').value.trim().toLowerCase();
             const phone = document.getElementById('phone').value.trim();
             const password = document.getElementById('password').value;
             const terms = document.getElementById('terms').checked;
-            const avatarFile = document.getElementById('avatar').files[0];
 
-            // Validations
             if (!name || !email || !password) {
                 showAlert('يرجى إدخال جميع الحقول المطلوبة', 'error');
                 return;
@@ -738,54 +724,44 @@
                 return;
             }
 
-            // Check if owner
-            if (email.toLowerCase() === 'ramadan.nady1985@gmail.com') {
+            if (email === OWNER_EMAIL) {
                 showAlert('هذا البريد مخصص للمالك، يرجى استخدام بريد آخر', 'error');
                 return;
             }
 
-            // Prepare form data
-            const formData = new FormData();
-            formData.append('name', name);
-            formData.append('email', email.toLowerCase());
-            formData.append('password', password);
-            if (phone) formData.append('phone', phone);
-            if (avatarFile) formData.append('avatar', avatarFile);
+            var users = JSON.parse(localStorage.getItem('registeredUsers') || '[]');
+            var exists = users.find(function(u) { return u.email === email; });
+            if (exists) {
+                showAlert('هذا البريد مسجل بالفعل، يرجى تسجيل الدخول', 'error');
+                return;
+            }
 
-            // Show loading
             const submitBtn = document.querySelector('.submit-btn');
             const originalText = submitBtn.innerHTML;
             submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> جاري التسجيل...';
             submitBtn.disabled = true;
 
-            try {
-                const response = await fetch(API + '/api/register', {
-                    method: 'POST',
-                    body: formData
-                });
+            var newUser = {
+                id: Date.now(),
+                name: name,
+                email: email,
+                password: password,
+                phone: phone || null,
+                avatar: avatarBase64,
+                createdAt: new Date().toISOString()
+            };
 
-                const data = await response.json();
+            users.push(newUser);
+            localStorage.setItem('registeredUsers', JSON.stringify(users));
 
-                if (response.ok && data.ok) {
-                    // Save token and user to localStorage
-                    localStorage.setItem('token', data.token);
-                    localStorage.setItem('user', JSON.stringify(data.user));
-                    
-                    showAlert('تم إنشاء الحساب بنجاح!', 'success');
-                    setTimeout(() => {
-                        window.location.href = 'index.html';
-                    }, 1000);
-                } else {
-                    showAlert(data.error || 'حدث خطأ في التسجيل', 'error');
-                    submitBtn.innerHTML = originalText;
-                    submitBtn.disabled = false;
-                }
-            } catch (error) {
-                console.error('Registration error:', error);
-                showAlert('حدث خطأ في الاتصال بالخادم', 'error');
-                submitBtn.innerHTML = originalText;
-                submitBtn.disabled = false;
-            }
+            var session = { email: email, isOwner: false, name: name, time: new Date().toISOString() };
+            localStorage.setItem('userSession', JSON.stringify(session));
+            localStorage.setItem('user', JSON.stringify({ id: newUser.id, name: name, email: email, phone: phone, avatar: avatarBase64, role: 'user' }));
+
+            showAlert('تم إنشاء الحساب بنجاح!', 'success');
+            setTimeout(function() {
+                window.location.href = 'index.html';
+            }, 1000);
         });
     </script>
 </body>
