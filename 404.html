@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - الصفحة غير موجودة | Decorator</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/enhancements.css">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+</head>
+<body>
+    <div class="error-page">
+        <div class="error-content">
+            <div class="scale-in">
+                <h1>404</h1>
+                <h2>الصفحة غير موجودة</h2>
+                <p>عذراً، الصفحة التي تبحث عنها غير موجودة أو تم نقلها.</p>
+                
+                <div class="social-links">
+                    <a href="https://facebook.com/decorator" class="social-link" target="_blank" title="فيسبوك">
+                        <span>f</span>
+                    </a>
+                    <a href="https://instagram.com/decorator" class="social-link" target="_blank" title="انستغرام">
+                        <span>📷</span>
+                    </a>
+                    <a href="https://wa.me/01099797984" class="social-link" target="_blank" title="واتساب">
+                        <span>📱</span>
+                    </a>
+                </div>
+                
+                <div class="fade-in">
+                    <h3>ماذا تريد أن تفعل؟</h3>
+                    <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                        <a href="index.html" class="cta-button">
+                            🏠 الصفحة الرئيسية
+                        </a>
+                        <a href="portfolio.html" class="cta-button" style="background: #17a2b8;">
+                            🖼️ معرض الأعمال
+                        </a>
+                        <a href="contact.html" class="cta-button" style="background: #28a745;">
+                            📞 تواصل معنا
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="slide-up">
+                    <p style="margin-top: 2rem; opacity: 0.8; font-size: 0.9rem;">
+                        يمكنك البحث عن ما تبحث عنه أو استخدام قائمة التنقل أعلاه.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Add some interactivity
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add hover effect to social links
+            const socialLinks = document.querySelectorAll('.social-link');
+            socialLinks.forEach(link => {
+                link.addEventListener('mouseenter', function() {
+                    this.style.transform = 'scale(1.2) rotate(5deg)';
+                });
+                link.addEventListener('mouseleave', function() {
+                    this.style.transform = 'scale(1) rotate(0deg)';
+                });
+            });
+
+            // Add parallax effect
+            document.addEventListener('mousemove', function(e) {
+                const errorPage = document.querySelector('.error-page');
+                const x = e.clientX / window.innerWidth;
+                const y = e.clientY / window.innerHeight;
+                
+                if (errorPage) {
+                    errorPage.style.background = `
+                        linear-gradient(${135 + x * 10}deg, 
+                        var(--primary-dark), 
+                        #2c5282)
+                    `;
+                }
+            });
+
+            // Back to top functionality
+            window.addEventListener('scroll', function() {
+                const backToTop = document.querySelector('.back-to-top');
+                if (backToTop) {
+                    if (window.pageYOffset > 300) {
+                        backToTop.classList.add('visible');
+                    } else {
+                        backToTop.classList.remove('visible');
+                    }
+                }
+            });
+        });
+    </script>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;">
+        ↑
+    </a>
+</body>
+</html>

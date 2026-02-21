@@ -1,0 +1,31 @@
+/* Top Bar */
+.top-bar {
+    background: var(--white);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+    position: relative;
+    z-index: 100;
+}
+
+.top-bar::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--primary-turquoise), var(--primary-dark));
+    animation: shimmer 3s ease-in-out infinite;
+}
+
+.top-bar h1 {
+    color: var(--primary-dark);
+    font-size: 1.8rem;
+    background: linear-gradient(135deg, var(--primary-dark), var(--primary-turquoise));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}

@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>لوحة تحكم المالك | Decorator CMS</title>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="/css/admin.css" />
+  <style>
+    .owner-dash { font-family: 'Tajawal', sans-serif; min-height: 100vh; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+    .owner-dash .dash-wrap { max-width: 1200px; margin: 0 auto; padding: 24px; }
+    .owner-dash .dash-header { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; background: rgba(255,255,255,0.95); padding: 20px 28px; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,.15); margin-bottom: 24px; backdrop-filter: blur(10px); }
+    .owner-dash .dash-logo { display: flex; align-items: center; gap: 12px; font-size: 1.4rem; font-weight: 800; color: #1a365d; }
+    .owner-dash .dash-logo i { color: #40e0d0; font-size: 1.6rem; }
+    .owner-dash .dash-actions { display: flex; align-items: center; gap: 12px; }
+    .owner-dash .user-badge { background: linear-gradient(135deg, #40e0d0, #2db39a); color: #fff; padding: 10px 18px; border-radius: 999px; font-weight: 700; font-size: 0.9rem; box-shadow: 0 4px 15px rgba(64,224,208,.4); }
+    .owner-dash .btn-logout { background: #fff; border: 2px solid #e2e8f0; color: #64748b; padding: 10px 20px; border-radius: 12px; font-weight: 600; cursor: pointer; transition: all 0.2s; }
+    .owner-dash .btn-logout:hover { border-color: #dc3545; color: #dc3545; background: #fff5f5; transform: translateY(-2px); }
+    .owner-dash .card { background: rgba(255,255,255,0.95); border-radius: 20px; padding: 28px; box-shadow: 0 10px 40px rgba(0,0,0,.1); margin-bottom: 24px; backdrop-filter: blur(10px); }
+    .owner-dash .card h2 { margin: 0 0 24px; font-size: 1.3rem; color: #1a365d; display: flex; align-items: center; gap: 12px; padding-bottom: 16px; border-bottom: 2px solid #e2e8f0; }
+    .owner-dash .card h2 i { color: #40e0d0; font-size: 1.4rem; }
+    .owner-dash .form-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+    .owner-dash .form-group { display: flex; flex-direction: column; gap: 6px; }
+    .owner-dash .form-group label { font-weight: 600; color: #475569; font-size: 0.9rem; }
+    .owner-dash .form-group input, .owner-dash .form-group select, .owner-dash .form-group textarea { padding: 12px 16px; border: 2px solid #e2e8f0; border-radius: 12px; font-size: 1rem; font-family: inherit; transition: all 0.2s; background: #fff; }
+    .owner-dash .form-group input:focus, .owner-dash .form-group select:focus, .owner-dash .form-group textarea:focus { outline: none; border-color: #40e0d0; box-shadow: 0 0 0 4px rgba(64,224,208,.15); }
+    .owner-dash .form-group textarea { min-height: 80px; resize: vertical; }
+    .owner-dash .btn-primary { background: linear-gradient(135deg, #40e0d0, #2db39a); color: #fff; border: none; padding: 14px 28px; border-radius: 12px; font-weight: 700; font-size: 1rem; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; box-shadow: 0 4px 15px rgba(64,224,208,.3); }
+    .owner-dash .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(64,224,208,.45); }
+    .owner-dash .btn-primary:disabled { opacity: 0.7; cursor: not-allowed; transform: none; }
+    .owner-dash .projects-table { width: 100%; border-collapse: collapse; border-radius: 12px; overflow: hidden; }
+    .owner-dash .projects-table th, .owner-dash .projects-table td { padding: 14px 18px; text-align: right; border-bottom: 1px solid #e2e8f0; }
+    .owner-dash .projects-table th { background: linear-gradient(135deg, #667eea, #764ba2); color: #fff; font-weight: 700; font-size: 0.85rem; }
+    .owner-dash .projects-table tr:nth-child(even) { background: #f8fafc; }
+    .owner-dash .projects-table tr:hover { background: #f8fafc; }
+    .owner-dash .status-badge { display: inline-block; padding: 4px 12px; border-radius: 999px; font-size: 0.8rem; font-weight: 600; }
+    .owner-dash .status-new { background: #dbeafe; color: #1d4ed8; }
+    .owner-dash .status-progress { background: #fef3c7; color: #b45309; }
+    .owner-dash .status-completed { background: #d1fae5; color: #047857; }
+    .owner-dash .btn-delete { background: linear-gradient(135deg, #ff6b6b, #ee5a5a) !important; transition: all 0.2s; }
+    .owner-dash .btn-delete:hover { transform: scale(1.05); box-shadow: 0 4px 12px rgba(220,53,69,0.3); }
+    .owner-dash .projects-table tr:hover { background: #f0fdfa; }
+    .owner-dash .empty-state { text-align: center; padding: 60px 24px; color: #64748b; font-size: 1.1rem; }
+    .owner-dash .empty-state i { font-size: 4rem; color: #cbd5e1; margin-bottom: 20px; display: block; }
+    .owner-dash .content-form .form-group { max-width: 560px; }
+    .owner-dash .msg { padding: 14px 18px; border-radius: 12px; margin-bottom: 18px; font-weight: 500; display: none; }
+    .owner-dash .msg.success { background: linear-gradient(135deg, #d1fae5, #a7f3d0); color: #047857; display: block; border: 1px solid #6ee7b7; }
+    .owner-dash .msg.error { background: linear-gradient(135deg, #fee2e2, #fecaca); color: #b91c1c; display: block; border: 1px solid #fca5a5; }
+    .owner-dash #loginScreen { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 24px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+    .owner-dash .login-box { background: rgba(255,255,255,0.95); border-radius: 24px; box-shadow: 0 25px 80px rgba(0,0,0,.3); max-width: 420px; width: 100%; padding: 45px; backdrop-filter: blur(10px); }
+    .owner-dash .login-box h1 { margin: 0 0 8px; font-size: 1.6rem; color: #1a365d; text-align: center; }
+    .owner-dash .login-box h1 i { color: #40e0d0; }
+    .owner-dash .login-box p { color: #64748b; text-align: center; margin-bottom: 28px; font-size: 0.95rem; }
+    .owner-dash .login-box .form-group { margin-bottom: 18px; }
+    .owner-dash .login-box .btn-primary { width: 100%; margin-top: 8px; padding: 14px; }
+    .owner-dash #dashboardScreen { display: none; }
+    .owner-dash #dashboardScreen.visible { display: block; }
+    .owner-dash .tabs { display: flex; gap: 10px; margin-bottom: 24px; flex-wrap: wrap; }
+    .owner-dash .tabs button { padding: 12px 24px; border: none; background: rgba(255,255,255,0.9); border-radius: 12px; font-weight: 600; color: #64748b; cursor: pointer; transition: all 0.2s; box-shadow: 0 4px 15px rgba(0,0,0,.1); }
+    .owner-dash .tabs button.active { background: linear-gradient(135deg, #40e0d0, #2db39a); color: #fff; box-shadow: 0 8px 25px rgba(64,224,208,.4); }
+    .owner-dash .tabs button:hover:not(.active) { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0,0,0,.15); }
+    .owner-dash .tab-panel { display: none; }
+    .owner-dash .tab-panel.visible { display: block; }
+    .owner-dash .loading { text-align: center; padding: 40px 24px; color: #64748b; font-size: 1.1rem; }
+    .owner-dash .loading i { animation: spin 1s linear infinite; font-size: 2rem; color: #40e0d0; margin-bottom: 10px; display: block; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    @media (max-width: 768px) {
+      .owner-dash .dash-wrap { padding: 16px; }
+      .owner-dash .dash-header { flex-direction: column; align-items: flex-start; padding: 12px 16px; }
+      .owner-dash .dash-logo { font-size: 1.15rem; }
+      .owner-dash .dash-actions { width: 100%; justify-content: space-between; }
+      .owner-dash .card { padding: 16px; }
+      .owner-dash .form-grid { grid-template-columns: 1fr; }
+      .owner-dash .projects-table { font-size: 0.85rem; display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+      .owner-dash .projects-table th, .owner-dash .projects-table td { padding: 8px 10px; white-space: nowrap; }
+      .owner-dash .tabs { gap: 6px; }
+      .owner-dash .tabs button { padding: 8px 14px; font-size: 0.9rem; }
+      .owner-dash .login-box { margin: 16px; padding: 24px; }
+    }
+    @media (max-width: 480px) {
+      .owner-dash .dash-wrap { padding: 12px; }
+      .owner-dash .user-badge { font-size: 0.8rem; padding: 6px 12px; }
+      .owner-dash .btn-logout { padding: 6px 12px; font-size: 0.9rem; }
+      .owner-dash .content-form .form-group { max-width: 100%; }
+    }
+  </style>
+</head>
+<body class="owner-dash">
+  <!-- شاشة تسجيل الدخول -->
+  <div id="loginScreen">
+    <div class="login-box">
+      <h1><i class="fas fa-user-shield"></i> لوحة تحكم المالك</h1>
+      <p>Decorator CMS – أدخل بيانات الدخول</p>
+      <div id="loginError" class="msg error"></div>
+      <form id="loginForm">
+        <div class="form-group">
+          <label for="loginEmail">البريد الإلكتروني</label>
+          <input type="email" id="loginEmail" required placeholder="ramadan.nady1985@gmail.com" autocomplete="email" />
+        </div>
+        <div class="form-group">
+          <label for="loginPassword">كلمة المرور</label>
+          <input type="password" id="loginPassword" required placeholder="كلمة المرور" autocomplete="current-password" />
+        </div>
+        <button type="submit" class="btn-primary" id="loginBtn">دخول</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- لوحة التحكم -->
+  <div id="dashboardScreen">
+    <div class="dash-wrap">
+      <header class="dash-header">
+        <div class="dash-logo">
+          <i class="fas fa-palette"></i>
+          <span>Decorator – لوحة تحكم المالك</span>
+        </div>
+        <div class="dash-actions">
+          <span class="user-badge" id="ownerEmailBadge"><i class="fas fa-user-shield"></i> مالك</span>
+          <button type="button" class="btn-logout" onclick="logout()"><i class="fas fa-sign-out-alt"></i> خروج</button>
+        </div>
+      </header>
+
+      <div class="tabs">
+        <button type="button" class="active" data-tab="projects"><i class="fas fa-folder-open"></i> المشروعات</button>
+        <button type="button" data-tab="content"><i class="fas fa-edit"></i> إعدادات المحتوى</button>
+      </div>
+
+      <!-- تبويب المشروعات -->
+      <div id="tab-projects" class="tab-panel visible">
+        <div class="card">
+          <h2><i class="fas fa-plus-circle"></i> إضافة مشروع جديد</h2>
+          <div id="addProjectMsg" class="msg"></div>
+          <div class="form-grid" id="addProjectForm"></div>
+          <button type="button" class="btn-primary" id="saveProjectBtn" style="margin-top: 16px;">حفظ المشروع</button>
+        </div>
+        <div class="card">
+          <h2><i class="fas fa-list"></i> قائمة المشروعات</h2>
+          <div id="projectsListWrap">
+            <div class="loading"><i class="fas fa-spinner"></i> جاري التحميل...</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- تبويب إعدادات المحتوى -->
+      <div id="tab-content" class="tab-panel">
+        <div class="card">
+          <h2><i class="fas fa-cog"></i> نصوص الموقع</h2>
+          <div id="contentMsg" class="msg"></div>
+          <div class="content-form" id="contentForm">
+            <div class="form-group"><label>عنوان الموقع</label><input type="text" id="contentSiteTitle" placeholder="Decorator CMS" /></div>
+            <div class="form-group"><label>نص الترحيب / المقدمة</label><textarea id="contentIntro" placeholder="إدارة المحتوى ومشروعاتك بسهولة"></textarea></div>
+          </div>
+          <button type="button" class="btn-primary" id="saveContentBtn" style="margin-top: 16px;">حفظ المحتوى</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const API = ''; // نفس النطاق (مثلاً localhost:3000)
+
+    function getToken() { return localStorage.getItem('decorator_owner_token'); }
+    function setToken(t) { if (t) localStorage.setItem('decorator_owner_token', t); else localStorage.removeItem('decorator_owner_token'); }
+
+    function showScreen(screen) {
+      document.getElementById('loginScreen').style.display = screen === 'login' ? 'flex' : 'none';
+      const dash = document.getElementById('dashboardScreen');
+      dash.style.display = screen === 'dashboard' ? 'block' : 'none';
+      if (screen === 'dashboard') dash.classList.add('visible');
+    }
+
+    function showMsg(elId, text, isError) {
+      const el = document.getElementById(elId);
+      if (!el) return;
+      el.textContent = text;
+      el.className = 'msg ' + (isError ? 'error' : 'success');
+      el.style.display = 'block';
+      if (text) setTimeout(() => { el.textContent = ''; el.style.display = 'none'; }, 4000);
+    }
+
+    async function checkAuth() {
+      const token = getToken();
+      if (!token) { showScreen('login'); return false; }
+      try {
+        const r = await fetch(API + '/cms/auth', { headers: { 'Authorization': 'Bearer ' + token } });
+        const data = await r.json();
+        if (data.owner && data.email) {
+          document.getElementById('ownerEmailBadge').innerHTML = '<i class="fas fa-user-shield"></i> ' + data.email;
+          showScreen('dashboard');
+          initDashboard();
+          return true;
+        }
+      } catch (e) {}
+      setToken(null);
+      showScreen('login');
+      return false;
+    }
+
+    document.getElementById('loginForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const btn = document.getElementById('loginBtn');
+      const email = document.getElementById('loginEmail').value.trim();
+      const password = document.getElementById('loginPassword').value;
+      btn.disabled = true;
+      document.getElementById('loginError').style.display = 'none';
+      try {
+        const r = await fetch(API + '/cms/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, password })
+        });
+        const data = await r.json();
+        if (data.token && data.owner) {
+          setToken(data.token);
+          showScreen('dashboard');
+          document.getElementById('ownerEmailBadge').innerHTML = '<i class="fas fa-user-shield"></i> ' + (data.email || email);
+          initDashboard();
+        } else {
+          showMsg('loginError', 'البريد أو كلمة المرور غير صحيحة', true);
+        }
+      } catch (err) {
+        showMsg('loginError', 'حدث خطأ في الاتصال. تأكد من تشغيل الخادم (npm run start).', true);
+      }
+      btn.disabled = false;
+    });
+
+    function logout() {
+      setToken(null);
+      showScreen('login');
+      document.getElementById('loginPassword').value = '';
+    }
+
+    function buildProjectForm() {
+      document.getElementById('addProjectForm').innerHTML = `
+        <div class="form-group"><label>اسم المشروع *</label><input type="text" id="pName" placeholder="مثال: تشطيب شقة في الفيوم" required /></div>
+        <div class="form-group"><label>اسم العميل *</label><input type="text" id="pClientName" placeholder="اسم العميل" required /></div>
+        <div class="form-group"><label>رقم هاتف العميل</label><input type="text" id="pClientPhone" placeholder="01xxxxxxxxx" /></div>
+        <div class="form-group"><label>نوع المشروع</label><select id="pType"><option>تشطيب شقة</option><option>تركيب سيراميك</option><option>ديكور</option><option>أخرى</option></select></div>
+        <div class="form-group"><label>الموقع</label><input type="text" id="pLocation" placeholder="الفيوم / المسلة" /></div>
+        <div class="form-group"><label>حالة المشروع</label><select id="pStatus"><option>جديد</option><option>قيد التنفيذ</option><option>مكتمل</option></select></div>
+        <div class="form-group"><label><i class="fas fa-image"></i> صورة المشروع</label><input type="file" id="pImage" accept="image/*" /></div>
+        <div class="form-group"><label><i class="fas fa-video"></i> فيديو المشروع</label><input type="file" id="pVideo" accept="video/*" /></div>
+        <div class="form-group" style="grid-column:1/-1"><label>ملاحظات</label><textarea id="pNotes" placeholder="ملاحظات إضافية"></textarea></div>
+      `;
+    }
+
+    async function loadProjects() {
+      const wrap = document.getElementById('projectsListWrap');
+      wrap.innerHTML = '<div class="loading"><i class="fas fa-spinner"></i> جاري التحميل...</div>';
+      const token = getToken();
+      try {
+        const r = await fetch(API + '/cms/projects', { headers: { 'Authorization': 'Bearer ' + token } });
+        if (r.status === 401) { logout(); return; }
+        const list = await r.json();
+        if (!Array.isArray(list) || list.length === 0) {
+          wrap.innerHTML = '<div class="empty-state"><i class="fas fa-folder-open"></i><br/>لا توجد مشاريع بعد. أضف مشروعاً من النموذج أعلاه.</div>';
+          return;
+        }
+        const getStatusClass = (s) => { if (s === 'مكتمل') return 'status-completed'; if (s === 'قيد التنفيذ') return 'status-progress'; return 'status-new'; };
+        wrap.innerHTML = `
+          <table class="projects-table">
+            <thead><tr><th>إجراءات</th><th>التاريخ</th><th>الحالة</th><th>الموقع</th><th>النوع</th><th>العميل</th><th>المشروع</th></tr></thead>
+            <tbody>
+              ${list.slice().reverse().map(p => `
+                <tr>
+                  <td><button class="btn-delete" onclick="deleteProject(${p.id})" style="background:#dc3545;color:#fff;border:none;padding:6px 12px;border-radius:6px;cursor:pointer;font-size:0.85rem;"><i class="fas fa-trash"></i> حذف</button></td>
+                  <td>${p.createdAt ? new Date(p.createdAt).toLocaleDateString('ar-EG') : '-'}</td>
+                  <td><span class="status-badge ${getStatusClass(p.status)}">${p.status || 'جديد'}</span></td>
+                  <td>${p.location || '-'}</td>
+                  <td>${p.type || '-'}</td>
+                  <td>${p.clientName || '-'} ${p.clientPhone ? '<br><small>' + p.clientPhone + '</small>' : ''}</td>
+                  <td><strong>${p.name || '-'}</strong> ${p.notes ? '<br><small style="color:#64748b">' + p.notes + '</small>' : ''}</td>
+                </tr>
+              `).join('')}
+            </tbody>
+          </table>
+        `;
+      } catch (e) {
+        wrap.innerHTML = '<div class="empty-state"><i class="fas fa-exclamation-triangle"></i><br/>فشل تحميل المشاريع. تحقق من الاتصال بالخادم.</div>';
+      }
+    }
+
+    document.getElementById('saveProjectBtn').addEventListener('click', async () => {
+      const name = document.getElementById('pName')?.value?.trim();
+      const clientName = document.getElementById('pClientName')?.value?.trim();
+      if (!name || !clientName) { showMsg('addProjectMsg', 'يرجى إدخال اسم المشروع واسم العميل', true); return; }
+      const clientPhone = document.getElementById('pClientPhone')?.value?.trim() || undefined;
+      const type = document.getElementById('pType')?.value;
+      const location = document.getElementById('pLocation')?.value?.trim() || undefined;
+      const status = document.getElementById('pStatus')?.value;
+      const notes = document.getElementById('pNotes')?.value?.trim() || undefined;
+      let imageUrl = null, videoUrl = null;
+      const imageInput = document.getElementById('pImage');
+      const videoInput = document.getElementById('pVideo');
+      document.getElementById('saveProjectBtn').disabled = true;
+      try {
+        if ((imageInput?.files?.length || videoInput?.files?.length) > 0) {
+          const formData = new FormData();
+          if (imageInput?.files?.[0]) formData.append('image', imageInput.files[0]);
+          if (videoInput?.files?.[0]) formData.append('video', videoInput.files[0]);
+          const up = await fetch(API + '/cms/upload', {
+            method: 'POST',
+            headers: { 'Authorization': 'Bearer ' + getToken() },
+            body: formData
+          });
+          const upData = await up.json();
+          if (up.ok) { imageUrl = upData.imageUrl || null; videoUrl = upData.videoUrl || null; }
+        }
+        const r = await fetch(API + '/cms/projects', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + getToken() },
+          body: JSON.stringify({ name, clientName, clientPhone, type, status, location, notes, imageUrl, videoUrl })
+        });
+        const data = await r.json();
+        if (r.ok && data.ok) {
+          showMsg('addProjectMsg', 'تم حفظ المشروع بنجاح. سيظهر على الموقع فوراً.', false);
+          document.getElementById('pName').value = ''; document.getElementById('pClientName').value = ''; document.getElementById('pClientPhone').value = ''; document.getElementById('pNotes').value = '';
+          if (imageInput) imageInput.value = ''; if (videoInput) videoInput.value = '';
+          loadProjects();
+        } else {
+          showMsg('addProjectMsg', data.error || 'فشل الحفظ', true);
+        }
+      } catch (e) {
+        showMsg('addProjectMsg', 'خطأ في الاتصال بالخادم', true);
+      }
+      document.getElementById('saveProjectBtn').disabled = false;
+    });
+
+    async function loadContent() {
+      const token = getToken();
+      try {
+        const r = await fetch(API + '/cms/content', { headers: { 'Authorization': 'Bearer ' + token } });
+        if (r.status === 401) { logout(); return; }
+        const data = await r.json();
+        document.getElementById('contentSiteTitle').value = data.siteTitle || '';
+        document.getElementById('contentIntro').value = data.intro || '';
+      } catch (e) {
+        showMsg('contentMsg', 'فشل تحميل المحتوى', true);
+      }
+    }
+
+    document.getElementById('saveContentBtn').addEventListener('click', async () => {
+      const siteTitle = document.getElementById('contentSiteTitle')?.value?.trim() || '';
+      const intro = document.getElementById('contentIntro')?.value?.trim() || '';
+      document.getElementById('saveContentBtn').disabled = true;
+      try {
+        const r = await fetch(API + '/cms/content', {
+          method: 'PUT',
+          headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + getToken() },
+          body: JSON.stringify({ siteTitle, intro })
+        });
+        if (r.ok) showMsg('contentMsg', 'تم حفظ المحتوى بنجاح', false);
+        else showMsg('contentMsg', 'فشل الحفظ', true);
+      } catch (e) {
+        showMsg('contentMsg', 'خطأ في الاتصال بالخادم', true);
+      }
+      document.getElementById('saveContentBtn').disabled = false;
+    });
+
+    document.querySelectorAll('.tabs button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.tabs button').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('visible'));
+        btn.classList.add('active');
+        const tab = btn.getAttribute('data-tab');
+        const panel = document.getElementById('tab-' + tab);
+        if (panel) panel.classList.add('visible');
+        if (tab === 'content') loadContent();
+      });
+    });
+
+    function initDashboard() {
+      buildProjectForm();
+      loadProjects();
+    }
+
+    async function deleteProject(id) {
+      if (!confirm('هل أنت متأكد من حذف هذا المشروع؟')) return;
+      try {
+        const r = await fetch(API + '/cms/projects/' + id, {
+          method: 'DELETE',
+          headers: { 'Authorization': 'Bearer ' + getToken() }
+        });
+        if (r.ok) {
+          showMsg('addProjectMsg', 'تم حذف المشروع بنجاح', false);
+          loadProjects();
+        } else {
+          showMsg('addProjectMsg', 'فشل الحذف', true);
+        }
+      } catch (e) {
+        showMsg('addProjectMsg', 'خطأ في الاتصال', true);
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => checkAuth());
+  </script>
+  <footer></footer>
+  <script src="/js/footerAddresses.js"></script>
+  </body>
+</html>

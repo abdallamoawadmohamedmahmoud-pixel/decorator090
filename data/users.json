@@ -1,0 +1,47 @@
+[
+  {
+    "id": 1771347930191,
+    "name": "test",
+    "email": "test@test.com",
+    "password": "$2b$10$GdZQ31EohQ6uInwFDkGyGOpvAqxgb6dLx6b2WnQeip11JJrakJPKy",
+    "phone": null,
+    "avatar": null,
+    "createdAt": "2026-02-17T17:05:30.191Z"
+  },
+  {
+    "id": 1771347953331,
+    "name": "محمد",
+    "email": "mahmoud384118@gmail.com",
+    "password": "$2b$10$E4.5tW1LBQR5pWXCXhHhAeRbT2uJPGEw0ITbot2DCcevQpzjYnKba",
+    "phone": "01011393101",
+    "avatar": null,
+    "createdAt": "2026-02-17T17:05:53.331Z"
+  },
+  {
+    "id": 1771348363641,
+    "name": "محمد",
+    "email": "uttutgf@gmail.com",
+    "password": "$2b$10$T0z3Fhjg5/YEV.dxbb.1F.BNZ0yKatHR6cUjkTgK8oOMjoNVHtIiG",
+    "phone": "01011393101",
+    "avatar": null,
+    "createdAt": "2026-02-17T17:12:43.641Z"
+  },
+  {
+    "id": 1771348545187,
+    "name": "testuser",
+    "email": "testuser123@test.com",
+    "password": "$2b$10$4Si3DlkotYdDEX2rD3SMlum2rmcXZMwGeJprgumiOeXStkWipPLee",
+    "phone": null,
+    "avatar": null,
+    "createdAt": "2026-02-17T17:15:45.187Z"
+  },
+  {
+    "id": 1771348650623,
+    "name": "محمد",
+    "email": "mmdiihdkhdgo@gmail.com",
+    "password": "$2b$10$asA.aVILESwMVysbqNOgROe/C.vwAdPQcmIxoJ97Jxhva9BpcKIGO",
+    "phone": "01011393101",
+    "avatar": "/uploads/profiles/1771348650534-443327906.png",
+    "createdAt": "2026-02-17T17:17:30.623Z"
+  }
+]

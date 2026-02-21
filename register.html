@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إنشاء حساب | Decorator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .register-container {
+            background: white;
+            border-radius: 24px;
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.4);
+            width: 100%;
+            max-width: 450px;
+            overflow: hidden;
+        }
+
+        .register-header {
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            padding: 2rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .register-header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #00f2f5, #00E676);
+        }
+
+        .register-header img {
+            width: 80px;
+            height: 80px;
+            border-radius: 18px;
+            margin-bottom: 0.8rem;
+            box-shadow: 0 6px 20px rgba(0, 242, 245, 0.3);
+        }
+
+        .register-header h2 {
+            color: #00f2f5;
+            font-size: 1.6rem;
+            font-weight: 700;
+        }
+
+        .register-header p {
+            color: #aaa;
+            font-size: 0.9rem;
+            margin-top: 5px;
+        }
+
+        .register-body {
+            padding: 2rem;
+        }
+
+        .alert {
+            padding: 12px 15px;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            display: none;
+        }
+
+        .alert.error {
+            background: #fee2e2;
+            color: #dc2626;
+            border: 1px solid #fecaca;
+            display: block;
+        }
+
+        .alert.success {
+            background: #dcfce7;
+            color: #16a34a;
+            border: 1px solid #bbf7d0;
+            display: block;
+        }
+
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .form-group label .required {
+            color: #dc2626;
+        }
+
+        .input-wrapper {
+            position: relative;
+        }
+
+        .input-wrapper i {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #999;
+            font-size: 1rem;
+        }
+
+        .input-wrapper input {
+            width: 100%;
+            padding: 14px 45px 14px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-family: 'Tajawal', sans-serif;
+            transition: all 0.3s;
+            background: #f8f9fa;
+        }
+
+        .input-wrapper input:focus {
+            outline: none;
+            border-color: #00f2f5;
+            background: white;
+            box-shadow: 0 0 0 4px rgba(0, 242, 245, 0.15);
+        }
+
+        .input-wrapper input:focus + i {
+            color: #00f2f5;
+        }
+
+        .input-wrapper .toggle-password {
+            cursor: pointer;
+            pointer-events: auto;
+        }
+
+        .password-strength {
+            margin-top: 8px;
+        }
+
+        .strength-bar {
+            height: 4px;
+            background: #e0e0e0;
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .strength-bar-fill {
+            height: 100%;
+            width: 0;
+            transition: all 0.3s;
+        }
+
+        .strength-bar-fill.weak { width: 33%; background: #dc2626; }
+        .strength-bar-fill.medium { width: 66%; background: #d97706; }
+        .strength-bar-fill.strong { width: 100%; background: #16a34a; }
+
+        .strength-text {
+            font-size: 0.75rem;
+            margin-top: 4px;
+        }
+        .strength-text.weak { color: #dc2626; }
+        .strength-text.medium { color: #d97706; }
+        .strength-text.strong { color: #16a34a; }
+
+        .terms-check {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin: 1.5rem 0;
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        .terms-check input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            accent-color: #00f2f5;
+            cursor: pointer;
+            margin-top: 2px;
+            flex-shrink: 0;
+        }
+
+        .terms-check label {
+            cursor: pointer;
+            line-height: 1.5;
+        }
+
+        .terms-check a {
+            color: #00f2f5;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .terms-check a:hover {
+            text-decoration: underline;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #00f2f5, #00E676);
+            color: #1a1a2e;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            font-family: 'Tajawal', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: all 0.3s;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 242, 245, 0.4);
+        }
+
+        .submit-btn:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .divider {
+            display: flex;
+            align-items: center;
+            margin: 1.5rem 0;
+            color: #999;
+            font-size: 0.9rem;
+        }
+
+        .divider::before,
+        .divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: #e0e0e0;
+        }
+
+        .divider span {
+            padding: 0 15px;
+        }
+
+        .social-buttons {
+            display: flex;
+            gap: 12px;
+        }
+
+        .social-btn {
+            flex: 1;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            background: white;
+            cursor: pointer;
+            font-family: 'Tajawal', sans-serif;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.3s;
+        }
+
+        .social-btn:hover {
+            border-color: #00f2f5;
+            background: #f0fffe;
+        }
+
+        .social-btn.google i { color: #DB4437; }
+        .social-btn.facebook i { color: #4267B2; }
+
+        .login-link {
+            text-align: center;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #eee;
+            color: #555;
+        }
+
+        .login-link a {
+            color: #00f2f5;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .login-link a:hover {
+            text-decoration: underline;
+        }
+
+        .avatar-upload {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .avatar-preview {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #f0f0f0, #e0e0e0);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 3px dashed #ccc;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .avatar-preview:hover {
+            border-color: #00f2f5;
+        }
+
+        .avatar-preview i {
+            font-size: 2rem;
+            color: #999;
+        }
+
+        .avatar-preview img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .avatar-btn {
+            padding: 8px 20px;
+            background: #f0f0f0;
+            border: 2px solid #e0e0e0;
+            border-radius: 20px;
+            font-family: 'Tajawal', sans-serif;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .avatar-btn:hover {
+            background: #00f2f5;
+            border-color: #00f2f5;
+            color: #1a1a2e;
+        }
+
+        .back-home {
+            text-align: center;
+            margin-top: 1rem;
+        }
+
+        .back-home a {
+            color: #888;
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .back-home a:hover {
+            color: #00f2f5;
+        }
+
+        /* Modal for Terms */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.7);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal-overlay.show {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 20px;
+            max-width: 500px;
+            width: 100%;
+            max-height: 80vh;
+            overflow-y: auto;
+            padding: 2rem;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #eee;
+        }
+
+        .modal-header h3 {
+            color: #1a1a2e;
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #666;
+        }
+
+        .modal-body {
+            line-height: 1.8;
+            color: #555;
+        }
+
+        .modal-body h4 {
+            color: #1a1a2e;
+            margin: 1rem 0 0.5rem;
+        }
+
+        .modal-accept {
+            margin-top: 1.5rem;
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(135deg, #00f2f5, #00E676);
+            color: #1a1a2e;
+            border: none;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            font-family: 'Tajawal', sans-serif;
+        }
+
+        /* Responsive */
+        @media (max-width: 480px) {
+            .register-container {
+                border-radius: 0;
+                min-height: 100vh;
+            }
+
+            .register-body {
+                padding: 1.5rem;
+            }
+
+            .social-buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="register-container">
+        <div class="register-header">
+            <img src="logo.jpg" alt="Decorator Logo">
+            <h2>إنشاء حساب جديد</h2>
+            <p>Decorator – من الباب للديكور الكامل</p>
+        </div>
+
+        <div class="register-body">
+            <div id="alertContainer"></div>
+
+            <form id="registerForm" enctype="multipart/form-data">
+                <!-- Profile Picture Upload -->
+                <div class="form-group" style="text-align: center;">
+                    <label style="margin-bottom: 15px;">صورة الملف الشخصي</label>
+                    <div class="avatar-upload">
+                        <div class="avatar-preview" id="avatarPreview">
+                            <i class="fas fa-camera"></i>
+                        </div>
+                        <input type="file" id="avatar" name="avatar" accept="image/*" style="display: none;">
+                        <button type="button" class="avatar-btn" onclick="document.getElementById('avatar').click()">
+                            اختر صورة
+                        </button>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="name">الاسم الكامل <span class="required">*</span></label>
+                    <div class="input-wrapper">
+                        <input type="text" id="name" name="name" placeholder="أدخل اسمك الكامل" required>
+                        <i class="fas fa-user"></i>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">البريد الإلكتروني <span class="required">*</span></label>
+                    <div class="input-wrapper">
+                        <input type="email" id="email" name="email" placeholder="example@email.com" required>
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">رقم الهاتف</label>
+                    <div class="input-wrapper">
+                        <input type="tel" id="phone" name="phone" placeholder="01xxxxxxxxx">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">كلمة المرور <span class="required">*</span></label>
+                    <div class="input-wrapper">
+                        <input type="password" id="password" name="password" placeholder="أدخل كلمة المرور" required>
+                        <i class="fas fa-lock toggle-password" onclick="togglePassword()"></i>
+                    </div>
+                    <div class="password-strength">
+                        <div class="strength-bar">
+                            <div class="strength-bar-fill" id="strengthBar"></div>
+                        </div>
+                        <span class="strength-text" id="strengthText"></span>
+                    </div>
+                </div>
+
+                <div class="terms-check">
+                    <input type="checkbox" id="terms" required>
+                    <label for="terms">
+                        أوافق على <a href="#" onclick="showTerms(event)">الشروط والأحكام</a>
+                    </label>
+                </div>
+
+                <button type="submit" class="submit-btn">
+                    <i class="fas fa-user-plus"></i>
+                    إنشاء الحساب
+                </button>
+            </form>
+
+            <div class="divider">
+                <span>أو</span>
+            </div>
+
+            <div class="social-buttons">
+                <button type="button" class="social-btn google" onclick="socialRegister('google')">
+                    <i class="fab fa-google"></i>
+                    جوجل
+                </button>
+                <button type="button" class="social-btn facebook" onclick="socialRegister('facebook')">
+                    <i class="fab fa-facebook-f"></i>
+                    فيسبوك
+                </button>
+            </div>
+
+            <div class="login-link">
+                لديك حساب بالفعل؟ <a href="login.html">تسجيل الدخول</a>
+            </div>
+
+            <div class="back-home">
+                <a href="index.html"><i class="fas fa-home"></i> العودة للرئيسية</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Terms Modal -->
+    <div class="modal-overlay" id="termsModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>الشروط والأحكام</h3>
+                <button class="modal-close" onclick="closeTerms()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <h4>1. مقدمة</h4>
+                <p>مرحباً بكم في موقع Decorator. باستخدام موقعنا، أنتم توافقون على الالتزام بهذه الشروط.</p>
+
+                <h4>2. الخدمات</h4>
+                <p>نقدم خدمات تشطيب الشقق والفلل والمحلات التجارية بجميع أنحاء مصر.</p>
+
+                <h4>3. الحساب</h4>
+                <p>تتحملون مسؤولية الحفاظ على سرية حسابكم وكلمة المرور.</p>
+
+                <h4>4. الخصوصية</h4>
+                <p>نحترم خصوصيتكم ونحمي بياناتكم الشخصية.</p>
+
+                <h4>5. التعديلات</h4>
+                <p>نحتفظ بالحق في تعديل هذه الشروط في أي وقت.</p>
+            </div>
+            <button class="modal-accept" onclick="acceptTerms()">أوافق على الشروط</button>
+        </div>
+    </div>
+
+    <script src="js/auth.js"></script>
+    <script>
+        // Avatar Preview
+        document.getElementById('avatar').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const preview = document.getElementById('avatarPreview');
+                    preview.innerHTML = `<img src="${e.target.result}" alt="Preview">`;
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        // Toggle Password Visibility
+        function togglePassword() {
+            const input = document.getElementById('password');
+            const icon = input.nextElementSibling;
+            
+            if (input.type === 'password') {
+                input.type = 'text';
+                icon.classList.remove('fa-lock');
+                icon.classList.add('fa-lock-open');
+            } else {
+                input.type = 'password';
+                icon.classList.remove('fa-lock-open');
+                icon.classList.add('fa-lock');
+            }
+        }
+
+        // Password Strength Checker
+        document.getElementById('password').addEventListener('input', function() {
+            const password = this.value;
+            const bar = document.getElementById('strengthBar');
+            const text = document.getElementById('strengthText');
+
+            bar.className = 'strength-bar-fill';
+            text.className = 'strength-text';
+            text.textContent = '';
+
+            if (password.length === 0) return;
+
+            let strength = 0;
+            if (password.length >= 8) strength++;
+            if (password.length >= 12) strength++;
+            if (/[A-Z]/.test(password)) strength++;
+            if (/[a-z]/.test(password)) strength++;
+            if (/[0-9]/.test(password)) strength++;
+            if (/[^A-Za-z0-9]/.test(password)) strength++;
+
+            if (strength <= 2) {
+                bar.classList.add('weak');
+                text.classList.add('weak');
+                text.textContent = 'ضعيفة';
+            } else if (strength <= 4) {
+                bar.classList.add('medium');
+                text.classList.add('medium');
+                text.textContent = 'متوسطة';
+            } else {
+                bar.classList.add('strong');
+                text.classList.add('strong');
+                text.textContent = 'قوية';
+            }
+        });
+
+        // Show/Close Terms Modal
+        function showTerms(e) {
+            e.preventDefault();
+            document.getElementById('termsModal').classList.add('show');
+        }
+
+        function closeTerms() {
+            document.getElementById('termsModal').classList.remove('show');
+        }
+
+        function acceptTerms() {
+            document.getElementById('terms').checked = true;
+            closeTerms();
+        }
+
+        // Social Register (Demo)
+        function socialRegister(provider) {
+            showAlert('سيتم تفعيل التسجيل عبر وسائل التواصل قريباً', 'error');
+        }
+
+        // Show Alert
+        function showAlert(message, type) {
+            const container = document.getElementById('alertContainer');
+            container.innerHTML = `<div class="alert ${type}">${message}</div>`;
+            
+            if (type !== 'success') {
+                setTimeout(() => {
+                    container.innerHTML = '';
+                }, 4000);
+            }
+        }
+
+        // Form Submit
+        document.getElementById('registerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const password = document.getElementById('password').value;
+            const terms = document.getElementById('terms').checked;
+
+            // Validations
+            if (!name || !email || !password) {
+                showAlert('يرجى إدخال جميع الحقول المطلوبة', 'error');
+                return;
+            }
+
+            if (name.length < 2) {
+                showAlert('الاسم يجب أن يكون حرفين على الأقل', 'error');
+                return;
+            }
+
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                showAlert('البريد الإلكتروني غير صحيح', 'error');
+                return;
+            }
+
+            if (password.length < 6) {
+                showAlert('كلمة المرور يجب أن تكون 6 أحرف على الأقل', 'error');
+                return;
+            }
+
+            if (!terms) {
+                showAlert('يرجى الموافقة على الشروط والأحكام', 'error');
+                return;
+            }
+
+            // Check if owner
+            if (email.toLowerCase() === 'ramadan.nady1985@gmail.com') {
+                showAlert('هذا البريد مخصص للمالك، يرجى استخدام بريد آخر', 'error');
+                return;
+            }
+
+            // Show loading
+            const submitBtn = document.querySelector('.submit-btn');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> جاري التسجيل...';
+            submitBtn.disabled = true;
+
+            // Save user directly without auth.js
+            setTimeout(() => {
+                try {
+                    let users = JSON.parse(localStorage.getItem('decorator_users') || '[]');
+                    
+                    // Check if email already exists
+                    if (users.some(u => u.email.toLowerCase() === email.toLowerCase())) {
+                        showAlert('البريد الإلكتروني مسجل بالفعل', 'error');
+                        submitBtn.innerHTML = originalText;
+                        submitBtn.disabled = false;
+                        return;
+                    }
+                    
+                    // Create new user
+                    const newUser = {
+                        id: Date.now(),
+                        name: name,
+                        email: email.toLowerCase(),
+                        password: password,
+                        phone: phone || '',
+                        is_owner: false,
+                        role: 'user',
+                        createdAt: new Date().toISOString()
+                    };
+                    
+                    users.push(newUser);
+                    localStorage.setItem('decorator_users', JSON.stringify(users));
+                    
+                    // Auto login after registration
+                    localStorage.setItem('cms_token', 'token-' + Date.now());
+                    localStorage.setItem('cms_user', JSON.stringify({
+                        email: newUser.email,
+                        name: newUser.name,
+                        isOwner: false
+                    }));
+                    
+                    showAlert('تم إنشاء الحساب وتسجيل دخولك بنجاح!', 'success');
+                    setTimeout(() => {
+                        window.location.href = 'index.html';
+                    }, 1500);
+                } catch(e) {
+                    showAlert('حدث خطأ في التسجيل', 'error');
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                }
+            }, 300);
+        });
+    </script>
+</body>
+
+</html>

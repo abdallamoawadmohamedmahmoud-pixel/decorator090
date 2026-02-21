@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>العروض والباقات | Decorator</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/packages.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <img src="logo.jpg" alt="Decorator Logo">
+                    <span>Decorator</span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">الرئيسية</a></li>
+                    <li><a href="services.html">خدماتنا</a></li>
+                    <li><a href="portfolio.html">أعمالنا</a></li>
+                    <li><a href="packages.html" class="active">العروض</a></li>
+                    <li><a href="about.html">من نحن</a></li>
+                    <li><a href="contact.html">تواصل معنا</a></li>
+                    <li id="dashboardLink" style="display: none;"><a href="owner_dashboard.html" style="color: #ffc107;"><i class="fas fa-tachometer-alt"></i> لوحة التحكم</a></li>
+                    <li><a href="login.html" style="color: #00f2f5;"><i class="fas fa-sign-in-alt"></i> تسجيل الدخول</a></li>
+                    <li><a href="https://wa.me/01099797984?text=مرحباً، أود الاستفسار عن العروض والباقات"
+                            class="whatsapp-nav" target="_blank">تواصل عبر واتساب</a></li>
+                </ul>
+                <button class="mobile-menu">☰</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Packages Section -->
+    <section class="packages-section">
+        <div class="container">
+            <div style="text-align: right; margin-bottom: 2rem;">
+                <a href="index.html" class="back-btn">
+                    <i class="fas fa-arrow-right"></i>
+                    العودة للرئيسية
+                </a>
+            </div>
+
+            <h1 class="section-title text-center">العروض والباقات</h1>
+            <p class="section-subtitle">استعرض عروضنا الخاصة للتشطيبات والديكور</p>
+
+            <!-- الباقات الكبيرة -->
+            <div style="margin-top: 50px;">
+                <h2 style="text-align: center; font-size: 2rem; color: #1a1a2e; margin-bottom: 30px;">الباقات الكبيرة</h2>
+                
+                <!-- الباقة الاقتصادية -->
+                <div class="package-card" style="margin-bottom: 40px; background: white; border-radius: 20px; box-shadow: 0 8px 30px rgba(0,0,0,0.1); overflow: hidden;">
+                    <div style="background: linear-gradient(135deg, #667eea, #764ba2); padding: 25px; color: white;">
+                        <h3 style="margin: 0; font-size: 1.8rem;"><i class="fas fa-home"></i> الباقة الاقتصادية</h3>
+                        <p style="margin: 10px 0 0; opacity: 0.9;">تشطيب اقتصادي بجودة عالية</p>
+                    </div>
+                    <div style="padding: 30px;">
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px;">
+                            <!-- الكهرباء -->
+                            <div>
+                                <h4 style="color: #1a1a2e; margin-bottom: 15px; font-size: 1.2rem; border-bottom: 2px solid #00f2f5; padding-bottom: 8px; display: inline-block;">
+                                    <i class="fas fa-bolt" style="color: #f59e0b;"></i> الكهرباء
+                                </h4>
+                                <ul style="list-style: none; padding: 0; margin: 0; color: #555;">
+                                    <li style="padding: 8px 0;"><i class="fas fa-check" style="color: #10b981; margin-left: 8px;"></i> سلك سويدى من أجود الخامات</li>
+                                    <li style="padding: 8px 0;"><i class="fas fa-check" style="color: #10b981; margin-left: 8px;"></i> علب ماجيك</li>
+                                    <li style="padding: 8px 0;"><i class="fas fa-check" style="color: #10b981; margin-left: 8px;"></i> مفاتيح وبرايز (فينوس - سانش - جراندمورا) بالضمان</li>
+                                    <li style="padding: 8px 0;"><i class="fas fa-check" style="color: #10b981; margin-left: 8px;"></i> لوحة رئيسية 12 خط</li>
+                                    <li style="padding: 8px 0;"><i class="fas fa-check" style="color: #10b981; margin-left: 8px;"></i> ليد واسبوتات في الجبس بورد (ريسبشن وطرقة فقط)</li>
+                                    <li style="padding: 8px 0;"><i class="fas fa-check" style="color: #10b981; margin-left: 8px;"></i> دائرة تلفزيون رسيبشن وغرفة نوم</li>
+                                    <li style="padding: 8px 0;"><i class="fas fa-check" style="color: #10b981; margin-left: 8px;"></i> دائرة ستالايت رسيبشن وغرفة نوم</li>
+                                    <li style="padding: 8px 0;"><i class="fas fa-check" style="color: #10b981; margin-left: 8px;"></i> دائرة انترنت رسيبشن وغرفة نوم</li>
+                                    <li style="padding: 8px 0;"><i class="fas fa-check" style="color: #10b981; margin-left: 8px;"></i> تأسيس علبة كابل HD رسيبشن وغرفة واحدة</li>
+                                    <li style="padding: 8px 0;"><i class="fas fa-check" style="color: #10b981; margin-left: 8px;"></i> دفيتير طرقة وغرفة نوم رئيسية</li>
+                                    <li style="padding: 8px 0;"><i class="fas fa-check" style="color: #10b981; margin-left: 8px;"></i> تأسيس تكيفات (صرف وكهرباء فقط)</li>
+                                    <li style="padding: 8px 0;"><i class="fas fa-check" style="color: #10b981; margin-left: 8px;"></i> تأسيس روتر في الطرقة</li>
+                                </ul>
+                            </div>
+                            <!-- السباكة -->
+                            <div>
+                                <h4 style="color: #1a1a2e; margin-bottom: 15px; font-size: 1.2rem; border-bottom: 2px solid #00f2f5; padding-bottom: 8px; display: inline-block;">
+                                    <i class="fas fa-water" style="color: #3b82f6;"></i> السباكة
+                                </h4>
+                                <ul style="list-style: none; padding: 0; margin: 0; color: #555;">
+                                    <li style="padding: 8px 0;"><i class="fas fa-check" style="color: #10b981; margin-left: 8px;"></i> الصرف كاسيل الألماني</li>
+                                    <li style="padding: 8px 0;"><i class="fas fa-check" style="color: #10b981; margin-left: 8px;"></i> التغذية BR ضمان 10 سنوات</li>
+                                    <li style="padding: 8px 0;"><i class="fas fa-check" style="color: #10b981; margin-left: 8px;"></i> عزل الحمام سيكا 105</li>
+                                    <li style="padding: 8px 0;"><i class="fas fa-check" style="color: #10b981; margin-left: 8px;"></i> تأسيس وتغذية وصرف فقط للشاور او البانيو</li>
+                                    <li style="padding: 8px 0;"><i class="fas fa-check" style="color: #10b981; margin-left: 8px;"></i> 2 خالط تركي او الماني</li>
+                                    <li style="padding: 8px 0;"><i class="fas fa-check" style="color: #10b981; margin-left: 8px;"></i> طقم حمام (حوض - قاعدة)</li>
+                                </ul>
+                            </div>
+                            <!-- الأسقف -->
+                            <div>
+                                <h4 style="color: #1a1a2e; margin-bottom: 15px; font-size: 1.2rem; border-bottom: 2px solid #00f2f5; padding-bottom: 8px; display: inline-block;">
+                                    <i class="fas fa-cloud" style="color: #8b5cf6;"></i> الأسقف
+                                </h4>
+                                <ul style="list-style: none; padding: 0; margin: 0; color: #555;">
+                                    <li style="padding: 8px 0;"><i class="fas fa-check" style="color: #10b981; margin-left: 8px;"></i> السقف بالكامل مصيص</li>
+                                    <li style="padding: 8px 0;"><i class="fas fa-check" style="color: #10b981; margin-left: 8px;"></i> جبس بورد للريسبشن والطرقة بيت نور فقط</li>
+                                    <li style="padding: 8px 0;"><i class="fas fa-check" style="color: #10b981; margin-left: 8px;"></i> 2 وش بالستك أبيض</li>
+                                    <li style="padding: 8px 0;"><i class="fas fa-check" style="color: #10b981; margin-left: 8px;"></i> كرانيش لباقي الشقة</li>
+                                </ul>
+                            </div>
+                            <!-- الألوميتال -->
+                            <div>
+                                <h4 style="color: #1a1a2e; margin-bottom: 15px; font-size: 1.2rem; border-bottom: 2px solid #00f2f5; padding-bottom: 8px; display: inline-block;">
+                                    <i class="fas fa-window-maximize" style="color: #64748b;"></i> الألوميتال
+                                </h4>
+                                <ul style="list-style: none; padding: 0; margin: 0; color: #555;">
+                                    <li style="padding: 8px 0;"><i class="fas fa-check" style="color: #10b981; margin-left: 8px;"></i> شبابيك المطبخ والحمام فقط</li>
+                                    <li style="padding: 8px 0;"><i class="fas fa-check" style="color: #10b981; margin-left: 8px;"></i> قطاع صغير PS</li>
+                                </ul>
+                            </div>
+                            <!-- الأبواب -->
+                            <div>
+                                <h4 style="color: #1a1a2e; margin-bottom: 15px; font-size: 1.2rem; border-bottom: 2px solid #00f2f5; padding-bottom: 8px; display: inline-block;">
+                                    <i class="fas fa-door-open" style="color: #92400e;"></i> الأبواب
+                                </h4>
+                                <ul style="list-style: none; padding: 0; margin: 0; color: #555;">
+                                    <li style="padding: 8px 0;"><i class="fas fa-check" style="color: #10b981; margin-left: 8px;"></i> باب مصفح صيني</li>
+                                    <li style="padding: 8px 0;"><i class="fas fa-check" style="color: #10b981; margin-left: 8px;"></i> أبواب الغرف خشب موسكي فرز أول بقشرة أرو</li>
+                                </ul>
+                            </div>
+                            <!-- الديكورات -->
+                            <div>
+                                <h4 style="color: #1a1a2e; margin-bottom: 15px; font-size: 1.2rem; border-bottom: 2px solid #00f2f5; padding-bottom: 8px; display: inline-block;">
+                                    <i class="fas fa-paint-brush" style="color: #ec4899;"></i> الديكورات
+                                </h4>
+                                <ul style="list-style: none; padding: 0; margin: 0; color: #555;">
+                                    <li style="padding: 8px 0;"><i class="fas fa-check" style="color: #10b981; margin-left: 8px;"></i> يشمل جانب ديكور للريسبشن (ورق حائط أو حجر لا يتعدى 3 متر أو دهان ديكور)</li>
+                                </ul>
+                            </div>
+                            <!-- السيراميك -->
+                            <div>
+                                <h4 style="color: #1a1a2e; margin-bottom: 15px; font-size: 1.2rem; border-bottom: 2px solid #00f2f5; padding-bottom: 8px; display: inline-block;">
+                                    <i class="fas fa-th-large" style="color: #14b8a6;"></i> السيراميك
+                                </h4>
+                                <ul style="list-style: none; padding: 0; margin: 0; color: #555;">
+                                    <li style="padding: 8px 0;"><i class="fas fa-check" style="color: #10b981; margin-left: 8px;"></i> الريسبشن والممرات والغرف سيراميك قطع ليزر 60x60</li>
+                                    <li style="padding: 8px 0;"><i class="fas fa-check" style="color: #10b981; margin-left: 8px;"></i> الغرف وحوائط المطبخ والحمام سيراميك فرز أول</li>
+                                </ul>
+                            </div>
+                            <!-- الدهانات -->
+                            <div>
+                                <h4 style="color: #1a1a2e; margin-bottom: 15px; font-size: 1.2rem; border-bottom: 2px solid #00f2f5; padding-bottom: 8px; display: inline-block;">
+                                    <i class="fas fa-paint-roller" style="color: #f97316;"></i> الدهانات
+                                </h4>
+                                <ul style="list-style: none; padding: 0; margin: 0; color: #555;">
+                                    <li style="padding: 8px 0;"><i class="fas fa-check" style="color: #10b981; margin-left: 8px;"></i> وش سيلر مائي</li>
+                                    <li style="padding: 8px 0;"><i class="fas fa-check" style="color: #10b981; margin-left: 8px;"></i> 3 سكينة معجون</li>
+                                    <li style="padding: 8px 0;"><i class="fas fa-check" style="color: #10b981; margin-left: 8px;"></i> بطانة</li>
+                                    <li style="padding: 8px 0;"><i class="fas fa-check" style="color: #10b981; margin-left: 8px;"></i> تلقيط</li>
+                                    <li style="padding: 8px 0;"><i class="fas fa-check" style="color: #10b981; margin-left: 8px;"></i> 2 وش دهان نهائي سايبس</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div style="margin-top: 30px; text-align: center;">
+                            <a href="https://wa.me/01099797984?text=أود الاستفسار عن الباقة الاقتصادية" class="btn-primary" target="_blank" style="padding: 15px 40px; background: linear-gradient(135deg, #00f2f5, #0891b2); color: white; border-radius: 30px; text-decoration: none; font-weight: bold; display: inline-block;">
+                                <i class="fab fa-whatsapp"></i> اطلب هذه الباقة
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- الباقة المتوسطة -->
+                <div class="package-card" style="margin-bottom: 40px; background: white; border-radius: 20px; box-shadow: 0 8px 30px rgba(0,0,0,0.1); overflow: hidden;">
+                    <div style="background: linear-gradient(135deg, #10b981, #059669); padding: 25px; color: white;">
+                        <h3 style="margin: 0; font-size: 1.8rem;"><i class="fas fa-star"></i> الباقة المتوسطة</h3>
+                        <p style="margin: 10px 0 0; opacity: 0.9;">تشطيب متكامل بجودة عالية</p>
+                    </div>
+                    <div style="padding: 30px;">
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px;">
+                            <!-- السباكة -->
+                            <div>
+                                <h4 style="color: #1a1a2e; margin-bottom: 15px; font-size: 1.2rem; border-bottom: 2px solid #10b981; padding-bottom: 8px; display: inline-block;">
+                                    <i class="fas fa-water" style="color: #3b82f6;"></i> السباكة
+                                </h4>
+                                <ul style="list-style: none; padding: 0; margin: 0; color: #555;">
+                                    <li style="padding: 8px 0;"><i class="fas fa-check" style="color: #10b981; margin-left: 8px;"></i> الصرف كاسيل الألماني</li>
+                                    <li style="padding: 8px 0;"><i class="fas fa-check" style="color: #10b981; margin-left: 8px;"></i> التغذية BR ضمان 10 سنوات</li>
+                                    <li style="padding: 8px 0;"><i class="fas fa-check" style="color: #10b981; margin-left: 8px;"></i> عزل الحمام سيكا 107</li>
+                                    <li style="padding: 8px 0;"><i class="fas fa-check" style="color: #10b981; margin-left: 8px;"></i> عمل لياسة اسمنتية للعزل</li>
+                                    <li style="padding: 8px 0;"><i class="fas fa-check" style="color: #10b981; margin-left: 8px;"></i> قاعدة دفن جروهي وحوض</li>
+                                    <li style="padding: 8px 0;"><i class="fas fa-check" style="color: #10b981; margin-left: 8px;"></i> تأسيس تغذية وصرف لعمل الشاور (قطاع زجاج ثابت للشاور)</li>
+                                    <li style="padding: 8px 0;"><i class="fas fa-check" style="color: #10b981; margin-left: 8px;"></i> 2 خالط إيديال استاندر</li>
+                                </ul>
+                            </div>
+                            <!-- الأسقف -->
+                            <div>
+                                <h4 style="color: #1a1a2e; margin-bottom: 15px; font-size: 1.2rem; border-bottom: 2px solid #10b981; padding-bottom: 8px; display: inline-block;">
+                                    <i class="fas fa-cloud" style="color: #8b5cf6;"></i> الأسقف
+                                </h4>
+                                <ul style="list-style: none; padding: 0; margin: 0; color: #555;">
+                                    <li style="padding: 8px 0;"><i class="fas fa-check" style="color: #10b981; margin-left: 8px;"></i> جبس بورد إجمالي مساحة الشقة</li>
+                                    <li style="padding: 8px 0;"><i class="fas fa-check" style="color: #10b981; margin-left: 8px;"></i> جبس بورد أبيض للريسبشن والغرف</li>
+                                    <li style="padding: 8px 0;"><i class="fas fa-check" style="color: #10b981; margin-left: 8px;"></i> جبس بورد أحمر للمطبخ (المقاوم للحريق)</li>
+                                    <li style="padding: 8px 0;"><i class="fas fa-check" style="color: #10b981; margin-left: 8px;"></i> جبس بورد أخضر للحمام (المقاوم للرطوبة)</li>
+                                </ul>
+                            </div>
+                            <!-- الألوميتال -->
+                            <div>
+                                <h4 style="color: #1a1a2e; margin-bottom: 15px; font-size: 1.2rem; border-bottom: 2px solid #10b981; padding-bottom: 8px; display: inline-block;">
+                                    <i class="fas fa-window-maximize" style="color: #64748b;"></i> الألوميتال
+                                </h4>
+                                <ul style="list-style: none; padding: 0; margin: 0; color: #555;">
+                                    <li style="padding: 8px 0;"><i class="fas fa-check" style="color: #10b981; margin-left: 8px;"></i> شبابيك المطبخ والحمام فقط</li>
+                                    <li style="padding: 8px 0;"><i class="fas fa-check" style="color: #10b981; margin-left: 8px;"></i> قطاع صغير PS</li>
+                                </ul>
+                            </div>
+                            <!-- الدهانات -->
+                            <div>
+                                <h4 style="color: #1a1a2e; margin-bottom: 15px; font-size: 1.2rem; border-bottom: 2px solid #10b981; padding-bottom: 8px; display: inline-block;">
+                                    <i class="fas fa-paint-roller" style="color: #f97316;"></i> الدهانات
+                                </h4>
+                                <ul style="list-style: none; padding: 0; margin: 0; color: #555;">
+                                    <li style="padding: 8px 0;"><i class="fas fa-check" style="color: #10b981; margin-left: 8px;"></i> وش سيلر مائي</li>
+                                    <li style="padding: 8px 0;"><i class="fas fa-check" style="color: #10b981; margin-left: 8px;"></i> 3 سكينة معجون</li>
+                                    <li style="padding: 8px 0;"><i class="fas fa-check" style="color: #10b981; margin-left: 8px;"></i> بطانة</li>
+                                    <li style="padding: 8px 0;"><i class="fas fa-check" style="color: #10b981; margin-left: 8px;"></i> تلقيط</li>
+                                    <li style="padding: 8px 0;"><i class="fas fa-check" style="color: #10b981; margin-left: 8px;"></i> 2وش دهان نهائي جوتين (الوش الأخير قابل للغسيل)</li>
+                                </ul>
+                            </div>
+                            <!-- الكهرباء -->
+                            <div>
+                                <h4 style="color: #1a1a2e; margin-bottom: 15px; font-size: 1.2rem; border-bottom: 2px solid #10b981; padding-bottom: 8px; display: inline-block;">
+                                    <i class="fas fa-bolt" style="color: #f59e0b;"></i> الكهرباء
+                                </h4>
+                                <ul style="list-style: none; padding: 0; margin: 0; color: #555;">
+                                    <li style="padding: 8px 0;"><i class="fas fa-check" style="color: #10b981; margin-left: 8px;"></i> سلك سويدى من أجود الخامات</li>
+                                    <li style="padding: 8px 0;"><i class="fas fa-check" style="color: #10b981; margin-left: 8px;"></i> علب ماجيك</li>
+                                    <li style="padding: 8px 0;"><i class="fas fa-check" style="color: #10b981; margin-left: 8px;"></i> مفاتيح وبرايز موراليت بالضمان</li>
+                                    <li style="padding: 8px 0;"><i class="fas fa-check" style="color: #10b981; margin-left: 8px;"></i> لوحة رئيسية 18 خط</li>
+                                    <li style="padding: 8px 0;"><i class="fas fa-check" style="color: #10b981; margin-left: 8px;"></i> ليد واسبوتات في الجبس بورد</li>
+                                    <li style="padding: 8px 0;"><i class="fas fa-check" style="color: #10b981; margin-left: 8px;"></i> دائرة تلفزيون</li>
+                                    <li style="padding: 8px 0;"><i class="fas fa-check" style="color: #10b981; margin-left: 8px;"></i> دائرة ستالايت</li>
+                                    <li style="padding: 8px 0;"><i class="fas fa-check" style="color: #10b981; margin-left: 8px;"></i> دائرة انترنت</li>
+                                    <li style="padding: 8px 0;"><i class="fas fa-check" style="color: #10b981; margin-left: 8px;"></i> كابل HD</li>
+                                    <li style="padding: 8px 0;"><i class="fas fa-check" style="color: #10b981; margin-left: 8px;"></i> دفيتير طرقة و نوم</li>
+                                    <li style="padding: 8px 0;"><i class="fas fa-check" style="color: #10b981; margin-left: 8px;"></i> تأسيس تكيفات (صرف وكهرباء فقط)</li>
+                                    <li style="padding: 8px 0;"><i class="fas fa-check" style="color: #10b981; margin-left: 8px;"></i> كشاف طوارئ رسيبشن</li>
+                                    <li style="padding: 8px 0;"><i class="fas fa-check" style="color: #10b981; margin-left: 8px;"></i> تأسيس خراطيم الساوند سيستم</li>
+                                    <li style="padding: 8px 0;"><i class="fas fa-check" style="color: #10b981; margin-left: 8px;"></i> تأسيس راوتر في الطرقة</li>
+                                </ul>
+                            </div>
+                            <!-- السيراميك -->
+                            <div>
+                                <h4 style="color: #1a1a2e; margin-bottom: 15px; font-size: 1.2rem; border-bottom: 2px solid #10b981; padding-bottom: 8px; display: inline-block;">
+                                    <i class="fas fa-th-large" style="color: #14b8a6;"></i> السيراميك
+                                </h4>
+                                <ul style="list-style: none; padding: 0; margin: 0; color: #555;">
+                                    <li style="padding: 8px 0;"><i class="fas fa-check" style="color: #10b981; margin-left: 8px;"></i> الريسبشن والممرات بورسلين مستورد</li>
+                                    <li style="padding: 8px 0;"><i class="fas fa-check" style="color: #10b981; margin-left: 8px;"></i> أرضيات الغرف سيراميك الباركية كيلوباترا</li>
+                                    <li style="padding: 8px 0;"><i class="fas fa-check" style="color: #10b981; margin-left: 8px;"></i> حوائط المطبخ والحمام سيراميك فرز أول</li>
+                                    <li style="padding: 8px 0;"><i class="fas fa-check" style="color: #10b981; margin-left: 8px;"></i> المعابر رخام امبرادور</li>
+                                    <li style="padding: 8px 0;"><i class="fas fa-check" style="color: #10b981; margin-left: 8px;"></i> عتبة باب الشقة رخام</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div style="margin-top: 30px; text-align: center;">
+                            <a href="https://wa.me/01099797984?text=أود الاستفسار عن الباقة المتوسطة" class="btn-primary" target="_blank" style="padding: 15px 40px; background: linear-gradient(135deg, #10b981, #059669); color: white; border-radius: 30px; text-decoration: none; font-weight: bold; display: inline-block;">
+                                <i class="fab fa-whatsapp"></i> اطلب هذه الباقة
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- الباقة VIP -->
+                <div class="package-card" style="margin-bottom: 40px; background: white; border-radius: 20px; box-shadow: 0 8px 30px rgba(0,0,0,0.1); overflow: hidden;">
+                    <div style="background: linear-gradient(135deg, #f59e0b, #d97706); padding: 25px; color: white;">
+                        <h3 style="margin: 0; font-size: 1.8rem;"><i class="fas fa-crown"></i> الباقة VIP</h3>
+                        <p style="margin: 10px 0 0; opacity: 0.9;">تشطيب فاخر VIP</p>
+                    </div>
+                    <div style="padding: 30px;">
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px;">
+                            <div>
+                                <h4 style="color: #1a1a2e; margin-bottom: 15px; font-size: 1.2rem; border-bottom: 2px solid #f59e0b; padding-bottom: 8px; display: inline-block;">
+                                    <i class="fas fa-door-open" style="color: #92400e;"></i> الأبواب
+                                </h4>
+                                <ul style="list-style: none; padding: 0; margin: 0; color: #555;">
+                                    <li style="padding: 8px 0;"><i class="fas fa-check" style="color: #f59e0b; margin-left: 8px;"></i> باب مصفح تركي عرضة 1 م فعلى</li>
+                                    <li style="padding: 8px 0;"><i class="fas fa-check" style="color: #f59e0b; margin-left: 8px;"></i> الأبواب الداخلية خشب موسكي عمولة بقشرة أرو</li>
+                                    <li style="padding: 8px 0;"><i class="fas fa-check" style="color: #f59e0b; margin-left: 8px;"></i> دهان الأبواب أسطر</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 style="color: #1a1a2e; margin-bottom: 15px; font-size: 1.2rem; border-bottom: 2px solid #f59e0b; padding-bottom: 8px; display: inline-block;">
+                                    <i class="fas fa-music" style="color: #8b5cf6;"></i> الساوند سيستم
+                                </h4>
+                                <ul style="list-style: none; padding: 0; margin: 0; color: #555;">
+                                    <li style="padding: 8px 0;"><i class="fas fa-check" style="color: #f59e0b; margin-left: 8px;"></i> تأسيس ساوند سيستم</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 style="color: #1a1a2e; margin-bottom: 15px; font-size: 1.2rem; border-bottom: 2px solid #f59e0b; padding-bottom: 8px; display: inline-block;">
+                                    <i class="fas fa-paint-brush" style="color: #ec4899;"></i> الديكورات
+                                </h4>
+                                <ul style="list-style: none; padding: 0; margin: 0; color: #555;">
+                                    <li style="padding: 8px 0;"><i class="fas fa-check" style="color: #f59e0b; margin-left: 8px;"></i> ديكور للريسبشن (ورق حائط أو حجر أو دهان ديكور لا يتعدى 8 متر)</li>
+                                    <li style="padding: 8px 0;"><i class="fas fa-check" style="color: #f59e0b; margin-left: 8px;"></i> ورق حائط للغرفة الماستر والمعيشة</li>
+                                    <li style="padding: 8px 0;"><i class="fas fa-check" style="color: #f59e0b; margin-left: 8px;"></i> ورق حائط D3 لغرفة الأطفال</li>
+                                    <li style="padding: 8px 0;"><i class="fas fa-check" style="color: #f59e0b; margin-left: 8px;"></i> CNC بحد أقصى 5 م طولي</li>
+                                    <li style="padding: 8px 0;"><i class="fas fa-check" style="color: #f59e0b; margin-left: 8px;"></i> يشمل جانب تجليد خشب</li>
+                                    <li style="padding: 8px 0;"><i class="fas fa-check" style="color: #f59e0b; margin-left: 8px;"></i> الديكورات النهائية حسب اختيار العميل</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 style="color: #1a1a2e; margin-bottom: 15px; font-size: 1.2rem; border-bottom: 2px solid #f59e0b; padding-bottom: 8px; display: inline-block;">
+                                    <i class="fas fa-snowflake" style="color: #06b6d4;"></i> تأسيس فريون
+                                </h4>
+                                <ul style="list-style: none; padding: 0; margin: 0; color: #555;">
+                                    <li style="padding: 8px 0;"><i class="fas fa-check" style="color: #f59e0b; margin-left: 8px;"></i> تأسيس مواسير فريون بحد أقصى 5 متر</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div style="margin-top: 30px; text-align: center;">
+                            <a href="https://wa.me/01099797984?text=أود الاستفسار عن باقة VIP" class="btn-primary" target="_blank" style="padding: 15px 40px; background: linear-gradient(135deg, #f59e0b, #d97706); color: white; border-radius: 30px; text-decoration: none; font-weight: bold; display: inline-block;">
+                                <i class="fab fa-whatsapp"></i> اطلب هذه الباقة
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- الباقة VIP ULTRA -->
+                <div class="package-card" style="margin-bottom: 40px; background: white; border-radius: 20px; box-shadow: 0 8px 30px rgba(0,0,0,0.1); overflow: hidden;">
+                    <div style="background: linear-gradient(135deg, #ec4899, #db2777); padding: 25px; color: white;">
+                        <h3 style="margin: 0; font-size: 1.8rem;"><i class="fas fa-gem"></i> الباقة VIP ULTRA</h3>
+                        <p style="margin: 10px 0 0; opacity: 0.9;">تشطيب فاخر جدا</p>
+                    </div>
+                    <div style="padding: 30px;">
+                        <div style="margin-top: 30px; text-align: center;">
+                            <a href="https://wa.me/01099797984?text=أود الاستفسار عن باقة VIP ULTRA" class="btn-primary" target="_blank" style="padding: 15px 40px; background: linear-gradient(135deg, #ec4899, #db2777); color: white; border-radius: 30px; text-decoration: none; font-weight: bold; display: inline-block;">
+                                <i class="fab fa-whatsapp"></i> اطلب هذه الباقة
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- الباقة VIP ULTRA SUPER -->
+                <div class="package-card" style="margin-bottom: 40px; background: white; border-radius: 20px; box-shadow: 0 8px 30px rgba(0,0,0,0.1); overflow: hidden;">
+                    <div style="background: linear-gradient(135deg, #1a1a2e, #0f172a); padding: 25px; color: white;">
+                        <h3 style="margin: 0; font-size: 1.8rem;"><i class="fas fa-rocket"></i> الباقة VIP ULTRA SUPER</h3>
+                        <p style="margin: 10px 0 0; opacity: 0.9;">أفضل تشطيب بأعلى جودة</p>
+                    </div>
+                    <div style="padding: 30px;">
+                        <div style="margin-top: 30px; text-align: center;">
+                            <a href="https://wa.me/01099797984?text=أود الاستفسار عن باقة VIP ULTRA SUPER" class="btn-primary" target="_blank" style="padding: 15px 40px; background: linear-gradient(135deg, #1a1a2e, #0f172a); color: white; border-radius: 30px; text-decoration: none; font-weight: bold; display: inline-block;">
+                                <i class="fab fa-whatsapp"></i> اطلب هذه الباقة
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- الباقات الصغيرة -->
+            <div style="margin-top: 60px;">
+                <h2 style="text-align: center; font-size: 2rem; color: #1a1a2e; margin-bottom: 30px;">الباقات الصغيرة</h2>
+                
+                <!-- باقة على أد الإيد -->
+                <div class="package-card" style="margin-bottom: 40px; background: white; border-radius: 20px; box-shadow: 0 8px 30px rgba(0,0,0,0.1); overflow: hidden;">
+                    <div style="background: linear-gradient(135deg, #10b981, #059669); padding: 25px; color: white;">
+                        <h3 style="margin: 0; font-size: 1.8rem;"><i class="fas fa-star"></i> باقة على أد الإيد</h3>
+                        <p style="margin: 10px 0 0; opacity: 0.9;">تشطيب اقتصادي يناسب ميزانيتك</p>
+                    </div>
+                    <div style="padding: 30px;">
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px;">
+                            <!-- الكهرباء -->
+                            <div>
+                                <h4 style="color: #1a1a2e; margin-bottom: 15px; font-size: 1.2rem; border-bottom: 2px solid #10b981; padding-bottom: 8px; display: inline-block;">
+                                    <i class="fas fa-bolt" style="color: #f59e0b;"></i> الكهرباء
+                                </h4>
+                                <ul style="list-style: none; padding: 0; margin: 0; color: #555;">
+                                    <li style="padding: 8px 0;"><i class="fas fa-check" style="color: #10b981; margin-left: 8px;"></i> علب تأسيس (ماجيك)</li>
+                                    <li style="padding: 8px 0;"><i class="fas fa-check" style="color: #10b981; margin-left: 8px;"></i> خراطيم تأسيس (مصطفى محمود)</li>
+                                    <li style="padding: 8px 0;"><i class="fas fa-check" style="color: #10b981; margin-left: 8px;"></i> أسلاك (دريم معتمدة)</li>
+                                    <li style="padding: 8px 0;"><i class="fas fa-check" style="color: #10b981; margin-left: 8px;"></i> مفاتيح وبرايز (أوريجنال)</li>
+                                    <li style="padding: 8px 0;"><i class="fas fa-check" style="color: #10b981; margin-left: 8px;"></i> لوحة كهرباء رئيسية (فينزس)</li>
+                                    <li style="padding: 8px 0;"><i class="fas fa-check" style="color: #10b981; margin-left: 8px;"></i> تأسيس تكيفات (صرف وكهرباء)</li>
+                                </ul>
+                            </div>
+                            <!-- السباكة -->
+                            <div>
+                                <h4 style="color: #1a1a2e; margin-bottom: 15px; font-size: 1.2rem; border-bottom: 2px solid #10b981; padding-bottom: 8px; display: inline-block;">
+                                    <i class="fas fa-water" style="color: #3b82f6;"></i> السباكة
+                                </h4>
+                                <ul style="list-style: none; padding: 0; margin: 0; color: #555;">
+                                    <li style="padding: 8px 0;"><i class="fas fa-check" style="color: #10b981; margin-left: 8px;"></i> شبكة تغذية (بولى)</li>
+                                    <li style="padding: 8px 0;"><i class="fas fa-check" style="color: #10b981; margin-left: 8px;"></i> شبكة صرف (الشريف)</li>
+                                    <li style="padding: 8px 0;"><i class="fas fa-check" style="color: #10b981; margin-left: 8px;"></i> طقم صحي (صينى)</li>
+                                    <li style="padding: 8px 0;"><i class="fas fa-check" style="color: #10b981; margin-left: 8px;"></i> خالطات (1 حوض مطبخ / 1 حوض حمام)</li>
+                                </ul>
+                            </div>
+                            <!-- المصيص والكرانيش -->
+                            <div>
+                                <h4 style="color: #1a1a2e; margin-bottom: 15px; font-size: 1.2rem; border-bottom: 2px solid #10b981; padding-bottom: 8px; display: inline-block;">
+                                    <i class="fas fa-cloud" style="color: #8b5cf6;"></i> المصيص والكرانيش
+                                </h4>
+                                <ul style="list-style: none; padding: 0; margin: 0; color: #555;">
+                                    <li style="padding: 8px 0;"><i class="fas fa-check" style="color: #10b981; margin-left: 8px;"></i> مصيص لأماكن الاستقبال فقط</li>
+                                    <li style="padding: 8px 0;"><i class="fas fa-check" style="color: #10b981; margin-left: 8px;"></i> كرانيش لأماكن الاستقبال فقط</li>
+                                </ul>
+                            </div>
+                            <!-- النجارة -->
+                            <div>
+                                <h4 style="color: #1a1a2e; margin-bottom: 15px; font-size: 1.2rem; border-bottom: 2px solid #10b981; padding-bottom: 8px; display: inline-block;">
+                                    <i class="fas fa-door-open" style="color: #92400e;"></i> النجارة
+                                </h4>
+                                <ul style="list-style: none; padding: 0; margin: 0; color: #555;">
+                                    <li style="padding: 8px 0;"><i class="fas fa-check" style="color: #10b981; margin-left: 8px;"></i> أبواب خشب موسكى قشرة أرو</li>
+                                    <li style="padding: 8px 0;"><i class="fas fa-check" style="color: #10b981; margin-left: 8px;"></i> دهان الكمية</li>
+                                    <li style="padding: 8px 0;"><i class="fas fa-check" style="color: #10b981; margin-left: 8px;"></i> باب شقة خشب</li>
+                                </ul>
+                            </div>
+                            <!-- الوميتال -->
+                            <div>
+                                <h4 style="color: #1a1a2e; margin-bottom: 15px; font-size: 1.2rem; border-bottom: 2px solid #10b981; padding-bottom: 8px; display: inline-block;">
+                                    <i class="fas fa-window-maximize" style="color: #64748b;"></i> الألوميتال
+                                </h4>
+                                <ul style="list-style: none; padding: 0; margin: 0; color: #555;">
+                                    <li style="padding: 8px 0;"><i class="fas fa-check" style="color: #10b981; margin-left: 8px;"></i> شباك للحمام وشباك للمطبخ</li>
+                                    <li style="padding: 8px 0;"><i class="fas fa-check" style="color: #10b981; margin-left: 8px;"></i> قطاع PS صغير زجاج فردى</li>
+                                </ul>
+                            </div>
+                            <!-- الدهانات -->
+                            <div>
+                                <h4 style="color: #1a1a2e; margin-bottom: 15px; font-size: 1.2rem; border-bottom: 2px solid #10b981; padding-bottom: 8px; display: inline-block;">
+                                    <i class="fas fa-paint-roller" style="color: #f97316;"></i> الدهانات
+                                </h4>
+                                <ul style="list-style: none; padding: 0; margin: 0; color: #555;">
+                                    <li style="padding: 8px 0;"><i class="fas fa-check" style="color: #10b981; margin-left: 8px;"></i> عزل سيلر مائي</li>
+                                    <li style="padding: 8px 0;"><i class="fas fa-check" style="color: #10b981; margin-left: 8px;"></i> 3 سكينة معجون</li>
+                                    <li style="padding: 8px 0;"><i class="fas fa-check" style="color: #10b981; margin-left: 8px;"></i> بطانة + صنفرة</li>
+                                    <li style="padding: 8px 0;"><i class="fas fa-check" style="color: #10b981; margin-left: 8px;"></i> 2 وجه بالستك GLC</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div style="margin-top: 30px; text-align: center;">
+                            <a href="https://wa.me/01099797984?text=أود الاستفسار عن باقة على أد الإيد" class="btn-primary" target="_blank" style="padding: 15px 40px; background: linear-gradient(135deg, #10b981, #059669); color: white; border-radius: 30px; text-decoration: none; font-weight: bold; display: inline-block;">
+                                <i class="fab fa-whatsapp"></i> اطلب هذه الباقة
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- باقة FLOWERS -->
+                <div class="package-card" style="margin-bottom: 40px; background: white; border-radius: 20px; box-shadow: 0 8px 30px rgba(0,0,0,0.1); overflow: hidden;">
+                    <div style="background: linear-gradient(135deg, #ec4899, #db2777); padding: 25px; color: white;">
+                        <h3 style="margin: 0; font-size: 1.8rem;"><i class="fas fa-spa"></i> باقة FLOWERS</h3>
+                        <p style="margin: 10px 0 0; opacity: 0.9;">تشطيب أنيق بجودة مميزة</p>
+                    </div>
+                    <div style="padding: 30px;">
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px;">
+                            <!-- الكهرباء -->
+                            <div>
+                                <h4 style="color: #1a1a2e; margin-bottom: 15px; font-size: 1.2rem; border-bottom: 2px solid #ec4899; padding-bottom: 8px; display: inline-block;">
+                                    <i class="fas fa-bolt" style="color: #f59e0b;"></i> الكهرباء
+                                </h4>
+                                <ul style="list-style: none; padding: 0; margin: 0; color: #555;">
+                                    <li style="padding: 8px 0;"><i class="fas fa-check" style="color: #ec4899; margin-left: 8px;"></i> علب تأسيس (ماجيك جيوس)</li>
+                                    <li style="padding: 8px 0;"><i class="fas fa-check" style="color: #ec4899; margin-left: 8px;"></i> خراطيم تأسيس (مصطفى محمود)</li>
+                                    <li style="padding: 8px 0;"><i class="fas fa-check" style="color: #ec4899; margin-left: 8px;"></i> أسلاك (سويدى)</li>
+                                    <li style="padding: 8px 0;"><i class="fas fa-check" style="color: #ec4899; margin-left: 8px;"></i> مفاتيح وبرايز (سين شى أو شنايدر)</li>
+                                    <li style="padding: 8px 0;"><i class="fas fa-check" style="color: #ec4899; margin-left: 8px;"></i> لوحة كهرباء رئيسية (فينزس)</li>
+                                </ul>
+                            </div>
+                            <!-- السباكة -->
+                            <div>
+                                <h4 style="color: #1a1a2e; margin-bottom: 15px; font-size: 1.2rem; border-bottom: 2px solid #ec4899; padding-bottom: 8px; display: inline-block;">
+                                    <i class="fas fa-water" style="color: #3b82f6;"></i> السباكة
+                                </h4>
+                                <ul style="list-style: none; padding: 0; margin: 0; color: #555;">
+                                    <li style="padding: 8px 0;"><i class="fas fa-check" style="color: #ec4899; margin-left: 8px;"></i> شبكة تغذية (BR)</li>
+                                    <li style="padding: 8px 0;"><i class="fas fa-check" style="color: #ec4899; margin-left: 8px;"></i> شبكة صرف (كاسيل)</li>
+                                    <li style="padding: 8px 0;"><i class="fas fa-check" style="color: #ec4899; margin-left: 8px;"></i> طقم صحي (ديورفيت أو أديال استاندر)</li>
+                                    <li style="padding: 8px 0;"><i class="fas fa-check" style="color: #ec4899; margin-left: 8px;"></i> خالطات تركى</li>
+                                    <li style="padding: 8px 0;"><i class="fas fa-check" style="color: #ec4899; margin-left: 8px;"></i> بانيو أو كابينة شاور</li>
+                                </ul>
+                            </div>
+                            <!-- النجارة -->
+                            <div>
+                                <h4 style="color: #1a1a2e; margin-bottom: 15px; font-size: 1.2rem; border-bottom: 2px solid #ec4899; padding-bottom: 8px; display: inline-block;">
+                                    <i class="fas fa-door-open" style="color: #92400e;"></i> النجارة
+                                </h4>
+                                <ul style="list-style: none; padding: 0; margin: 0; color: #555;">
+                                    <li style="padding: 8px 0;"><i class="fas fa-check" style="color: #ec4899; margin-left: 8px;"></i> أبواب خشب موسكى قشرة أرو</li>
+                                    <li style="padding: 8px 0;"><i class="fas fa-check" style="color: #ec4899; margin-left: 8px;"></i> دهان استر</li>
+                                    <li style="padding: 8px 0;"><i class="fas fa-check" style="color: #ec4899; margin-left: 8px;"></i> اكسسوارات كاملة</li>
+                                    <li style="padding: 8px 0;"><i class="fas fa-check" style="color: #ec4899; margin-left: 8px;"></i> باب تركى مصفح</li>
+                                </ul>
+                            </div>
+                            <!-- الدهانات -->
+                            <div>
+                                <h4 style="color: #1a1a2e; margin-bottom: 15px; font-size: 1.2rem; border-bottom: 2px solid #ec4899; padding-bottom: 8px; display: inline-block;">
+                                    <i class="fas fa-paint-roller" style="color: #f97316;"></i> الدهانات
+                                </h4>
+                                <ul style="list-style: none; padding: 0; margin: 0; color: #555;">
+                                    <li style="padding: 8px 0;"><i class="fas fa-check" style="color: #ec4899; margin-left: 8px;"></i> عزل سيلر مائي</li>
+                                    <li style="padding: 8px 0;"><i class="fas fa-check" style="color: #ec4899; margin-left: 8px;"></i> 3 سكينة معجون سايبس أو سكيب</li>
+                                    <li style="padding: 8px 0;"><i class="fas fa-check" style="color: #ec4899; margin-left: 8px;"></i> بطانة + صنفرة</li>
+                                    <li style="padding: 8px 0;"><i class="fas fa-check" style="color: #ec4899; margin-left: 8px;"></i> 3 وجه بالستك سايبس أو سكيب</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div style="margin-top: 30px; text-align: center;">
+                            <a href="https://wa.me/01099797984?text=أود الاستفسار عن باقة FLOWERS" class="btn-primary" target="_blank" style="padding: 15px 40px; background: linear-gradient(135deg, #ec4899, #db2777); color: white; border-radius: 30px; text-decoration: none; font-weight: bold; display: inline-block;">
+                                <i class="fab fa-whatsapp"></i> اطلب هذه الباقة
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="logo.jpg" alt="Decorator Logo" style="width: 60px; height: 60px; border-radius: 10px;">
+                    <h3>Decorator</h3>
+                    <p>خبرة في تشطيب الشقق والسيراميك مع ضمان جودة التنفيذ. نقدم خدمات متكاملة من الباب حتى كامل
+                        الديكور.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>روابط سريعة</h4>
+                    <ul>
+                        <li><a href="index.html"><i class="fas fa-home"></i> الرئيسية</a></li>
+                        <li><a href="services.html"><i class="fas fa-tools"></i> خدماتنا</a></li>
+                        <li><a href="portfolio.html"><i class="fas fa-images"></i> أعمالنا</a></li>
+                        <li><a href="packages.html"><i class="fas fa-gift"></i> العروض</a></li>
+                        <li><a href="about.html"><i class="fas fa-users"></i> من نحن</a></li>
+                        <li><a href="contact.html"><i class="fas fa-envelope"></i> تواصل معنا</a></li>
+                        <li><a href="login.html" style="color: #888; font-size: 0.9rem;"><i
+                                    class="fas fa-sign-in-alt"></i> تسجيل الدخول</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>العناوين الرسمية</h4>
+                    
+                    <!-- رقم الواتساب -->
+                    <div class="phone-card whatsapp">
+                        <div class="phone-icon">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <div class="phone-info">
+                            <div class="phone-number">01099797984</div>
+                            <div class="phone-label">واتساب - للتواصل السريع</div>
+                        </div>
+                    </div>
+                    
+                    <!-- رقم الهاتف -->
+                    <div class="phone-card">
+                        <div class="phone-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="phone-info">
+                            <div class="phone-number">01009094462</div>
+                            <div class="phone-label">هاتف - للاستفسارات</div>
+                        </div>
+                    </div>
+                    
+                    <p style="margin-top: 15px; font-weight: bold; color: #00f2f5;"><i class="fas fa-map-marker-alt"></i> الفيوم:</p>
+                    <p>دارماد - الشارع الجديد خلف فيلا المحافظ بجوار كافيه تايم اوت</p>
+                    <p style="margin-top: 10px; font-weight: bold; color: #00f2f5;"><i class="fas fa-map-marker-alt"></i> القاهرة:</p>
+                    <p>عماره20 - شارع ابراهيم ناجى - المنطقه العاشره - مدينهصر</p>
+                    <div class="social-links">
+                        <a href="https://wa.me/01099797984" class="social-link whatsapp" target="_blank">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="https://www.facebook.com/share/18Cp86beK/" class="social-link facebook" target="_blank">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="https://x.com/decoratorfayoum" class="social-link x" target="_blank">
+                            <i class="fab fa-x-twitter"></i>
+                        </a>
+                        <a href="https://instagram.com/decorator.fayoum" class="social-link instagram" target="_blank">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span class="current-year">2026</span> Decorator – From Door To Full Decor. جميع الحقوق
+                    محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/01099797984?text=مرحباً، أود الاستفسار عن العروض والباقات" class="whatsapp-float"
+        target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script src="js/script.js"></script>
+    <script src="js/auth.js"></script>
+    <script>
+        // Auth check for logged in user
+        (function() {
+            const token = localStorage.getItem('decorator_token');
+            const userStr = localStorage.getItem('decorator_current_user');
+            
+            if (token && userStr) {
+                try {
+                    const user = JSON.parse(userStr);
+                    const loginLink = document.querySelector('a[href="login.html"]');
+                    if (loginLink) {
+                        const li = loginLink.parentElement;
+                        li.innerHTML = `
+                            <a href="#" onclick="toggleUserMenu(event)" style="color: #00f2f5; display: flex; align-items: center; gap: 5px;">
+                                <i class="fas fa-user-circle"></i>
+                                <span>${user.name || 'المستخدم'}</span>
+                            </a>
+                            <div id="userDropdown" style="display: none; position: absolute; top: 60px; left: 0; background: #1a1a2e; padding: 1rem; border-radius: 10px; z-index: 1000; min-width: 200px; box-shadow: 0 4px 20px rgba(0,0,0,0.3);">
+                                <div style="border-bottom: 1px solid #333; padding-bottom: 0.5rem; margin-bottom: 0.5rem;">
+                                    <strong style="color: #00f2f5;">${user.name || 'المستخدم'}</strong><br>
+                                    <small style="color: #888;">${user.email || ''}</small>
+                                </div>
+                                ${user.is_owner ? '<a href="owner_dashboard.html" style="display: block; padding: 0.5rem 0; color: #ffc107;"><i class="fas fa-tachometer-alt"></i> لوحة التحكم</a>' : ''}
+                                <a href="#" onclick="logoutUser()" style="color: #dc3545; display: block; padding: 0.5rem 0;">
+                                    <i class="fas fa-sign-out-alt"></i> تسجيل الخروج
+                                </a>
+                            </div>
+                        `;
+                    }
+                    
+                    // Show dashboard link in nav for owner
+                    if (user.is_owner) {
+                        const dashboardLink = document.getElementById('dashboardLink');
+                        if (dashboardLink) dashboardLink.style.display = 'block';
+                    }
+                } catch(e) {
+                    console.error('Error:', e);
+                }
+            }
+
+            window.toggleUserMenu = function(e) {
+                e.preventDefault();
+                const dropdown = document.getElementById('userDropdown');
+                if (dropdown) dropdown.style.display = dropdown.style.display === 'none' ? 'block' : 'none';
+            };
+
+            window.logoutUser = function() {
+                localStorage.removeItem('decorator_token');
+                localStorage.removeItem('decorator_current_user');
+                window.location.reload();
+            };
+
+            document.addEventListener('click', function(e) {
+                const dropdown = document.getElementById('userDropdown');
+                if (dropdown && !e.target.closest('a[onclick*="toggleUserMenu"]')) {
+                    dropdown.style.display = 'none';
+                }
+            });
+        })();
+    </script>
+</body>
+
+</html>
