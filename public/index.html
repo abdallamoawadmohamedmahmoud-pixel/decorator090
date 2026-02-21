@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Decorator – الفخامة بتوقيع Decorator | تشطيب شقق وتركيب سيراميك</title>
+    <meta name="description" content="Decorator – شركة متخصصة في تشطيب الشقق وتركيب السيراميك والديكور في الفيوم والقاهرة.">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ========== RESPONSIVE NAVIGATION ========== */
+        
+        /* Desktop: Show nav menu, hide hamburger */
+        @media only screen and (min-width: 901px) {
+            #mainNav,
+            ul#mainNav,
+            .nav-links#mainNav {
+                display: flex !important;
+                visibility: visible !important;
+            }
+            
+            .mobile-menu-btn {
+                display: none !important;
+            }
+        }
+        
+        /* Mobile: Hide nav menu, show hamburger */
+        @media only screen and (max-width: 900px) {
+            #mainNav,
+            ul#mainNav,
+            .nav-links#mainNav {
+                display: none !important;
+                visibility: hidden !important;
+            }
+            
+            .mobile-menu-btn {
+                display: block !important;
+                visibility: visible !important;
+            }
+        }
+    </style>
+</head>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+                <div class="logo">
+                    <img src="logo.jpg" alt="Decorator Logo">
+                    <span>Decorator</span>
+                </div>
+                <ul class="nav-links" id="mainNav">
+                    <li><a href="index.html" class="active">الرئيسية</a></li>
+                    <li><a href="#services">خدماتنا</a></li>
+                    <li><a href="portfolio.html">أعمالنا</a></li>
+                    <li><a href="packages.html">العروض</a></li>
+                    <li><a href="about.html">من نحن</a></li>
+                    <li><a href="contact.html" class="nav-cta">تواصل الآن</a></li>
+                    <li><a href="login.html" class="nav-login"><i class="fas fa-user"></i></a></li>
+                </ul>
+                <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <ul>
+            <li><a href="index.html">الرئيسية</a></li>
+            <li><a href="#services">خدماتنا</a></li>
+            <li><a href="portfolio.html">أعمالنا</a></li>
+            <li><a href="packages.html">العروض</a></li>
+            <li><a href="about.html">من نحن</a></li>
+            <li><a href="contact.html">تواصل الآن</a></li>
+            <li><a href="login.html">تسجيل الدخول</a></li>
+        </ul>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1><span>الفخامة بتوقيع</span> <span style="color: #00f2f5;">Decorator</span></h1>
+            <div class="hero-text-slider">
+                <div class="text-slide active">
+                    <p>تشطيب كامل للشقق والفلل والمحلات التجارية يشمل أعمال السباكة والكهرباء والأسقف والأرضيات والأبواب والنوافذ.</p>
+                </div>
+                <div class="text-slide">
+                    <p>نقدم خدمات التشطيب المتكاملة في جميع مناطق الفيوم والقاهرة وجميع محافظات مصر.</p>
+                </div>
+                <div class="text-slide">
+                    <p>نستخدم أفضل أنواع الخامات والمواد مع ضمان كامل على جميع أعمال التشطيب.</p>
+                </div>
+                <div class="text-slide">
+                    <p>أكثر من 10 سنوات من الخبرة في تشطيب الشقق وتركيب السيراميك.</p>
+                </div>
+                <div class="slider-dots">
+                    <span class="dot active"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
+            </div>
+            <div class="hero-buttons">
+                <a href="https://wa.me/01099797984?text=أود حجز معاينة مجانية" class="btn-primary" target="_blank">
+                    <i class="fab fa-whatsapp"></i> احجز معاينة عبر واتساب
+                </a>
+                <a href="portfolio.html" class="btn-secondary">
+                    <i class="fas fa-images"></i> شاهد أعمالنا
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Section -->
+    <section class="trust-section">
+        <div class="container">
+            <h2 class="section-title">لماذا تختار Decorator؟</h2>
+            <div class="trust-grid">
+                <div class="trust-item">
+                    <div class="trust-icon"><i class="fas fa-award"></i></div>
+                    <h3>خبرة في التشطيبات</h3>
+                    <p>أكثر من 10 سنوات في مجال تشطيب الشقق وتركيب السيراميك</p>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-icon"><i class="fas fa-gem"></i></div>
+                    <h3>خامات عالية الجودة</h3>
+                    <p>نستخدم أفضل أنواع السيراميك والمواد لضمان نتائج مثالية</p>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3>ضمان على التنفيذ</h3>
+                    <p>نقدم ضمان كامل على جميع أعمال التشطيب مع صيانة مجانية</p>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-icon"><i class="fas fa-clock"></i></div>
+                    <h3>الالتزام بالمواعيد</h3>
+                    <p>نسلم المشاريع في الوقت المحدد مع جودة تنفيذ عالية</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section" id="services">
+        <div class="container">
+            <h2 class="section-title">خدماتنا المتكاملة</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="IMG-20260207-WA0000.jpg" alt="تشطيب شقق">
+                    </div>
+                    <div class="service-content">
+                        <h3>تشطيب شقق كامل</h3>
+                        <p>تشطيب كامل للشقق والفلل يشمل الدهانات والأرضيات والأسقف والأبواب</p>
+                        <a href="https://wa.me/01099797984" class="service-btn">احجز معاينة مجانية</a>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="IMG-20260207-WA0001.jpg" alt="سيراميك">
+                    </div>
+                    <div class="service-content">
+                        <h3>تركيب سيراميك وبورسلين</h3>
+                        <p>تركيب سيراميك وبورسلين بأحدث التقنيات والتصاميم</p>
+                        <a href="https://wa.me/01099797984" class="service-btn">احجز معاينة مجانية</a>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="IMG-20260207-WA0002.jpg" alt="حمامات">
+                    </div>
+                    <div class="service-content">
+                        <h3>تشطيب حمامات ومطابخ</h3>
+                        <p>تصميم وتنفيذ حمامات ومطابخ حديثة بأفضل المواد</p>
+                        <a href="https://wa.me/01099797984" class="service-btn">احجز معاينة مجانية</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Preview -->
+    <section class="portfolio-section">
+        <div class="container">
+            <h2 class="section-title">أحدث أعمالنا</h2>
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <img src="IMG-20260207-WA0003.jpg" alt="مشروع">
+                    <div class="portfolio-overlay">
+                        <h4>تشطيب شقة فاخرة</h4>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="IMG-20260207-WA0004.jpg" alt="مشروع">
+                    <div class="portfolio-overlay">
+                        <h4>سيراميك حديث</h4>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="IMG-20260207-WA0005.jpg" alt="مشروع">
+                    <div class="portfolio-overlay">
+                        <h4>تجديد شقة</h4>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="IMG-20260207-WA0006.jpg" alt="مشروع">
+                    <div class="portfolio-overlay">
+                        <h4>حمامات عصرية</h4>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="IMG-20260207-WA0007.jpg" alt="مشروع">
+                    <div class="portfolio-overlay">
+                        <h4>مطبخ فاخر</h4>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="IMG-20260207-WA0009.jpg" alt="مشروع">
+                    <div class="portfolio-overlay">
+                        <h4>ديكور داخلي</h4>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 30px;">
+                <a href="portfolio.html" class="btn-secondary">شاهد جميع الأعمال</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>جاهز تشطب شقتك مع فريق محترف؟</h2>
+                <p>تواصل معنا الآن عبر واتساب</p>
+                <a href="https://wa.me/01099797984" class="btn-primary" target="_blank">
+                    <i class="fab fa-whatsapp"></i> تواصل معنا
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-logo">
+                    <img src="logo.jpg" alt="Decorator">
+                    <h3>Decorator</h3>
+                    <p>خبرة في تشطيب الشقق والسيراميك مع ضمان جودة التنفيذ</p>
+                </div>
+                <div class="footer-links-section">
+                    <h4>روابط سريعة</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">الرئيسية</a></li>
+                        <li><a href="portfolio.html">أعمالنا</a></li>
+                        <li><a href="packages.html">العروض</a></li>
+                        <li><a href="contact.html">تواصل معنا</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>تواصل معنا</h4>
+                    <div class="phone-card">
+                        <i class="fab fa-whatsapp"></i>
+                        <span class="phone-number">01099797984</span>
+                        <small>واتساب</small>
+                    </div>
+                    <div class="phone-card">
+                        <i class="fas fa-phone"></i>
+                        <span class="phone-number">01009094462</span>
+                        <small>هاتف</small>
+                    </div>
+                    <p style="margin-top: 15px;"><strong>الفيوم:</strong> دارماد - الشارع الجديد</p>
+                    <p><strong>القاهرة:</strong> شارع ابراهيم ناجى - مدينة نصر</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 Decorator – جميع الحقوق محفوظة</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float -->
+    <a href="https://wa.me/01099797984" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        // Toggle Mobile Menu
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('show');
+        }
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function(e) {
+            const menu = document.getElementById('mobileMenu');
+            const btn = document.querySelector('.mobile-menu-btn');
+            if (menu && btn && !menu.contains(e.target) && !btn.contains(e.target)) {
+                menu.classList.remove('show');
+            }
+        });
+
+        // Hero Text Slider
+            const slides = document.querySelectorAll('.text-slide');
+            const dots = document.querySelectorAll('.slider-dots .dot');
+            let currentSlide = 0;
+
+            function showSlide(index) {
+                slides.forEach((slide, i) => {
+                    slide.classList.remove('active');
+                    dots[i].classList.remove('active');
+                });
+                slides[index].classList.add('active');
+                dots[index].classList.add('active');
+            }
+
+            function nextSlide() {
+                currentSlide = (currentSlide + 1) % slides.length;
+                showSlide(currentSlide);
+            }
+
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    currentSlide = index;
+                    showSlide(currentSlide);
+                });
+            });
+
+            setInterval(nextSlide, 5000);
+        })();
+    </script>
+</body>
+</html>

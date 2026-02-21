@@ -1,4 +1,5 @@
 // Owner Dashboard JavaScript
+<<<<<<< HEAD
 
 // Initialize auth if not already done
 let auth;
@@ -17,6 +18,8 @@ document.addEventListener('DOMContentLoaded', function() {
     ownerDashboardManager = new OwnerDashboardManager();
 });
 
+=======
+>>>>>>> 401b863b7737cc5748f410a704da02683e9b3f59
 class OwnerDashboardManager {
     constructor() {
         this.auth = auth;

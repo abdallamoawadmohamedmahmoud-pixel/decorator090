@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>خطأ في الخادم | Decorator</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/enhancements.css">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+</head>
+<body>
+    <div class="error-page">
+        <div class="error-content">
+            <div class="scale-in">
+                <h1>500</h1>
+                <h2>عفواً، حدث خطأ ما</h2>
+                <p>نحن نواجه بعض المشاكل التقنية في الوقت الحالي.</p>
+                <p style="margin-top: 1rem;">نحن نعمل على إصلاح المشكلة. يرجى المحاولة مرة أخرى لاحقاً.</p>
+                
+                <div class="progress-bar" style="margin: 2rem 0;">
+                    <div class="progress-fill" id="progressBar" style="width: 0%;"></div>
+                </div>
+                
+                <div class="social-links">
+                    <a href="https://facebook.com/decorator" class="social-link" target="_blank" title="فيسبوك">
+                        <span>f</span>
+                    </a>
+                    <a href="https://instagram.com/decorator" class="social-link" target="_blank" title="انستغرام">
+                        <span>📷</span>
+                    </a>
+                    <a href="https://wa.me/01099797984" class="social-link" target="_blank" title="واتساب">
+                        <span>📱</span>
+                    </a>
+                </div>
+                
+                <div class="fade-in">
+                    <h3>ما يمكنك فعله:</h3>
+                    <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                        <a href="index.html" class="cta-button">
+                            🏠 العودة للرئيسية
+                        </a>
+                        <a href="javascript:location.reload()" class="cta-button" style="background: #ffc107; color: #212529;">
+                            🔄 إعادة المحاولة
+                        </a>
+                        <a href="contact.html" class="cta-button" style="background: #dc3545;">
+                            📞 إبلاغ عن المشكلة
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="slide-up">
+                    <h3>الحلول المقترحة:</h3>
+                    <ul style="text-align: right; max-width: 500px; margin: 0 auto; line-height: 2;">
+                        <li>تحديث الصحة والضغط على F5</li>
+                        <li>التحقق من اتصالك بالإنترنت</li>
+                        <li>محاولة استخدام متصفح آخر</li>
+                        <li>مسح ملفات الكوكيز والكاش</li>
+                        <li>المحاولة مرة أخرى بعد بضع دقائق</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Simulate loading/repair process
+        document.addEventListener('DOMContentLoaded', function() {
+            const progressBar = document.getElementById('progressBar');
+            let progress = 0;
+            
+            const interval = setInterval(() => {
+                progress += Math.random() * 15;
+                if (progress >= 100) {
+                    progress = 100;
+                    clearInterval(interval);
+                    
+                    setTimeout(() => {
+                        // Simulate auto-reload after "repair"
+                        if (confirm('تم إصلاح المشكلة! هل تريد إعادة تحميل الصفحة؟')) {
+                            window.location.reload();
+                        }
+                    }, 1000);
+                }
+                
+                if (progressBar) {
+                    progressBar.style.width = progress + '%';
+                }
+            }, 300);
+
+            // Add interactive elements
+            const socialLinks = document.querySelectorAll('.social-link');
+            socialLinks.forEach(link => {
+                link.addEventListener('mouseenter', function() {
+                    this.style.transform = 'scale(1.2) rotate(5deg)';
+                });
+                link.addEventListener('mouseleave', function() {
+                    this.style.transform = 'scale(1) rotate(0deg)';
+                });
+            });
+
+            // Add status animation
+            const errorPage = document.querySelector('.error-page');
+            document.addEventListener('mousemove', function(e) {
+                const x = e.clientX / window.innerWidth;
+                const y = e.clientY / window.innerHeight;
+                
+                if (errorPage) {
+                    errorPage.style.background = `
+                        linear-gradient(${135 + x * 10}deg, 
+                        var(--primary-dark), 
+                        #dc3545)
+                    `;
+                }
+            });
+
+            // Auto-reload countdown
+            let countdown = 30;
+            const countdownElement = document.createElement('div');
+            countdownElement.style.cssText = `
+                position: fixed;
+                top: 20px;
+                left: 20px;
+                background: var(--primary-dark);
+                color: white;
+                padding: 1rem;
+                border-radius: 10px;
+                font-family: monospace;
+                z-index: 10000;
+            `;
+            
+            document.body.appendChild(countdownElement);
+            
+            const countdownInterval = setInterval(() => {
+                countdown--;
+                countdownElement.textContent = `إعادة المحاولة خلال: ${countdown} ثانية`;
+                
+                if (countdown <= 0) {
+                    clearInterval(countdownInterval);
+                    countdownElement.remove();
+                    window.location.reload();
+                }
+            }, 1000);
+        });
+    </script>
+</body>
+</html>

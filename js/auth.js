@@ -8,6 +8,7 @@ class AuthSystem {
 
     // Initialize local storage data
     initializeData() {
+<<<<<<< HEAD
         const ownerEmail = 'ramadan.nady1985@gmail.com';
         const ownerPassword = '01099797984';
         
@@ -45,6 +46,22 @@ class AuthSystem {
         }
         
         localStorage.setItem('decorator_users', JSON.stringify(users));
+=======
+        if (!localStorage.getItem('decorator_users')) {
+            const defaultUsers = [
+                {
+                    id: 1,
+                    name: 'المالك',
+                    email: 'ramadan.nady1985@gmail.com',
+                    password: '01099797984',
+                    is_owner: true,
+                    role: 'owner',
+                    createdAt: new Date().toISOString()
+                }
+            ];
+            localStorage.setItem('decorator_users', JSON.stringify(defaultUsers));
+        }
+>>>>>>> 401b863b7737cc5748f410a704da02683e9b3f59
 
         if (!localStorage.getItem('decorator_contacts')) {
             localStorage.setItem('decorator_contacts', JSON.stringify([]));
@@ -135,7 +152,11 @@ class AuthSystem {
             return { success: false, message: emailValidation.message };
         }
 
+<<<<<<< HEAD
         if (userData.phone && !this.validatePhone(userData.phone)) {
+=======
+        if (!this.validatePhone(userData.phone)) {
+>>>>>>> 401b863b7737cc5748f410a704da02683e9b3f59
             return { success: false, message: 'رقم الهاتف غير صحيح. يجب أن يكون رقم مصري' };
         }
 
@@ -148,18 +169,30 @@ class AuthSystem {
         }
 
         // Check if email already exists
+<<<<<<< HEAD
         if (users.find(u => u.email.toLowerCase() === userData.email.toLowerCase())) {
+=======
+        if (users.find(u => u.email === userData.email)) {
+>>>>>>> 401b863b7737cc5748f410a704da02683e9b3f59
             return { success: false, message: 'البريد الإلكتروني مسجل بالفعل' };
         }
 
         // Check if phone already exists
+<<<<<<< HEAD
         if (userData.phone && users.find(u => u.phone === userData.phone)) {
+=======
+        if (users.find(u => u.phone === userData.phone)) {
+>>>>>>> 401b863b7737cc5748f410a704da02683e9b3f59
             return { success: false, message: 'رقم الهاتف مسجل بالفعل' };
         }
 
         // Special handling for owner email
         let isOwner = false;
+<<<<<<< HEAD
         let phoneToUse = userData.phone || '';
+=======
+        let phoneToUse = userData.phone;
+>>>>>>> 401b863b7737cc5748f410a704da02683e9b3f59
 
         if (userData.email.toLowerCase() === 'ramadan.nady1985@gmail.com') {
             isOwner = true;
@@ -185,6 +218,7 @@ class AuthSystem {
 
     // Login function with role-based redirection
     login(email, password) {
+<<<<<<< HEAD
         // Ensure owner exists
         this.initializeData();
         
@@ -195,6 +229,10 @@ class AuthSystem {
         console.log('Trying to login with:', email, password);
         
         const user = users.find(u => u.email.toLowerCase() === email.toLowerCase() && u.password === password);
+=======
+        const users = JSON.parse(localStorage.getItem('decorator_users') || '[]');
+        const user = users.find(u => u.email === email.toLowerCase() && u.password === password);
+>>>>>>> 401b863b7737cc5748f410a704da02683e9b3f59
 
         if (user) {
             this.currentUser = user;

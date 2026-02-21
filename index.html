@@ -1,118 +1,103 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Decorator – الفخامة بتوقيع Decorator | تشطيب شقق وتركيب سيراميك</title>
-    <meta name="description"
-        content="Decorator – شركة متخصصة في تشطيب الشقق وتركيب السيراميك والديكور في الفيوم والمسلة. الفخامة بتوقيع Decorator.">
-    <meta name="keywords" content="تشطيب شقق, تركيب سيراميك, ديكور, فيوم, مسلة, تشطيبات, أعمال بناء, تجديد شقق">
-
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <!-- CSS -->
+    <meta name="description" content="Decorator – شركة متخصصة في تشطيب الشقق وتركيب السيراميك والديكور في الفيوم والقاهرة.">
     <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ========== RESPONSIVE NAVIGATION ========== */
+        
+        /* Desktop: Show nav menu, hide hamburger */
+        @media only screen and (min-width: 901px) {
+            #mainNav,
+            ul#mainNav,
+            .nav-links#mainNav {
+                display: flex !important;
+                visibility: visible !important;
+            }
+            
+            .mobile-menu-btn {
+                display: none !important;
+            }
+        }
+        
+        /* Mobile: Hide nav menu, show hamburger */
+        @media only screen and (max-width: 900px) {
+            #mainNav,
+            ul#mainNav,
+            .nav-links#mainNav {
+                display: none !important;
+                visibility: hidden !important;
+            }
+            
+            .mobile-menu-btn {
+                display: block !important;
+                visibility: visible !important;
+            }
+        }
+    </style>
 </head>
-
 <body>
     <!-- Header -->
     <header class="header">
         <div class="container">
-            <nav class="nav">
+            <nav class="nav" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
                 <div class="logo">
                     <img src="logo.jpg" alt="Decorator Logo">
-                    <span style="color: #00f2f5; font-weight: bold;">Decorator</span>
+                    <span>Decorator</span>
                 </div>
-                
-                <ul class="nav-links">
-                    <li><a href="index.html" class="active" data-translate="nav_home">الرئيسية</a></li>
-                    <li><a href="#services" data-translate="nav_services">خدماتنا</a></li>
-                    <li><a href="portfolio.html" data-translate="nav_portfolio">أعمالنا</a></li>
+                <ul class="nav-links" id="mainNav">
+                    <li><a href="index.html" class="active">الرئيسية</a></li>
+                    <li><a href="#services">خدماتنا</a></li>
+                    <li><a href="portfolio.html">أعمالنا</a></li>
                     <li><a href="packages.html">العروض</a></li>
-                    <li><a href="about.html" data-translate="nav_about">من نحن</a></li>
-                    <li><a href="contact.html" class="nav-cta" data-translate="nav_contact">تواصل الآن</a></li>
+                    <li><a href="about.html">من نحن</a></li>
+                    <li><a href="contact.html" class="nav-cta">تواصل الآن</a></li>
+                    <li><a href="login.html" class="nav-login"><i class="fas fa-user"></i></a></li>
                 </ul>
-                
-                <div class="nav-actions">
-                    <a href="owner_dashboard.html" id="dashboardLink" class="dashboard-btn" style="display: none;">
-                        <i class="fas fa-tachometer-alt"></i>
-                        <span>لوحة التحكم</span>
-                    </a>
-                    <a href="login.html" id="loginLink" class="login-btn">
-                        <i class="fas fa-sign-in-alt"></i>
-                        <span>تسجيل الدخول</span>
-                    </a>
-                    <div id="userMenu" style="display: none;" class="user-menu">
-                        <a href="#" onclick="toggleUserMenu(event)" class="user-btn">
-                            <i class="fas fa-user-circle"></i>
-                            <span id="userNameDisplay">المستخدم</span>
-                        </a>
-                        <div class="user-dropdown" id="userDropdown">
-                            <div class="user-dropdown-header">
-                                <img src="" alt="Avatar" id="userAvatarImg">
-                                <div>
-                                    <h4 id="userNameHeader"></h4>
-                                    <p id="userEmailDisplay"></p>
-                                </div>
-                            </div>
-                            <a href="owner_dashboard.html" id="dashboardLinkDropdown" style="display: none;">
-                                <i class="fas fa-tachometer-alt"></i> لوحة التحكم
-                            </a>
-                            <a href="#" onclick="logoutUser()">
-                                <i class="fas fa-sign-out-alt"></i> تسجيل الخروج
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                
                 <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
                     <i class="fas fa-bars"></i>
                 </button>
             </nav>
-            
-            <!-- Mobile Menu -->
-            <div class="mobile-menu" id="mobileMenu">
-                <a href="index.html">الرئيسية</a>
-                <a href="#services">خدماتنا</a>
-                <a href="portfolio.html">أعمالنا</a>
-                <a href="packages.html">العروض</a>
-                <a href="about.html">من نحن</a>
-                <a href="contact.html">تواصل الآن</a>
-                <a href="owner_dashboard.html" id="mobileDashboardLink" style="display: none;">لوحة التحكم</a>
-                <a href="login.html" id="mobileLoginLink">تسجيل الدخول</a>
-            </div>
         </div>
     </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <ul>
+            <li><a href="index.html">الرئيسية</a></li>
+            <li><a href="#services">خدماتنا</a></li>
+            <li><a href="portfolio.html">أعمالنا</a></li>
+            <li><a href="packages.html">العروض</a></li>
+            <li><a href="about.html">من نحن</a></li>
+            <li><a href="contact.html">تواصل الآن</a></li>
+            <li><a href="login.html">تسجيل الدخول</a></li>
+        </ul>
+    </div>
 
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="hero-content">
-            <h1><span data-translate="hero_title">الفخامة بتوقيع</span> <span
-                    style="color: #00f2f5; font-weight: bold; text-shadow: 0 0 30px rgba(0, 242, 245, 0.3);">Decorator</span>
-            </h1>
+            <h1><span>الفخامة بتوقيع</span> <span style="color: #00f2f5;">Decorator</span></h1>
             <div class="hero-text-slider">
                 <div class="text-slide active">
-                    <p>تشطيب كامل للشقق والفلل والمحلات التجارية يشمل أعمال السباكة والكهرباء والأسقف والأرضيات والأبواب والنوافذ وأعمال الدهانات والديكور الداخلي والخارجي.</p>
+                    <p>تشطيب كامل للشقق والفلل والمحلات التجارية يشمل أعمال السباكة والكهرباء والأسقف والأرضيات والأبواب والنوافذ.</p>
                 </div>
                 <div class="text-slide">
-                    <p>نقدم خدمات التشطيب المتكاملة في جميع مناطق الفيوم والقاهرة وجميع محافظات مصر. فريقنا جاهز لتلبية جميع احتياجاتكم في أي وقت.</p>
+                    <p>نقدم خدمات التشطيب المتكاملة في جميع مناطق الفيوم والقاهرة وجميع محافظات مصر.</p>
                 </div>
                 <div class="text-slide">
-                    <p>نستخدم أفضل أنواع الخامات والمواد مع ضمان كامل على جميع أعمال التشطيب وصيانة مجانية بعد التسليم.</p>
+                    <p>نستخدم أفضل أنواع الخامات والمواد مع ضمان كامل على جميع أعمال التشطيب.</p>
                 </div>
                 <div class="text-slide">
-                    <p>أكثر من 10 سنوات من الخبرة في تشطيب الشقق وتركيب السيراميك. نلتزم بالمواعيد ونسلم المشاريع بأعلى جودة.</p>
-                </div>
-                <div class="text-slide">
-                    <p>احصل على معاينة مجانية وتقييم شامل لمشروعك. تواصل معنا الآن عبر الواتساب أو زورنا في فرعنا بالفيوم أو القاهرة.</p>
+                    <p>أكثر من 10 سنوات من الخبرة في تشطيب الشقق وتركيب السيراميك.</p>
                 </div>
                 <div class="slider-dots">
                     <span class="dot active"></span>
-                    <span class="dot"></span>
                     <span class="dot"></span>
                     <span class="dot"></span>
                     <span class="dot"></span>
@@ -120,60 +105,39 @@
             </div>
             <div class="hero-buttons">
                 <a href="https://wa.me/01099797984?text=أود حجز معاينة مجانية" class="btn-primary" target="_blank">
-                    <i class="fab fa-whatsapp"></i>
-                    <span data-translate="btn_whatsapp">احجز معاينة عبر واتساب</span>
+                    <i class="fab fa-whatsapp"></i> احجز معاينة عبر واتساب
                 </a>
                 <a href="portfolio.html" class="btn-secondary">
-                    <i class="fas fa-images"></i>
-                    <span data-translate="btn_portfolio">شاهد أعمالنا</span>
+                    <i class="fas fa-images"></i> شاهد أعمالنا
                 </a>
             </div>
-        </div>
-    </section>
-
-    <!-- Banner Section -->
-    <section class="banner-section" style="padding: 40px 0; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); text-align: center;">
-        <div class="container">
-            <img src="banner.jpg" alt="Banner" style="max-width: 100%; height: auto; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
         </div>
     </section>
 
     <!-- Trust Section -->
     <section class="trust-section">
         <div class="container">
-            <h2 class="section-title text-center">لماذا تختار Decorator؟</h2>
+            <h2 class="section-title">لماذا تختار Decorator؟</h2>
             <div class="trust-grid">
                 <div class="trust-item">
-                    <div class="trust-icon">
-                        <img src="IMG-20260207-WA0007.jpg" alt="خبرة في التشطيبات"
-                            style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
-                    </div>
-                    <h3>خبرة طويلة في التشطيبات</h3>
-                    <p>أكثر من 10 سنوات في مجال تشطيب الشقق وتركيب السيراميك بالفيوم والمسلة</p>
+                    <div class="trust-icon"><i class="fas fa-award"></i></div>
+                    <h3>خبرة في التشطيبات</h3>
+                    <p>أكثر من 10 سنوات في مجال تشطيب الشقق وتركيب السيراميك</p>
                 </div>
                 <div class="trust-item">
-                    <div class="trust-icon">
-                        <img src="IMG-20260207-WA0009.jpg" alt="خامات عالية الجودة"
-                            style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
-                    </div>
+                    <div class="trust-icon"><i class="fas fa-gem"></i></div>
                     <h3>خامات عالية الجودة</h3>
-                    <p>نستخدم أفضل أنواع السيراميك والمواد لضمان نتائج مثالية تدوم طويلاً</p>
+                    <p>نستخدم أفضل أنواع السيراميك والمواد لضمان نتائج مثالية</p>
                 </div>
                 <div class="trust-item">
-                    <div class="trust-icon">
-                        <img src="IMG-20260207-WA0010.jpg" alt="ضمان على التنفيذ"
-                            style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
-                    </div>
+                    <div class="trust-icon"><i class="fas fa-shield-alt"></i></div>
                     <h3>ضمان على التنفيذ</h3>
-                    <p>نقدم ضمان كامل على جميع أعمال التشطيب مع صيانة مجانية بعد التسليم</p>
+                    <p>نقدم ضمان كامل على جميع أعمال التشطيب مع صيانة مجانية</p>
                 </div>
                 <div class="trust-item">
-                    <div class="trust-icon">
-                        <img src="IMG-20260207-WA0013.jpg" alt="الالتزام بالمواعيد"
-                            style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
-                    </div>
+                    <div class="trust-icon"><i class="fas fa-clock"></i></div>
                     <h3>الالتزام بالمواعيد</h3>
-                    <p>نسلم المشاريع في الوقت المحدد مع جودة تنفيذ عالية واحترافية</p>
+                    <p>نسلم المشاريع في الوقت المحدد مع جودة تنفيذ عالية</p>
                 </div>
             </div>
         </div>
@@ -182,397 +146,168 @@
     <!-- Services Section -->
     <section class="services-section" id="services">
         <div class="container">
-            <h2 class="section-title text-center">خدماتنا المتكاملة</h2>
+            <h2 class="section-title">خدماتنا المتكاملة</h2>
             <div class="services-grid">
                 <div class="service-card">
                     <div class="service-image">
-                        <img src="IMG-20260207-WA0005.jpg" alt="تشطيب شقق">
+                        <img src="IMG-20260207-WA0000.jpg" alt="تشطيب شقق">
                     </div>
                     <div class="service-content">
                         <h3>تشطيب شقق كامل</h3>
-                        <p>تشطيب كامل للشقق والفلل يشمل الدهانات والأرضيات والأسقف والأبواب والنوافذ</p>
-                        <a href="https://wa.me/01099797984?text=أود الاستفسار عن تشطيب شقق كامل" class="service-btn"
-                            target="_blank">
-                            احجز معاينة مجانية
-                        </a>
+                        <p>تشطيب كامل للشقق والفلل يشمل الدهانات والأرضيات والأسقف والأبواب</p>
+                        <a href="https://wa.me/01099797984" class="service-btn">احجز معاينة مجانية</a>
                     </div>
                 </div>
-
                 <div class="service-card">
                     <div class="service-image">
-                        <img src="IMG-20260207-WA0031.jpg" alt="تركيب سيراميك">
+                        <img src="IMG-20260207-WA0001.jpg" alt="سيراميك">
                     </div>
                     <div class="service-content">
                         <h3>تركيب سيراميك وبورسلين</h3>
-                        <p>تركيب سيراميك وبورسلين بأحدث التقنيات والتصاميم لجميع أنواع الغرف</p>
-                        <a href="https://wa.me/01099797984?text=أود الاستفسار عن تركيب سيراميك" class="service-btn"
-                            target="_blank">
-                            احجز معاينة مجانية
-                        </a>
+                        <p>تركيب سيراميك وبورسلين بأحدث التقنيات والتصاميم</p>
+                        <a href="https://wa.me/01099797984" class="service-btn">احجز معاينة مجانية</a>
                     </div>
                 </div>
-
                 <div class="service-card">
                     <div class="service-image">
-                        <img src="IMG-20260207-WA0103.jpg" alt="تشطيب حمامات ومطابخ">
+                        <img src="IMG-20260207-WA0002.jpg" alt="حمامات">
                     </div>
                     <div class="service-content">
                         <h3>تشطيب حمامات ومطابخ</h3>
-                        <p>تصميم وتنفيذ حمامات ومطابخ حديثة بأفضل المواد وأحدث التصاميم</p>
-                        <a href="https://wa.me/01099797984?text=أود الاستفسار عن تشطيب حمامات ومطابخ"
-                            class="service-btn" target="_blank">
-                            احجز معاينة مجانية
-                        </a>
-                    </div>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-image">
-                        <img src="IMG-20260207-WA0034.jpg" alt="تجديد شقق">
-                    </div>
-                    <div class="service-content">
-                        <h3>تجديد وتطوير الشقق</h3>
-                        <p>تحويل الشقق القديمة إلى مساكن عصرية بأفكار تصميمية مبتكرة</p>
-                        <a href="https://wa.me/01099797984?text=أود الاستفسار عن تجديد وتطوير الشقق" class="service-btn"
-                            target="_blank">
-                            احجز معاينة مجانية
-                        </a>
+                        <p>تصميم وتنفيذ حمامات ومطابخ حديثة بأفضل المواد</p>
+                        <a href="https://wa.me/01099797984" class="service-btn">احجز معاينة مجانية</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Mini Portfolio -->
+    <!-- Portfolio Preview -->
     <section class="portfolio-section">
         <div class="container">
-            <h2 class="section-title text-center">أحدث أعمالنا</h2>
-            <div class="portfolio-grid" id="index-portfolio-grid">
-                <!-- المشاريع ستضاف هنا تلقائياً من لوحة التحكم -->
-                <div class="portfolio-item" onclick="window.location.href='portfolio.html'">
-                    <img src="IMG-20260207-WA0002.jpg" alt="مشروع 3">
+            <h2 class="section-title">أحدث أعمالنا</h2>
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <img src="IMG-20260207-WA0003.jpg" alt="مشروع">
                     <div class="portfolio-overlay">
-                        <h4>تجديد شقة كامل</h4>
-                        <p>الفيوم - 200 متر</p>
+                        <h4>تشطيب شقة فاخرة</h4>
                     </div>
                 </div>
-                <div class="portfolio-item" onclick="window.location.href='portfolio.html'">
-                    <img src="IMG-20260207-WA0003.jpg" alt="مشروع 4">
+                <div class="portfolio-item">
+                    <img src="IMG-20260207-WA0004.jpg" alt="مشروع">
+                    <div class="portfolio-overlay">
+                        <h4>سيراميك حديث</h4>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="IMG-20260207-WA0005.jpg" alt="مشروع">
+                    <div class="portfolio-overlay">
+                        <h4>تجديد شقة</h4>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="IMG-20260207-WA0006.jpg" alt="مشروع">
                     <div class="portfolio-overlay">
                         <h4>حمامات عصرية</h4>
-                        <p>المسلة - تصميم حديث</p>
                     </div>
                 </div>
-                <div class="portfolio-item" onclick="window.location.href='portfolio.html'">
-                    <img src="IMG-20260207-WA0004.jpg" alt="مشروع 5">
+                <div class="portfolio-item">
+                    <img src="IMG-20260207-WA0007.jpg" alt="مشروع">
                     <div class="portfolio-overlay">
                         <h4>مطبخ فاخر</h4>
-                        <p>الفيوم - تصميم إيطالي</p>
                     </div>
                 </div>
-                <div class="portfolio-item" onclick="window.location.href='portfolio.html'">
-                    <img src="IMG-20260207-WA0006.jpg" alt="مشروع 6">
+                <div class="portfolio-item">
+                    <img src="IMG-20260207-WA0009.jpg" alt="مشروع">
                     <div class="portfolio-overlay">
-                        <h4>ديكور داخلي متكامل</h4>
-                        <p>الفيوم - شقة عصرية</p>
+                        <h4>ديكور داخلي</h4>
                     </div>
                 </div>
             </div>
-            <div style="text-align: center; margin-top: 3rem;">
-                <a href="portfolio.html" class="btn-secondary"
-                    style="padding: 1rem 2.5rem; font-size: 1.1rem; border: 2px solid var(--turquoise); color: var(--turquoise); background: transparent;">
-                    شاهد جميع الأعمال
-                    <i class="fas fa-arrow-left"></i>
-                </a>
+            <div style="text-align: center; margin-top: 30px;">
+                <a href="portfolio.html" class="btn-secondary">شاهد جميع الأعمال</a>
             </div>
-        </div>
-    </section>
-
-    <!-- Coverage Section -->
-    <section class="coverage-section">
-        <div class="container">
-            <h2>نطاق عملنا</h2>
-            <p>نقدم خدمات التشطيب وتركيب السيراميك في جميع مناطق الفيوم وخاصة المسلة والمناطق المجاورة. فريقنا جاهز
-                لتلبية جميع احتياجاتكم في أي وقت.</p>
         </div>
     </section>
 
     <!-- CTA Section -->
     <section class="cta-section">
-        <div class="cta-content">
-            <h2>جاهز تشطب شقتك مع فريق محترف؟</h2>
-            <a href="https://wa.me/01099797984?text=جاهز لبدء مشروع تشطيب شقتي" class="cta-btn" target="_blank">
-                <i class="fab fa-whatsapp"></i>
-                تواصل معنا الآن عبر واتساب
-            </a>
+        <div class="container">
+            <div class="cta-content">
+                <h2>جاهز تشطب شقتك مع فريق محترف؟</h2>
+                <p>تواصل معنا الآن عبر واتساب</p>
+                <a href="https://wa.me/01099797984" class="btn-primary" target="_blank">
+                    <i class="fab fa-whatsapp"></i> تواصل معنا
+                </a>
+            </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-content">
+            <div class="footer-grid">
                 <div class="footer-logo">
-                    <img src="logo.jpg" alt="Decorator Logo">
+                    <img src="logo.jpg" alt="Decorator">
                     <h3>Decorator</h3>
-                    <p>خبرة في تشطيب الشقق والسيراميك مع ضمان جودة التنفيذ. نقدم خدمات متكاملة بتوقيع <span
-                            style="color: #00f2f5; font-weight: 600;">Decorator</span>.</p>
+                    <p>خبرة في تشطيب الشقق والسيراميك مع ضمان جودة التنفيذ</p>
                 </div>
-                <div class="footer-links">
+                <div class="footer-links-section">
                     <h4>روابط سريعة</h4>
-                    <ul>
-                        <li><a href="index.html"><i class="fas fa-home"></i> الرئيسية</a></li>
-                        <li><a href="services.html"><i class="fas fa-tools"></i> خدماتنا</a></li>
-                        <li><a href="portfolio.html"><i class="fas fa-images"></i> أعمالنا</a></li>
-                        <li><a href="packages.html"><i class="fas fa-gift"></i> العروض</a></li>
-                        <li><a href="about.html"><i class="fas fa-users"></i> من نحن</a></li>
-                        <li><a href="contact.html"><i class="fas fa-envelope"></i> تواصل معنا</a></li>
+                    <ul class="footer-links">
+                        <li><a href="index.html">الرئيسية</a></li>
+                        <li><a href="portfolio.html">أعمالنا</a></li>
+                        <li><a href="packages.html">العروض</a></li>
+                        <li><a href="contact.html">تواصل معنا</a></li>
                     </ul>
-                    <div class="login-link-item">
-                        <a href="login.html"><i class="fas fa-sign-in-alt"></i> تسجيل الدخول</a>
-                    </div>
                 </div>
                 <div class="footer-contact">
-                    <h4>العناوين الرسمية</h4>
-                    
-                    <!-- رقم الواتساب -->
-                    <div class="phone-card whatsapp">
-                        <div class="phone-icon">
-                            <i class="fab fa-whatsapp"></i>
-                        </div>
-                        <div class="phone-info">
-                            <div class="phone-number">01099797984</div>
-                            <div class="phone-label">واتساب - للتواصل السريع</div>
-                        </div>
-                    </div>
-                    
-                    <!-- رقم الهاتف -->
+                    <h4>تواصل معنا</h4>
                     <div class="phone-card">
-                        <div class="phone-icon">
-                            <i class="fas fa-phone"></i>
-                        </div>
-                        <div class="phone-info">
-                            <div class="phone-number">01009094462</div>
-                            <div class="phone-label">هاتف - للاستفسارات</div>
-                        </div>
+                        <i class="fab fa-whatsapp"></i>
+                        <span class="phone-number">01099797984</span>
+                        <small>واتساب</small>
                     </div>
-                    
-                    <p style="margin-top: 15px; font-weight: bold; color: #00f2f5;"><i class="fas fa-map-marker-alt"></i> الفيوم:</p>
-                    <p>دارماد - الشارع الجديد خلف فيلا المحافظ بجوار كافيه تايم اوت</p>
-                    <p style="margin-top: 10px; font-weight: bold; color: #00f2f5;"><i class="fas fa-map-marker-alt"></i> القاهرة:</p>
-                    <p>عماره20 - شارع ابراهيم ناجى - المنطقه العاشره - مدينهصر</p>
-                                <i class="fas fa-map-marker-alt" style="color: #00f2f5; width: 20px;"></i>
-                                <span>القاهرة: عماره20 _ شارع ابراهيم ناجى المنطقه العاشره _ مدينهصر</span>
-                            </a>
-                        </p>
+                    <div class="phone-card">
+                        <i class="fas fa-phone"></i>
+                        <span class="phone-number">01009094462</span>
+                        <small>هاتف</small>
                     </div>
-                    <div class="social-links">
-                        <a href="https://wa.me/01099797984?text=مرحباً، أود الاستفسار عن خدمات تشطيب الشقق"
-                            class="social-link whatsapp" target="_blank">
-                            <i class="fab fa-whatsapp"></i>
-                        </a>
-                        <a href="https://www.facebook.com/share/18Cp86beK/" class="social-link facebook" target="_blank"
-                            rel="noopener noreferrer">
-                            <i class="fab fa-facebook"></i>
-                        </a>
-                        <a href="https://x.com/decoratorfayoum" class="social-link x" target="_blank">
-                            <i class="fab fa-x-twitter"></i>
-                        </a>
-                        <a href="https://www.instagram.com/decorator.fayoum" class="social-link instagram"
-                            target="_blank">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                    </div>
+                    <p style="margin-top: 15px;"><strong>الفيوم:</strong> دارماد - الشارع الجديد</p>
+                    <p><strong>القاهرة:</strong> شارع ابراهيم ناجى - مدينة نصر</p>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; <span class="current-year">2026</span> Decorator – From Door To Full Decor. جميع الحقوق
-                    محفوظة.</p>
+                <p>© 2026 Decorator – جميع الحقوق محفوظة</p>
             </div>
         </div>
     </footer>
 
-    <!-- WhatsApp Floating Button -->
-    <a href="https://wa.me/01099797984?text=مرحباً، أود الاستفسار عن خدمات تشطيب الشقق" class="whatsapp-float"
-        target="_blank">
+    <!-- WhatsApp Float -->
+    <a href="https://wa.me/01099797984" class="whatsapp-float" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <!-- JavaScript -->
-    <script src="js/script.js"></script>
-
     <script>
-        // Language translations
-        const translations = {
-            ar: {
-                nav_home: 'الرئيسية',
-                nav_services: 'خدماتنا',
-                nav_portfolio: 'أعمالنا',
-                nav_about: 'من نحن',
-                nav_contact: 'تواصل الآن',
-                hero_title: 'الفخامة بتوقيع',
-                hero_subtitle: 'تشطيب كامل للشقق والفلل والمحلات التجارية يشمل أعمال السباكة والكهرباء والأسقف والأرضيات والأبواب والنوافذ وأعمال الدهانات والديكور الداخلي والخارجي. نقدم خدمات التشطيب المتكاملة في جميع مناطق الفيوم والقاهرة وجميع محافظات مصر. فريقنا جاهز لتلبية جميع احتياجاتكم في أي وقت.',
-                hero_subtitle_en: 'Full finishing for apartments, villas, and commercial shops including plumbing, electrical, ceilings, flooring, doors, windows, interior and exterior painting and decoration. We provide integrated finishing services in all areas of Fayoum, Cairo, and all Egyptian governorates. Our team is ready to meet all your needs at any time.',
-                btn_whatsapp: 'احجز معاينة عبر واتساب',
-                btn_portfolio: 'شاهد أعمالنا',
-                why_decorator: 'لماذا تختار Decorator؟',
-                trust_1_title: 'خبرة طويلة في التشطيبات',
-                trust_1_desc: 'أكثر من 10 سنوات في مجال تشطيب الشقق وتركيب السيراميك بالفيوم والمسلة',
-                trust_2_title: 'خامات عالية الجودة',
-                trust_2_desc: 'نستخدم أفضل أنواع السيراميك والمواد لضمان نتائج مثالية تدوم طويلاً',
-                trust_3_title: 'ضمان على التنفيذ',
-                trust_3_desc: 'نقدم ضمان كامل على جميع أعمال التشطيب مع صيانة مجانية بعد التسليم',
-                trust_4_title: 'الالتزام بالمواعيد',
-                trust_4_desc: 'نسلم المشاريع في الوقت المحدد مع جودة تنفيذ عالية واحترافية',
-                services_title: 'خدماتنا المتكاملة',
-                service_1_title: 'تشطيب شقق كامل',
-                service_1_desc: 'تشطيب كامل للشقق والفلل يشمل الدهانات والأرضيات والأسقف والأبواب والنوافذ',
-                service_2_title: 'تركيب سيراميك وبورسلين',
-                service_2_desc: 'تركيب سيراميك وبورسلين بأحدث التقنيات والتصاميم لجميع أنواع الغرف',
-                service_3_title: 'تشطيب حمامات ومطابخ',
-                service_3_desc: 'تصميم وتنفيذ حمامات ومطابخ حديثة بأفضل المواد وأحدث التصاميم',
-                service_4_title: 'تجديد وتطوير الشقق',
-                service_4_desc: 'تحويل الشقق القديمة إلى مساكن عصرية بأفكار تصميمية مبتكرة',
-                btn_order: 'احجز معاينة مجانية',
-                recent_works: 'أحدث أعمالنا',
-                project_1_title: 'تشطيب شقة فاخرة',
-                project_1_desc: 'فيوم - 150 متر',
-                project_2_title: 'سيراميك حديث',
-                project_2_desc: 'المسلة - فيلا',
-                project_3_title: 'تجديد شقة كامل',
-                project_3_desc: 'الفيوم - 200 متر',
-                project_4_title: 'حمامات عصرية',
-                project_4_desc: 'المسلة - تصميم حديث',
-                project_5_title: 'مطبخ فاخر',
-                project_5_desc: 'الفيوم - تصميم إيطالي',
-                project_6_title: 'ديكور داخلي متكامل',
-                project_6_desc: 'الفيوم - شقة عصرية',
-                btn_view_all: 'شاهد جميع الأعمال',
-                coverage_title: 'نطاق عملنا',
-                coverage_desc: 'نقدم خدمات التشطيب وتركيب السيراميك في جميع مناطق الفيوم وخاصة المسلة والمناطق المجاورة. فريقنا جاهز لتلبية جميع احتياجاتكم في أي وقت.',
-                cta_title: 'جاهز تشطب شقتك مع فريق محترف؟',
-                cta_btn: 'تواصل معنا الآن عبر واتساب',
-                footer_desc: 'خبرة في تشطيب الشقق والسيراميك مع ضمان جودة التنفيذ. نقدم خدمات متكاملة بتوقيع Decorator.',
-                footer_quick_links: 'روابط سريعة',
-                footer_contact: 'تواصل معنا',
-                footer_rights: 'جميع الحقوق محفوظة.'
-            },
-            en: {
-                nav_home: 'Home',
-                nav_services: 'Services',
-                nav_portfolio: 'Portfolio',
-                nav_about: 'About',
-                nav_contact: 'Contact',
-                hero_title: 'Luxury by',
-                hero_subtitle: 'Full finishing for apartments, villas, and commercial shops including plumbing, electrical, ceilings, flooring, doors, windows, interior and exterior painting and decoration. We provide integrated finishing services in all areas of Fayoum, Cairo, and all Egyptian governorates. Our team is ready to meet all your needs at any time.',
-                hero_subtitle_en: 'تشطيب كامل للشقق والفلل والمحلات التجارية يشمل أعمال السباكة والكهرباء والأسقف والأرضيات والأبواب والنوافذ وأعمال الدهانات والديكور الداخلي والخارجي. نقدم خدمات التشطيب المتكاملة في جميع مناطق الفيوم والقاهرة وجميع محافظات مصر. فريقنا جاهز لتلبية جميع احتياجاتكم في أي وقت.',
-                btn_whatsapp: 'Book Free Inspection via WhatsApp',
-                btn_portfolio: 'View Our Works',
-                why_decorator: 'Why Choose Decorator?',
-                trust_1_title: 'Long Experience in Finishing',
-                trust_1_desc: 'More than 10 years in apartment finishing and ceramic installation in Fayoum and El-Mansha',
-                trust_2_title: 'High Quality Materials',
-                trust_2_desc: 'We use the best types of ceramic and materials to ensure perfect long-lasting results',
-                trust_3_title: 'Execution Guarantee',
-                trust_3_desc: 'We provide full guarantee on all finishing works with free maintenance after delivery',
-                trust_4_title: 'Commitment to Deadlines',
-                trust_4_desc: 'We deliver projects on time with high execution quality and professionalism',
-                services_title: 'Our Integrated Services',
-                service_1_title: 'Complete Apartment Finishing',
-                service_1_desc: 'Complete finishing for apartments and villas including paints, floors, ceilings, doors and windows',
-                service_2_title: 'Ceramic and Porcelain Installation',
-                service_2_desc: 'Installation of ceramic and porcelain with latest technologies and designs for all room types',
-                service_3_title: 'Bathroom and Kitchen Finishing',
-                service_3_desc: 'Design and implementation of modern bathrooms and kitchens with best materials and latest designs',
-                service_4_title: 'Apartment Renovation',
-                service_4_desc: 'Transforming old apartments into modern residences with innovative design ideas',
-                btn_order: 'Order Service',
-                recent_works: 'Our Recent Works',
-                project_1_title: 'Luxury Apartment Finishing',
-                project_1_desc: 'Fayoum - 150 sqm',
-                project_2_title: 'Modern Ceramic',
-                project_2_desc: 'El-Mansha - Villa',
-                project_3_title: 'Complete Apartment Renovation',
-                project_3_desc: 'Fayoum - 200 sqm',
-                project_4_title: 'Modern Bathrooms',
-                project_4_desc: 'El-Mansha - Modern Design',
-                project_5_title: 'Luxury Kitchen',
-                project_5_desc: 'Fayoum - Italian Design',
-                project_6_title: 'Integrated Interior Decor',
-                project_6_desc: 'Fayoum - Modern Apartment',
-                btn_view_all: 'View All Works',
-                coverage_title: 'Our Coverage',
-                coverage_desc: 'We provide finishing and ceramic installation services in all areas of Fayoum, especially El-Mansha and surrounding areas. Our team is ready to meet all your needs at any time.',
-                cta_title: 'Ready to finish your apartment with a professional team?',
-                cta_btn: 'Contact us now via WhatsApp',
-                footer_desc: 'Expert in apartment finishing and ceramics with execution quality guarantee. We provide integrated services by Decorator.',
-                footer_quick_links: 'Quick Links',
-                footer_contact: 'Contact Us',
-                footer_rights: 'All rights reserved.'
-            }
-        };
-
-        let currentLanguage = 'ar';
-
-        function toggleLanguage() {
-            const dropdown = document.getElementById('language-dropdown');
-            dropdown.classList.toggle('show');
+        // Toggle Mobile Menu
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('show');
         }
 
-        function changeLanguage(lang) {
-            currentLanguage = lang;
-            updateLanguage(lang);
-            document.getElementById('current-lang').textContent = lang === 'ar' ? 'العربية' : 'English';
-
-            // Update active state
-            document.querySelectorAll('.lang-option').forEach(option => {
-                option.classList.remove('active');
-            });
-            document.querySelector(`[data-lang="${lang}"]`).classList.add('active');
-
-            // Close dropdown
-            document.getElementById('language-dropdown').classList.remove('show');
-
-            // Save language preference
-            localStorage.setItem('preferredLanguage', lang);
-
-            // Update page direction
-            document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
-            document.documentElement.lang = lang;
-        }
-
-        function updateLanguage(lang) {
-            const elements = document.querySelectorAll('[data-translate]');
-            elements.forEach(element => {
-                const key = element.getAttribute('data-translate');
-                if (translations[lang][key]) {
-                    element.textContent = translations[lang][key];
-                }
-            });
-        }
-
-        // Close dropdown when clicking outside
-        document.addEventListener('click', function (event) {
-            const selector = document.querySelector('.language-selector');
-            if (!selector.contains(event.target)) {
-                document.getElementById('language-dropdown').classList.remove('show');
-            }
-        });
-
-        // Load saved language preference
-        document.addEventListener('DOMContentLoaded', function () {
-            const savedLang = localStorage.getItem('preferredLanguage') || 'ar';
-            if (savedLang !== 'ar') {
-                changeLanguage(savedLang);
+        // Close menu when clicking outside
+        document.addEventListener('click', function(e) {
+            const menu = document.getElementById('mobileMenu');
+            const btn = document.querySelector('.mobile-menu-btn');
+            if (menu && btn && !menu.contains(e.target) && !btn.contains(e.target)) {
+                menu.classList.remove('show');
             }
         });
 
         // Hero Text Slider
-        (function() {
             const slides = document.querySelectorAll('.text-slide');
             const dots = document.querySelectorAll('.slider-dots .dot');
             let currentSlide = 0;
-            let slideInterval;
 
             function showSlide(index) {
                 slides.forEach((slide, i) => {
@@ -588,152 +323,15 @@
                 showSlide(currentSlide);
             }
 
-            function startSlider() {
-                slideInterval = setInterval(nextSlide, 5000);
-            }
-
             dots.forEach((dot, index) => {
                 dot.addEventListener('click', () => {
                     currentSlide = index;
                     showSlide(currentSlide);
-                    clearInterval(slideInterval);
-                    startSlider();
                 });
             });
 
-            startSlider();
-        })();
-    </script>
-    <!-- ربط الموقع بالـ CMS: تحميل المحتوى والمشاريع -->
-    <script>
-        (function () {
-            var API = window.location.origin || '';
-            var defaultSubtitle = 'خبرة في تشطيب الشقق وتركيب السيراميك بمصر وكل محافظات مصر.';
-            var placeholderImg = 'IMG-20260207-WA0000.jpg';
-
-            function loadContent() {
-                // Content is already loaded statically
-            }
-
-            function loadProjects() {
-                var grid = document.getElementById('index-portfolio-grid');
-                if (!grid) return;
-                
-                // Load from localStorage only (owner dashboard projects)
-                var localProjects = [];
-                try {
-                    var stored = localStorage.getItem('decorator_projects');
-                    if (stored) {
-                        localProjects = JSON.parse(stored);
-                    }
-                } catch(e) {}
-
-                var placeholderImg = 'IMG-20260207-WA0000.jpg';
-
-                function renderProjects(projects) {
-                    if (!Array.isArray(projects) || projects.length === 0) return;
-                    var max = 6;
-                    var html = '';
-                    for (var i = 0; i < Math.min(projects.length, max); i++) {
-                        var p = projects[i];
-                        var name = p.name || 'مشروع';
-                        var loc = p.service || p.type || '';
-                        var imgSrc = (p.images && p.images.length > 0) ? p.images[0] : (p.imageUrl || placeholderImg);
-                        html += '<div class="portfolio-item" onclick="window.location.href=\'portfolio.html\'">' +
-                            '<img src="' + imgSrc + '" alt="' + name + '">' +
-                            '<div class="portfolio-overlay"><h4>' + name + '</h4><p>' + (p.service || p.type || '') + '</p></div></div>';
-                    }
-                    grid.innerHTML = html;
-                }
-
-                // Render local projects
-                if (localProjects.length > 0) {
-                    renderProjects(localProjects);
-                }
-            }
-
-            if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', function () { loadContent(); loadProjects(); });
-            else { loadContent(); loadProjects(); }
-        })();
-    </script>
-    <!-- User Authentication Check -->
-    <script src="js/auth.js"></script>
-    <script>
-        // Mobile menu toggle
-        function toggleMobileMenu() {
-            const menu = document.getElementById('mobileMenu');
-            menu.classList.toggle('show');
-        }
-
-        // User authentication
-        (function() {
-            const token = localStorage.getItem('decorator_token');
-            const userStr = localStorage.getItem('decorator_current_user');
-            
-            if (token && userStr) {
-                try {
-                    const user = JSON.parse(userStr);
-                    
-                    // Hide login button, show user menu
-                    const loginLink = document.getElementById('loginLink');
-                    const userMenu = document.getElementById('userMenu');
-                    const mobileLoginLink = document.getElementById('mobileLoginLink');
-                    
-                    if (loginLink) loginLink.style.display = 'none';
-                    if (userMenu) userMenu.style.display = 'block';
-                    if (mobileLoginLink) mobileLoginLink.style.display = 'none';
-                    
-                    // Update user info
-                    const userNameDisplay = document.getElementById('userNameDisplay');
-                    const userNameHeader = document.getElementById('userNameHeader');
-                    const userEmailDisplay = document.getElementById('userEmailDisplay');
-                    const userAvatarImg = document.getElementById('userAvatarImg');
-                    
-                    const defaultAvatar = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='35' r='25' fill='%23666'/%3E%3Ccircle cx='50' cy='100' r='50' fill='%23666'/%3E%3C/svg%3E";
-                    const avatar = user.avatar || defaultAvatar;
-                    
-                    if (userNameDisplay) userNameDisplay.textContent = user.name || 'المستخدم';
-                    if (userNameHeader) userNameHeader.textContent = user.name || 'المستخدم';
-                    if (userEmailDisplay) userEmailDisplay.textContent = user.email || '';
-                    if (userAvatarImg) userAvatarImg.src = avatar;
-                    
-                    // Show dashboard link for owner only
-                    if (user.is_owner) {
-                        const dashboardLink = document.getElementById('dashboardLink');
-                        const dashboardLinkDropdown = document.getElementById('dashboardLinkDropdown');
-                        const mobileDashboardLink = document.getElementById('mobileDashboardLink');
-                        
-                        if (dashboardLink) dashboardLink.style.display = 'flex';
-                        if (dashboardLinkDropdown) dashboardLinkDropdown.style.display = 'flex';
-                        if (mobileDashboardLink) mobileDashboardLink.style.display = 'block';
-                    }
-                } catch(e) {
-                    console.error('Error parsing user data:', e);
-                }
-            }
-
-            window.toggleUserMenu = function(e) {
-                if (e) e.preventDefault();
-                const dropdown = document.getElementById('userDropdown');
-                if (dropdown) dropdown.classList.toggle('show');
-            };
-
-            window.logoutUser = function() {
-                localStorage.removeItem('decorator_token');
-                localStorage.removeItem('decorator_current_user');
-                sessionStorage.removeItem('userSession');
-                window.location.reload();
-            };
-
-            document.addEventListener('click', function(e) {
-                const dropdown = document.getElementById('userDropdown');
-                const userBtn = document.querySelector('.user-btn');
-                if (dropdown && userBtn && !userBtn.contains(e.target) && !dropdown.contains(e.target)) {
-                    dropdown.classList.remove('show');
-                }
-            });
+            setInterval(nextSlide, 5000);
         })();
     </script>
 </body>
-
 </html>

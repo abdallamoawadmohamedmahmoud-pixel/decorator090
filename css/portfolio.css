@@ -311,6 +311,7 @@
     }
 
     .hero {
+<<<<<<< HEAD
         min-height: 40vh;
         background-attachment: scroll;
     }
@@ -431,5 +432,8 @@
     .slider-label {
         font-size: 0.7rem;
         padding: 0.25rem 0.6rem;
+=======
+        min-height: 50vh;
+>>>>>>> 401b863b7737cc5748f410a704da02683e9b3f59
     }
 }

@@ -245,14 +245,19 @@
 
 @media (max-width: 768px) {
     .contact-hero {
+<<<<<<< HEAD
         min-height: 45vh;
         background-attachment: scroll;
+=======
+        min-height: 50vh;
+>>>>>>> 401b863b7737cc5748f410a704da02683e9b3f59
     }
 
     .hero-content {
         padding: 1.5rem 1rem;
     }
 
+<<<<<<< HEAD
     .contact-hero h1 {
         font-size: 1.75rem;
         margin-bottom: 1rem;
@@ -281,6 +286,8 @@
         padding: 3rem 0;
     }
 
+=======
+>>>>>>> 401b863b7737cc5748f410a704da02683e9b3f59
     .contact-wrapper {
         padding: 1.5rem;
         border-radius: 15px;
@@ -288,6 +295,7 @@
 
     .contact-form {
         grid-template-columns: 1fr;
+<<<<<<< HEAD
         gap: 1rem;
     }
 
@@ -296,12 +304,19 @@
     .contact-form select {
         padding: 12px 15px;
         font-size: 16px;
+=======
+>>>>>>> 401b863b7737cc5748f410a704da02683e9b3f59
     }
 
     .contact-info {
         grid-template-columns: 1fr;
+<<<<<<< HEAD
         gap: 1rem;
         margin-top: 1.5rem;
+=======
+        gap: 1.5rem;
+        margin-top: 2rem;
+>>>>>>> 401b863b7737cc5748f410a704da02683e9b3f59
     }
 
     .social-links-section {
@@ -309,6 +324,7 @@
     }
 
     .contact-card {
+<<<<<<< HEAD
         padding: 1.25rem;
         border-radius: 12px;
     }
@@ -342,10 +358,14 @@
 
     .form-buttons button {
         width: 100%;
+=======
+        padding: 1.5rem;
+>>>>>>> 401b863b7737cc5748f410a704da02683e9b3f59
     }
 }
 
 @media (max-width: 480px) {
+<<<<<<< HEAD
     .contact-hero {
         min-height: 40vh;
     }
@@ -389,5 +409,18 @@
 
     .map-container {
         height: 200px;
+=======
+    .contact-hero h1 {
+        font-size: 1.8rem;
+    }
+
+    .contact-hero p {
+        font-size: 1rem;
+    }
+
+    .submit-button {
+        width: 100%;
+        max-width: none;
+>>>>>>> 401b863b7737cc5748f410a704da02683e9b3f59
     }
 }

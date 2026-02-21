@@ -200,6 +200,7 @@
 /* Mobile Optimizations */
 @media (max-width: 768px) {
     .services-hero {
+<<<<<<< HEAD
         min-height: 40vh;
         background-attachment: scroll;
     }
@@ -210,11 +211,23 @@
 
     .services-hero p {
         font-size: 1rem;
+=======
+        min-height: 50vh;
+    }
+
+    .services-hero h1 {
+        font-size: 2rem;
+    }
+
+    .services-hero p {
+        font-size: 1.1rem;
+>>>>>>> 401b863b7737cc5748f410a704da02683e9b3f59
     }
 
     .services-grid {
         display: grid;
         grid-template-columns: 1fr;
+<<<<<<< HEAD
         gap: 1.5rem;
         padding: 2rem 1rem;
     }
@@ -268,13 +281,34 @@
 
     .services-cta-section p {
         font-size: 1rem;
+=======
+        gap: 2rem;
+        padding: 3rem 1rem;
+    }
+
+    .service-card {
+        margin-bottom: 1rem;
+    }
+
+    .cta-whatsapp-btn {
+        padding: 15px 30px;
+        font-size: 1.1rem;
+        width: 100%;
+        display: flex;
+>>>>>>> 401b863b7737cc5748f410a704da02683e9b3f59
     }
 }
 
 @media (max-width: 480px) {
     .services-grid {
+<<<<<<< HEAD
         gap: 1rem;
         padding: 1.5rem 0.75rem;
+=======
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 2rem 1rem;
+>>>>>>> 401b863b7737cc5748f410a704da02683e9b3f59
     }
 
     .hero-content {
@@ -282,6 +316,7 @@
     }
 
     .hero-content h1 {
+<<<<<<< HEAD
         font-size: 1.5rem;
     }
 
@@ -317,5 +352,8 @@
 
     .services-cta-section p {
         font-size: 0.9rem;
+=======
+        font-size: 1.8rem;
+>>>>>>> 401b863b7737cc5748f410a704da02683e9b3f59
     }
 }

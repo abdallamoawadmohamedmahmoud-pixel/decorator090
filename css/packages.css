@@ -108,6 +108,7 @@
 
 @media (max-width: 768px) {
     .packages-section {
+<<<<<<< HEAD
         padding: 60px 0 30px;
     }
 
@@ -117,10 +118,14 @@
 
     .packages-section p {
         font-size: 1rem;
+=======
+        padding: 80px 0 40px;
+>>>>>>> 401b863b7737cc5748f410a704da02683e9b3f59
     }
 
     .packages-grid {
         grid-template-columns: 1fr;
+<<<<<<< HEAD
         gap: 1.5rem;
     }
 
@@ -162,10 +167,22 @@
         padding: 0.9rem 1.5rem;
         font-size: 1rem;
         min-height: 48px;
+=======
+        gap: 2rem;
+    }
+
+    .pdf-preview {
+        height: 300px;
+    }
+
+    .package-header h3 {
+        font-size: 1.5rem;
+>>>>>>> 401b863b7737cc5748f410a704da02683e9b3f59
     }
 }
 
 @media (max-width: 480px) {
+<<<<<<< HEAD
     .packages-section {
         padding: 40px 0 20px;
     }
@@ -206,5 +223,10 @@
         width: 100%;
         font-size: 0.95rem;
         padding: 0.8rem 1rem;
+=======
+    .download-btn {
+        font-size: 1rem;
+        padding: 0.8rem;
+>>>>>>> 401b863b7737cc5748f410a704da02683e9b3f59
     }
 }

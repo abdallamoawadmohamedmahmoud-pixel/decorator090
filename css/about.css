@@ -217,6 +217,7 @@
     /* Mobile Optimizations */
     @media (max-width: 768px) {
         .about-hero {
+<<<<<<< HEAD
             height: 40vh;
             background-attachment: scroll;
         }
@@ -227,6 +228,9 @@
 
         .about-hero p {
             font-size: 1rem;
+=======
+            height: 50vh;
+>>>>>>> 401b863b7737cc5748f410a704da02683e9b3f59
         }
 
         .about-section,
@@ -236,6 +240,7 @@
         .values-section,
         .team-section,
         .about-cta {
+<<<<<<< HEAD
             margin-bottom: 2rem;
             padding-top: 2rem;
             padding-bottom: 2rem;
@@ -257,11 +262,25 @@
         .mission-vision-grid {
             grid-template-columns: 1fr;
             gap: 1rem;
+=======
+            margin-bottom: 3rem;
+            padding-top: 3rem;
+            padding-bottom: 3rem;
+        }
+
+        .about-intro h2 {
+            font-size: 2rem;
+        }
+
+        .about-intro p {
+            font-size: 1.1rem;
+>>>>>>> 401b863b7737cc5748f410a704da02683e9b3f59
         }
 
         .mission-card,
         .value-item,
         .team-card {
+<<<<<<< HEAD
             padding: 1.25rem;
             border-radius: 12px;
         }
@@ -357,10 +376,25 @@
 
         .about-intro p {
             font-size: 0.9rem;
+=======
+            padding: 1.5rem;
+        }
+
+        .stats-grid {
+            gap: 2rem;
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (max-width: 480px) {
+        .about-hero h1 {
+            font-size: 2rem;
+>>>>>>> 401b863b7737cc5748f410a704da02683e9b3f59
         }
 
         .stats-grid {
             grid-template-columns: 1fr;
+<<<<<<< HEAD
             gap: 0.75rem;
         }
 
@@ -392,10 +426,16 @@
 
         .about-cta p {
             font-size: 0.9rem;
+=======
+>>>>>>> 401b863b7737cc5748f410a704da02683e9b3f59
         }
 
         .cta-button {
             width: 100%;
+<<<<<<< HEAD
             max-width: 100%;
+=======
+            text-align: center;
+>>>>>>> 401b863b7737cc5748f410a704da02683e9b3f59
         }
     }
