@@ -1,39 +1,6 @@
 [build]
-<<<<<<< HEAD
-  command = ""
   publish = "."
-  functions = "netlify/functions"
+  command = ""
 
 [build.environment]
-  NODE_VERSION = "14"
-
-[[redirects]]
-  from = "/api/*"
-  to = "/.netlify/functions/:splat"
-  status = 200
-
-[context.production]
-  environment = { OWNER_EMAIL = "ramadan.nady1985@gmail.com", OWNER_PASSWORD = "01099797984" }
-
-[dev]
-  command = "echo 'No dev server, open index.html directly'"
-=======
-  command = "npm install"
-  publish = "public"
-  functions = "netlify/functions"
-
-[[redirects]]
-  from = "/api/*"
-  to = "/.netlify/functions/api/:splat"
-  status = 200
-
-[[redirects]]
-  from = "/cms/*"
-  to = "/.netlify/functions/api/:splat"
-  status = 200
-
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
->>>>>>> 401b863b7737cc5748f410a704da02683e9b3f59
+  NODE_VERSION = "18"
