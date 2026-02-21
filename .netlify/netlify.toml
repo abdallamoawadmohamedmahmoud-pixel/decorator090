@@ -1,8 +1,15 @@
-functionsDirectory = "C:\\Users\\HFCS\\Desktop\\New folder (6)\\netlify\\functions"
-functionsDirectoryOrigin = "config-v1"
 redirectsOrigin = "config"
 plugins = []
+functionsDirectory = "C:\\Users\\HFCS\\Desktop\\New folder (6)\\netlify\\functions"
+functionsDirectoryOrigin = "config-v1"
 headers = []
+
+[dev]
+command = "echo 'No dev server, open index.html directly'"
+
+[functions]
+
+[functions."*"]
 
 [build]
 publish = "C:\\Users\\HFCS\\Desktop\\New folder (6)"
@@ -25,13 +32,6 @@ OWNER_PASSWORD = "01099797984"
 [build.processing.js]
 
 [build.services]
-
-[dev]
-command = "echo 'No dev server, open index.html directly'"
-
-[functions]
-
-[functions."*"]
 
 [[redirects]]
 from = "/api/*"
